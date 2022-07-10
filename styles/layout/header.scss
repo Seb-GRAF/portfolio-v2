@@ -1,0 +1,205 @@
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2000;
+  color: $color-text-primary;
+  overflow: hidden;
+  min-height: 4rem;
+  scroll-behavior: smooth;
+}
+.logo {
+  padding: 0;
+  border: none;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  z-index: 2;
+  color: inherit;
+  width: 2rem;
+  height: 2rem;
+  line-height: 0;
+  cursor: pointer;
+
+  svg {
+    color: inherit;
+    transform: scale(1);
+    transform-origin: top left;
+    transition: transform 500ms cubic-bezier(0.7, 0, 0.175, 1);
+  }
+
+  svg polyline,
+  svg line,
+  svg path {
+    transition: d 500ms cubic-bezier(0.7, 0, 0.175, 1);
+  }
+
+  @include media('>phone') {
+    &:hover path {
+      d: path(
+        'M 147 25 L 147 0 L 0 0 L 0 75 L 110 75 L 123 75 L 123 75 L 123 98 L 0 98 L 0 123 L 147 123 L 147 50 L 27.5 50 L 27.5 25 L 147 25 Z'
+      );
+    }
+  }
+
+  @include media('<phone') {
+    svg {
+      transform: scale(0.6);
+    }
+    path {
+      d: path(
+        'M 147 25 L 147 0 L 0 0 L 0 75 L 110 75 L 123 75 L 123 75 L 123 98 L 0 98 L 0 123 L 147 123 L 147 50 L 27.5 50 L 27.5 25 L 147 25 Z'
+      );
+    }
+  }
+}
+.nav__links {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  color: inherit;
+  cursor: pointer;
+
+  @include media('<phone') {
+    display: none;
+    gap: 2rem;
+  }
+}
+.nav__link {
+  @extend %link-button;
+
+  &:hover {
+    span {
+      transform: translateY(-100%) skewY(40deg);
+    }
+    &:after {
+      top: 0;
+      transform: skewY(0deg);
+    }
+  }
+
+  @include media('<phone') {
+    font-size: 1rem;
+  }
+}
+.nav__sandwich {
+  cursor: pointer;
+  display: none;
+  color: inherit;
+  z-index: 110;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  .line1,
+  .line2 {
+    position: absolute;
+    content: '';
+    background-color: $color-dark-grey;
+    top: 25%;
+    width: 100%;
+    height: 0.1rem;
+    transition: transform 500ms $ease-swift, top 500ms $ease-swift;
+  }
+
+  .line2 {
+    top: 60%;
+  }
+
+  &--active {
+    .line1,
+    .line2 {
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      transform: rotate(-135deg);
+    }
+    .line2 {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+  }
+
+  @include media('<phone') {
+    display: block;
+  }
+}
+.nav__menu {
+  @extend %center-column;
+  position: fixed;
+  min-height: 140%;
+  width: 100%;
+  top: -20%;
+  position: fixed;
+  display: none;
+  background-color: $color-off-white;
+  z-index: 1000;
+  clip-path: inset(0% 0% 0% 100%);
+  transform-origin: top right;
+  transition: clip-path 700ms $ease-swift;
+
+  li {
+    list-style: none;
+  }
+
+  &--active {
+    clip-path: inset(0% 0% 0% 0%);
+
+    li span {
+      transform: translateY(-5%) skewY(0deg);
+      opacity: 1;
+      transition-delay: 400ms;
+    }
+
+    li:nth-of-type(2n) span {
+      transition-delay: 600ms;
+    }
+
+    li:nth-of-type(3n) span {
+      transition-delay: 800ms;
+    }
+  }
+
+  @include media('<phone') {
+    display: flex;
+  }
+}
+.nav__menu__items {
+  @extend %center-column;
+
+  align-items: flex-start;
+  gap: 4rem;
+}
+.nav__menu__item {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: 200ms;
+  cursor: pointer;
+
+  .item__wrapper {
+    overflow: hidden;
+  }
+  span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%) skewY(40deg);
+    transition: opacity 200ms, transform 1s $ease-out-expo;
+    transform-origin: bottom left;
+  }
+  .marker {
+    font-size: 1rem;
+    font-weight: 200;
+    margin-right: 0.2rem;
+    line-height: 1.5;
+  }
+}

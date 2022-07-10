@@ -1,0 +1,8 @@
+.post-details {
+  @extend %center-column;
+
+  margin-top: 6rem;
+  max-width: 40rem;
+  padding-inline: 1rem;
+  margin-bottom: 2rem;
+}

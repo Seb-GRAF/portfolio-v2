@@ -1,0 +1,130 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  padding-inline: 6vw;
+  padding-top: 7rem;
+  box-sizing: border-box;
+
+  @include media('<phone') {
+    padding-top: 5rem;
+  }
+}
+
+.hero__main {
+  @extend %center-column;
+  width: 100%;
+
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.hero__paragraph {
+  position: relative;
+  font-family: 'Questrial';
+  height: fit-content;
+  width: 100%;
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  @include media('<tablet') {
+    max-width: 100%;
+  }
+}
+
+.paragraph__wrapper {
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+
+  &:nth-child(2) {
+    padding-left: 5vw;
+  }
+  &:nth-child(3) {
+    text-align: center;
+  }
+  &:nth-child(4) {
+    text-align: right;
+  }
+  @include media('<phone') {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.paragraph {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10vw;
+  font-weight: 400;
+  transform-origin: bottom left;
+
+  @include media('<tablet') {
+    font-size: 11vw;
+  }
+
+  @include media('<phone') {
+    font-size: 13vw;
+  }
+
+  @include media('>desktop') {
+    font-size: 7.3rem;
+  }
+}
+
+.paragraph__wrapper:first-child {
+  align-self: flex-start;
+}
+
+.paragraph__wrapper:last-child {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.hero__vector {
+  position: absolute;
+  z-index: -1;
+  left: 10%;
+  top: -5%;
+  height: 110%;
+  width: 40vw;
+  overflow: hidden;
+  object-fit: cover;
+  color: rgb(216, 216, 183);
+
+  @include media('<phone') {
+    width: 50vw;
+  }
+  @include media('<narrow') {
+    width: 100%;
+    left: 0;
+  }
+
+  @include media('>desktop') {
+    width: 30rem;
+  }
+}
+
+.divider {
+  margin-top: 5vw;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  z-index: 2;
+
+  @include media('<phone') {
+    margin-top: 13vw;
+  }
+}
+
+.divider-line {
+  width: 100%;
+  border-bottom: solid 1px $color-text-primary;
+  height: 0.4rem;
+}

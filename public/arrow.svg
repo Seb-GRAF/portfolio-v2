@@ -1,0 +1,26 @@
+<svg width="121" height="121" viewBox="0 0 121 121">
+                  <path
+                    fill="none"
+                    d="M 77 0 L 0 1e-13"
+                    stroke-width="14"
+                    stroke="currentColor"
+                    stroke-linecap="butt"
+                    transform="translate(37 14)"
+                  />
+                  <path
+                    fill="none"
+                    d="M 0 97.532 L 97.532 0"
+                    stroke="currentColor"
+                    stroke-width="14"
+                    stroke-linecap="butt"
+                    transform="translate(7 16.468)"
+                  />
+                  <path
+                    fill="none"
+                    d="M 1e-13 1e-13 L 0 77"
+                    stroke-width="14"
+                    stroke="currentColor"
+                    stroke-linecap="butt"
+                    transform="translate(107 7)"
+                  />
+                </svg>

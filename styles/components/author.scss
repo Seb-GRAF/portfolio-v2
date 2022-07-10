@@ -1,0 +1,37 @@
+.author {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: solid 2px rgba(0, 0, 0, 0.251);
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @include media('>phone') {
+    padding: 3rem;
+  }
+}
+
+.author__image-wrapper {
+  margin-right: 2rem;
+}
+
+.author__image {
+  border-radius: 50%;
+}
+
+.author__info {
+  text-align: left;
+}
+
+.author__title {
+  opacity: 0.5;
+}
+
+.author__name {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.author__bio {
+}

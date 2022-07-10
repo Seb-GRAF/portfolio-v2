@@ -1,0 +1,83 @@
+%cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%center-column {
+  @extend %center;
+  flex-direction: column;
+}
+
+%link-button {
+  color: inherit;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 200;
+
+  overflow: hidden;
+  span {
+    display: block;
+    transition: transform 500ms $ease-swift;
+    transform-origin: top right;
+  }
+  &:after {
+    content: attr(data-link-alt);
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-underline-offset: 0.05rem;
+    transform: skewY(50deg);
+    transform-origin: bottom left;
+    transition: top 500ms $ease-swift, transform 600ms $ease-swift;
+  }
+}
+
+%section-title {
+  width: 100%;
+  max-width: 60rem;
+  display: flex;
+  align-items: flex-end;
+  color: inherit;
+  span:first-child {
+    font-size: 0.7rem;
+    font-weight: 200;
+    margin-right: 0.2rem;
+    width: 1rem;
+  }
+  span:last-child {
+    max-width: 80rem;
+    position: relative;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    isolation: isolate;
+    line-height: 0.85;
+  }
+}
+
+@mixin ratio($height, $width) {
+  position: relative;
+  overflow: hidden;
+  font-size: 0;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    padding-top: $width / $height * 100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,13 @@
+// preloader by https://codepen.io/Volorf/pen/KbbRbZ
+
+.preloader {
+  @extend %center-column;
+
+  position: fixed;
+  width: 200%;
+  height: 140%;
+  top: -20%;
+  left: -50%;
+  z-index: 9999;
+  background-color: $color-off-white;
+}

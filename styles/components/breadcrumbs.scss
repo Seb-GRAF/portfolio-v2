@@ -1,0 +1,29 @@
+.breadcrumbs {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  margin-inline: auto;
+}
+
+.crumb {
+  display: flex;
+}
+
+.crumb__divider {
+  margin-right: 0.5rem;
+}
+
+.crumb__last-text {
+  text-transform: capitalize;
+  opacity: 0.5;
+}
+
+.crumb__text {
+  cursor: pointer;
+  text-transform: capitalize;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

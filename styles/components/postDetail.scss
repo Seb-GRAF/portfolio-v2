@@ -1,0 +1,84 @@
+.post-detail {
+  margin-bottom: 2rem;
+}
+
+.post-detail__categories {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-detail__category {
+  background-color: $color-accent;
+  padding: 0.25rem 0.5rem;
+}
+
+.post-detail__wrapper {
+}
+
+.post-detail__title {
+  margin-bottom: 2rem;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.post-detail__info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.post-detail__author {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-right: 2rem;
+}
+
+.post-detail__author-picture {
+  border-radius: 50%;
+}
+
+.post-detail__author-name {
+  display: inline;
+  opacity: 0.7;
+  margin-left: 0.5rem;
+}
+
+.post-detail__date {
+  white-space: nowrap;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.post-detail__image {
+  position: relative;
+  height: 30rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.post-h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.post-h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.post-h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.post-p {
+  margin-bottom: 2rem;
+}

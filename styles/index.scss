@@ -1,0 +1,35 @@
+@import './base/reset';
+
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/responsive';
+
+@import './base/fonts';
+@import './base/base';
+
+// layout
+@import './layout/header';
+@import './layout/preloader';
+
+/*
+COMPONENTS
+*/
+
+// index
+@import './components/about';
+@import './components/contact';
+@import './components/hero';
+@import './components/projects';
+
+// blog
+@import './components/postDetail';
+@import './components/breadcrumbs';
+@import './components/author';
+@import './components/comments';
+@import './components/commentsForm';
+
+/*
+PAGES
+*/
+// blog
+@import './pages/postDetails';
