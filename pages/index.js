@@ -27,12 +27,6 @@ export const Home = () => {
         ease: 'power3',
         delay: '0.2',
       })
-      gsap.from('.nav__logo, .nav__sandwich', {
-        y: '100%',
-        opacity: 0,
-        duration: '1',
-        ease: 'power3',
-      })
       gsap.from('.nav__link', {
         y: '-100%',
         opacity: 0,
@@ -60,6 +54,7 @@ export const Home = () => {
       window.removeEventListener('load', () => {
         animateIntro()
       })
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])
 

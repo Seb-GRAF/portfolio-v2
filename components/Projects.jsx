@@ -129,12 +129,12 @@ const Projects = () => {
           liveLink='https://yinyin-lim.com'>
           <p>
             I was commissioned to design and develop an interactive portfolio
-            for a final-year master's student. The project was a challenge
+            for a final-year master&apos;s student. The project was a challenge
             because the student needed to be able manage the content themselves.
           </p>
           <p>
             I decided it was best to use a headless CMS so I could still have
-            some freedom on the creative part by creating different "slices" so
+            some freedom on the creative part by creating different schemas so
             that the content can be customized by the owner of the website.
           </p>
         </ProjectContainer>

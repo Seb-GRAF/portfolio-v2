@@ -90,7 +90,7 @@ const About = () => {
             </i>
           </p>
           <p>
-            Today I'm enthralled by <b>web development</b>, creating new
+            Today I&apos;m enthralled by <b>web development</b>, creating new
             products, experiences and designs, always keeping an eye out for
             details to enhance the user experience better.
           </p>

@@ -22,7 +22,10 @@
 .crumb__text {
   cursor: pointer;
   text-transform: capitalize;
-
+  a {
+    color: $color-text-primary;
+    text-decoration: underline;
+  }
   &:hover {
     text-decoration: underline;
   }

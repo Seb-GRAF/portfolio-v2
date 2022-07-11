@@ -15,7 +15,7 @@ const Crumb = ({ crumb, last, key }) => {
   return (
     <>
       {crumb.title !== 'Home' && <span className='crumb__divider'> / </span>}
-      <p className='cursor-pointer hover:underline capitalize'>
+      <p className='crumb__text'>
         <Link href={crumb.href}>{crumb.title}</Link>
       </p>
     </>

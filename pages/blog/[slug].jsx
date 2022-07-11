@@ -1,10 +1,12 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 
 import { getPosts, getPostDetails } from '../../services'
 import {
   PostDetail,
   // Categories,
   // PostWidget,
+  Loader,
   Author,
   Comments,
   CommentsForm,
@@ -12,6 +14,12 @@ import {
 } from '../../components'
 
 const PostDetails = ({ post }) => {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <Loader />
+  }
+
   return (
     <section className='post-details'>
       <Breadcrumbs />
@@ -32,7 +40,7 @@ const PostDetails = ({ post }) => {
   )
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const data = await getPostDetails(params.slug)
 
   return {
@@ -42,12 +50,12 @@ export const getServerSideProps = async ({ params }) => {
   }
 }
 
-export const getServerSidePath = async () => {
+export const getStaticPaths = async () => {
   const posts = await getPosts()
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: false,
+    fallback: true,
   }
 }
 

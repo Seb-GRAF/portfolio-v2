@@ -1,18 +1,20 @@
-¯
 import React from 'react'
 
 import { getCategories, getCategoryPosts } from '../../../services'
-import { PostCard, PostWidget, Categories, Breadcrumbs } from '../../../components'
+import {
+  PostCard,
+  PostWidget,
+  Categories,
+  Breadcrumbs,
+} from '../../../components'
 
-const CategoryPosts = ({
-  posts,
-}) => {
+const CategoryPosts = ({ posts }) => {
   return (
-    <div className='container mx-auto px-5 sm:px-10 mb-8'>
+    <div className='category'>
       <Breadcrumbs />
 
-      <div className='grid grid-cols-3 gap-12'>
-        {posts.map((post: { node: {} }, index: number) => (
+      <div className='category-wrapper'>
+        {posts.map((post, index) => (
           <PostCard key={index} post={post.node} />
         ))}
       </div>
@@ -27,7 +29,7 @@ const CategoryPosts = ({
 }
 
 export const getStaticProps = async ({ params }) => {
-  const posts = await getCategoryPosts(params!.slug)
+  const posts = await getCategoryPosts(params.slug)
 
   return {
     props: {
@@ -37,7 +39,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const categories: [] = await getCategories()
+  const categories = await getCategories()
 
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),

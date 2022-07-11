@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+// const nextConfig = {
+//   reactStrictMode: true,
+//   swcMinify: true,
+// }
 
 module.exports = {
-  nextConfig,
-  reactStrictMode: true,
+  // nextConfig,
+  reactStrictMode: false,
   images: {
     domains: ['media.graphassets.com'],
   },

@@ -21,129 +21,92 @@ const Header = () => {
     document.querySelector('.nav__menu').classList.toggle('nav__menu--active')
   }
 
-  const scrollTo = (target) => {
-    document.querySelector(target).scrollIntoView({
-      behavior: 'smooth',
-    })
-  }
-
   return (
     <>
       <header className='header'>
         <div className='logo'>
-          <Link
-            href='/#hero'
-            className='link'
-            // onClick={(e) => {
-            //   e.preventDefault()
-            //   scrollTo('#hero')
-            //   if (navMenu) handleNav()
-            // }}
-          >
-            <svg
-              aria-hidden='true'
-              focusable='false'
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 147 123'>
-              <path
-                id='p1'
-                d='M 147 39 L 147 0 L 0 0 L 0 82 L 105 82 L 105 64 L 107 64 L 107 84 L 0 84 L 0 123 L 147 123 L 147 41 L 41 41 L 41 39 L 147 39 Z'
-                fill='currentColor'
-              />
-            </svg>
-          </Link>
+          <div>
+            <Link
+              href='/#hero'
+              passHref
+              className='link'
+              onClick={(e) => {
+                if (navMenu) handleNav()
+              }}>
+              <a>
+                <svg
+                  aria-hidden='true'
+                  focusable='false'
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 147 123'>
+                  <path
+                    id='p1'
+                    d='M 147 39 L 147 0 L 0 0 L 0 82 L 105 82 L 105 64 L 107 64 L 107 84 L 0 84 L 0 123 L 147 123 L 147 41 L 41 41 L 41 39 L 147 39 Z'
+                    fill='currentColor'
+                  />
+                </svg>
+              </a>
+            </Link>
+          </div>
         </div>
         <div className='nav__links' link>
-          <Link
-            href='/#about'
-            className='nav__link link'
-            data-link-alt='About'
-            // onClick={(e) => {
-            //   e.preventDefault()
-            //   scrollTo('#about')
-            // }}
-          >
-            <span>About</span>
+          <Link href='/#about' className='nav__link link' data-link-alt='About'>
+            <a>About</a>
           </Link>
           <Link
             href='/#projects'
             className='nav__link link'
-            data-link-alt='Projects'
-            // onClick={(e) => {
-            //   e.preventDefault()
-            //   scrollTo('#projects')
-            // }}
-          >
-            <span>Projects</span>
+            data-link-alt='Projects'>
+            <a>Projects</a>
           </Link>
           <Link
             className='nav__link link'
             href='/#contact'
-            data-link-alt='Contact'
-            // onClick={(e) => {
-            //   e.preventDefault()
-            //   scrollTo('#contact')
-            // }}
-          >
-            <span>Contact</span>
+            data-link-alt='Contact'>
+            <a>Contact</a>
           </Link>
-          <Link
-            className='nav__link link'
-            href='/blog'
-            data-link-alt='Blog'
-            // onClick={(e) => {
-            //   e.preventDefault()
-            //   scrollTo('#contact')
-            // }}
-          >
-            <span>Blog</span>
+          <Link className='nav__link link' href='/blog' data-link-alt='Blog'>
+            <a>Blog</a>
           </Link>
         </div>
-        <div className='nav__sandwich' onClick={handleNav}>
+        <button className='nav__sandwich' onClick={handleNav}>
           <span className='line1'></span>
           <span className='line2'></span>
-        </div>
+        </button>
       </header>
       <nav className='nav__menu'>
         <ol className='nav__menu__items'>
-          <li>
-            <div
-              className='nav__menu__item'
-              onClick={() => {
-                handleNav()
-                scrollTo('#about')
-              }}>
-              <div className='item__wrapper'>
+          <li className='nav__menu__item'>
+            <Link href={'/#about'} onClick={handleNav}>
+              <a className='item__wrapper'>
                 <span className='marker'>01.</span>
                 <span>About</span>
-              </div>
-            </div>
+              </a>
+            </Link>
           </li>
-          <li>
-            <div
-              className='nav__menu__item'
-              onClick={() => {
-                handleNav()
-                scrollTo('#projects')
-              }}>
-              <div className='item__wrapper'>
+          <li className='nav__menu__item'>
+            <Link href={'/#projects'} onClick={handleNav}>
+              <a className='item__wrapper'>
                 <span className='marker'>02.</span>
                 <span>Projects</span>
-              </div>
-            </div>
+              </a>
+            </Link>
           </li>
-          <li>
-            <div
-              className='nav__menu__item'
-              onClick={() => {
-                handleNav()
-                scrollTo('#contact')
-              }}>
-              <div className='item__wrapper'>
+          <li className='nav__menu__item'>
+            <Link href={'/#contact'} onClick={handleNav}>
+              <a className='item__wrapper'>
                 <span className='marker'>03.</span>
                 <span>Contact</span>
-              </div>
-            </div>
+              </a>
+            </Link>
+          </li>
+          <li className='nav__menu__item'>
+            <Link href={'/blog'} onClick={handleNav}>
+              <a className='item__wrapper'>
+                <span className='marker'>04.</span>
+                <span>Blog</span>
+              </a>
+            </Link>
           </li>
         </ol>
       </nav>

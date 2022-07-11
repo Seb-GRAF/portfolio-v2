@@ -4,14 +4,14 @@ import { getPosts } from '../../services'
 
 const Home = ({ posts }) => {
   return (
-    <div className='container mx-auto px-5 lg:px-10 mb-8'>
+    <section className='blog'>
       <Head>
-        <title>SG Blog</title>
+        <title>SG | Blog</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <Breadcrumbs />
-      <div className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-12'>
+      <div className='blog-wrapper'>
         {posts.map((post, index) => (
           <PostCard post={post.node} key={post.node.title} />
         ))}
@@ -23,7 +23,7 @@ const Home = ({ posts }) => {
           </div>
         </div> */}
       </div>
-    </div>
+    </section>
   )
 }
 

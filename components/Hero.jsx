@@ -25,6 +25,7 @@ const Hero = () => {
               layout='fill'
               objectFit='contain'
               priority='true'
+              className='hero__vector-image'
             />
           </figure>
         </h1>

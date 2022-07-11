@@ -14,6 +14,7 @@
   min-height: 4rem;
   scroll-behavior: smooth;
 }
+
 .logo {
   padding: 0;
   border: none;
@@ -89,6 +90,8 @@
   }
 }
 .nav__sandwich {
+  background: transparent;
+  border: none;
   cursor: pointer;
   display: none;
   color: inherit;
@@ -105,6 +108,7 @@
     content: '';
     background-color: $color-dark-grey;
     top: 25%;
+    left: 0;
     width: 100%;
     height: 0.1rem;
     transition: transform 500ms $ease-swift, top 500ms $ease-swift;
