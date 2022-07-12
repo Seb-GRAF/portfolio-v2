@@ -56,7 +56,7 @@ const CommentsForm = ({ slug }) => {
   }, [])
 
   return (
-    <div className='comments-form'>
+    <form className='comments-form'>
       <h2 className='comments-form__title'>Post a comment</h2>
       <div>
         <textarea
@@ -102,18 +102,16 @@ const CommentsForm = ({ slug }) => {
       {error && <p className='comments-form__error'>All fields are required</p>}
       <div className='comments-form__button-wrapper'>
         <button
-          type='button'
+          type='submit'
           onClick={handleCommentSubmission}
           className='comments-form__button'>
           Post Comment
         </button>
         {showSuccessMessage && (
-          <span className='comments-form__success'>
-            Comment submitted for review
-          </span>
+          <span className='comments-form__success'>Comment submitted</span>
         )}
       </div>
-    </div>
+    </form>
   )
 }
 

@@ -24,51 +24,49 @@ const Header = () => {
   return (
     <>
       <header className='header'>
-        <div className='logo'>
-          <div>
-            <Link
-              href='/#hero'
-              passHref
-              className='link'
-              onClick={(e) => {
-                if (navMenu) handleNav()
-              }}>
-              <a>
-                <svg
-                  aria-hidden='true'
-                  focusable='false'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 147 123'>
-                  <path
-                    id='p1'
-                    d='M 147 39 L 147 0 L 0 0 L 0 82 L 105 82 L 105 64 L 107 64 L 107 84 L 0 84 L 0 123 L 147 123 L 147 41 L 41 41 L 41 39 L 147 39 Z'
-                    fill='currentColor'
-                  />
-                </svg>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <div className='nav__links' link>
-          <Link href='/#about' className='nav__link link' data-link-alt='About'>
-            <a>About</a>
+        <Link
+          href='/#hero'
+          passHref
+          className='link'
+          onClick={(e) => {
+            if (navMenu) handleNav()
+          }}>
+          <a tabIndex='1' className='logo'>
+            <svg
+              aria-hidden='true'
+              focusable='false'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 147 123'>
+              <path
+                id='p1'
+                d='M 147 39 L 147 0 L 0 0 L 0 82 L 105 82 L 105 64 L 107 64 L 107 84 L 0 84 L 0 123 L 147 123 L 147 41 L 41 41 L 41 39 L 147 39 Z'
+                fill='currentColor'
+              />
+            </svg>
+          </a>
+        </Link>
+        <ul className='nav__links'>
+          <Link href='/#about'>
+            <a className='nav__link link' data-link-alt='About'>
+              <span>About</span>
+            </a>
           </Link>
-          <Link
-            href='/#projects'
-            className='nav__link link'
-            data-link-alt='Projects'>
-            <a>Projects</a>
+          <Link href='/#projects'>
+            <a className='nav__link link' data-link-alt='Projects'>
+              <span>Projects</span>
+            </a>
           </Link>
-          <Link
-            className='nav__link link'
-            href='/#contact'
-            data-link-alt='Contact'>
-            <a>Contact</a>
+          <Link href='/#contact'>
+            <a className='nav__link link' data-link-alt='Contact'>
+              <span>Contact</span>
+            </a>
           </Link>
-          <Link className='nav__link link' href='/blog' data-link-alt='Blog'>
-            <a>Blog</a>
+          <Link href='/blog'>
+            <a data-link-alt='Blog' className='nav__link link'>
+              <span>Blog</span>
+            </a>
           </Link>
-        </div>
+        </ul>
         <button className='nav__sandwich' onClick={handleNav}>
           <span className='line1'></span>
           <span className='line2'></span>

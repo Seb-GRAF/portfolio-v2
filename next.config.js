@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-//   swcMinify: true,
-// }
 
 module.exports = {
-  // nextConfig,
-  reactStrictMode: false,
+  swcMinify: true,
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
-    domains: ['media.graphassets.com'],
+    domains: ['media.graphassets.com', 'cdn.jsdelivr.net'],
   },
 }

@@ -1,12 +1,13 @@
 .about {
   padding-top: 4rem;
   padding-bottom: 2rem;
-  width: 100%;
+  max-width: 100%;
   padding-inline: 6vw;
 }
 
 .about__wrapper {
   @extend %center-column;
+
   align-items: flex-start;
   margin-inline: auto;
   gap: 4rem;
@@ -67,33 +68,49 @@
   align-self: flex-end;
 
   @include media('<phone') {
-    width: 100%;
+    width: 30rem;
     align-self: center;
   }
 }
 
 .skills {
-  position: relative;
   width: 100%;
-  height: 100%;
+  position: relative;
+  padding-inline: 2.5rem;
+
+  @include media('<phone') {
+    padding-inline: 0;
+  }
+}
+
+.skills-carousel {
+  overflow: hidden;
+  width: 100%;
+}
+.skills-carousel__container {
   display: flex;
-  align-items: center;
+  user-select: none;
+  margin-left: -10px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .skill {
   @extend %center-column;
-  gap: 0.5rem;
+  flex: 0 0 6rem;
 
-  position: absolute;
+  margin-right: 1rem;
+  position: relative;
+
+  gap: 0.5rem;
   padding: 0.8rem 0.6rem;
   width: 5rem;
   background-color: inherit;
   border: solid 1px;
   border-color: inherit;
-
-  @media screen and (min-width: 1000px) {
-    width: 6rem;
-  }
 
   p {
     margin-top: 0.2rem;
@@ -106,4 +123,42 @@
     font-size: 3rem;
     text-align: center;
   }
+}
+
+.skills-carousel__prev,
+.skills-carousel__next {
+  @extend %center;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+
+  color: inherit;
+  position: absolute;
+  left: 0rem;
+  top: 50%;
+  z-index: 2;
+  background-color: transparent;
+  font-size: 1rem;
+  line-height: 3;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  padding-left: 0.1rem;
+  // border: solid 1px;
+  border: none;
+  border-color: inherit;
+
+  svg {
+    width: 50%;
+    height: 50%;
+    color: inherit;
+  }
+
+  @include media('<phone') {
+    display: none;
+  }
+}
+.skills-carousel__next {
+  right: 0rem;
+  left: auto;
+  padding-right: 0;
 }

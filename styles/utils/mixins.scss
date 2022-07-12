@@ -24,9 +24,10 @@
   display: inline-block;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 200;
-
+  font-weight: 300;
   overflow: hidden;
+  height: 1.1rem;
+
   span {
     display: block;
     transition: transform 500ms $ease-swift;
@@ -39,7 +40,6 @@
     top: 100%;
     left: 0;
     right: 0;
-    text-underline-offset: 0.05rem;
     transform: skewY(50deg);
     transform-origin: bottom left;
     transition: top 500ms $ease-swift, transform 600ms $ease-swift;

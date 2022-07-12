@@ -24,16 +24,18 @@ body {
   color: inherit;
 }
 
-#root {
+#__next {
   width: 100%;
-  color: inherit;
+  @extend %center;
 }
 
 p {
   line-height: 1.2;
 }
 
-.main {
+.main,
+section {
+  width: 100%;
   will-change: transform;
   color: inherit;
 }

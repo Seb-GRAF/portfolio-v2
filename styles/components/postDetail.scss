@@ -1,5 +1,6 @@
 .post-detail {
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .post-detail__categories {
@@ -55,9 +56,10 @@
 
 .post-detail__image {
   position: relative;
-  height: 30rem;
+  aspect-ratio: 1;
+  max-height: 30rem;
   margin-bottom: 2rem;
-  width: 100%;
+  max-width: 100%;
   overflow: hidden;
 }
 

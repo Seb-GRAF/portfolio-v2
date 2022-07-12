@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
+    "@glidejs/glide": "^3.5.2",
     "@studio-freight/lenis": "^0.1.12",
+    "embla-carousel-autoplay": "^7.0.0-rc04",
+    "embla-carousel-react": "^7.0.0-rc04",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",
     "gsap": "npm:@gsap/shockingly@^3.10.4",

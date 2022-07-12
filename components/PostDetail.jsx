@@ -76,7 +76,9 @@ const PostDetail = ({ post }) => {
       <div className='post-detail__categories'>
         {post.categories.map((category) => (
           <li className='post-detail__category' key={category.slug}>
-            <Link href={`/category/${category.slug}`}>{category.name}</Link>
+            <Link href={`/blog/category/${category.slug}`}>
+              {category.name}
+            </Link>
           </li>
         ))}
       </div>
