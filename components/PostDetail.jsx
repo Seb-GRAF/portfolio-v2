@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import Link from 'next/link'
 import Image from 'next/image'
+import { AnimateIn } from './'
 
 const PostDetail = ({ post }) => {
   // type formatting for the post content
@@ -73,16 +74,17 @@ const PostDetail = ({ post }) => {
 
   return (
     <section className='post-detail'>
-      <div className='post-detail__categories'>
-        {post.categories.map((category) => (
-          <li className='post-detail__category' key={category.slug}>
-            <Link href={`/blog/category/${category.slug}`}>
+      <AnimateIn>
+        <div className='post-detail__categories'>
+          {post.categories.map((category) => (
+            <li className='post-detail__category' key={category.slug}>
+              {/* <Link href={`/blog/category/${category.slug}`}> */}
               {category.name}
-            </Link>
-          </li>
-        ))}
-      </div>
-      <div className='post-detail__wrapper'>
+              {/* </Link> */}
+            </li>
+          ))}
+        </div>
+
         <h1 className='post-detail__title'>{post.title}</h1>
 
         <div className='post-detail__info'>
@@ -110,7 +112,8 @@ const PostDetail = ({ post }) => {
             objectFit='cover'
           />
         </div>
-
+      </AnimateIn>
+      <div className='post-detail__wrapper'>
         {post.content.raw.children.map((typeObj, index) => {
           const children = typeObj.children.map((item, itemIndex) =>
             getContentFragment(itemIndex, item.text, item)

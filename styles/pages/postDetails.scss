@@ -2,8 +2,14 @@
   @extend %center-column;
 
   flex-shrink: 1;
-  margin-top: 6rem;
   max-width: 40rem;
   padding-inline: 1rem;
   margin-bottom: 2rem;
+  margin-top: 4rem;
+
+  @include media('>phone') {
+    margin-top: 5rem;
+    padding-inline: 2rem;
+    margin-top: 5rem;
+  }
 }

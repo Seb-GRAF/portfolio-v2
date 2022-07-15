@@ -5,7 +5,6 @@ import Lenis from '@studio-freight/lenis'
 import { gsap } from 'gsap'
 
 const MyApp = ({ Component, pageProps }) => {
-  // init
   useEffect(() => {
     // init smooth scroll
     const lenis = new Lenis({
@@ -19,76 +18,30 @@ const MyApp = ({ Component, pageProps }) => {
     }
     requestAnimationFrame(raf)
 
-    // // removes preloader after load event
-    // const clear = () => {
-    // const preloader = document.querySelector('.preloader')
+    // removes preloader after first load
+    const removePreloader = () => {
+      gsap.to('.preloader', {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          document.querySelector('.preloader').remove()
+        },
+      })
+    }
 
-    // gsap.to(preloader, {
-    //   opacity: 0,
-    //   duration: 1,
-    //   ease: 'power2',
-    // })
-    // preloader.style.pointerEvents = 'none'
-
-    // // cursor follower
-    // gsap.set('.cursor__follow', { xPercent: -50, yPercent: -50 })
-    // let xTo = gsap.quickTo('.cursor__follow', 'x', {
-    //     duration: 0.3,
-    //     ease: 'power3',
-    //   }),
-    //   yTo = gsap.quickTo('.cursor__follow', 'y', {
-    //     duration: 0.3,
-    //     ease: 'power3',
-    //   })
-
-    // window.addEventListener('mousemove', (e) => {
-    //   xTo(e.clientX)
-    //   yTo(e.clientY)
-    // })
-
-    // document.querySelectorAll('.link, a, button').forEach((link) => {
-    //   link.addEventListener('mouseenter', () => {
-    //     gsap.to('.cursor__follow', {
-    //       opacity: 1,
-    //       width: '4rem',
-    //       height: '4rem',
-    //       ease: 'power2',
-    //       duration: 0.3,
-    //     })
-    //   })
-    //   link.addEventListener('mouseleave', () => {
-    //     gsap.to('.cursor__follow', {
-    //       opacity: 0,
-    //       width: '1rem',
-    //       height: '1rem',
-    //       ease: 'power2',
-    //       duration: 0.3,
-    //     })
-    //   })
-    // })
-
-    // // removes preloader div
-    //   preloader.addEventListener('animationend', () => {
-    //     preloader.remove()
-    //   })
-    // }
-
-    // // calls clear after load even
-    // window.addEventListener('load', () => {
-    //   clear()
-    // })
-
-    // return () => {
-    //   window.removeEventListener('load', () => {
-    //     clear()
-    //   })
-    // }
+    window.addEventListener('load', removePreloader)
+    return () => {
+      window.removeEventListener('load', removePreloader)
+    }
   }, [])
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <div className='preloader'></div>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }
 

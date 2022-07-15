@@ -1,0 +1,15 @@
+.error-page {
+  @extend %center-column;
+  height: 100vh;
+  width: 100%;
+}
+
+.error-page__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error-page__links {
+  display: flex;
+  gap: 1rem;
+}

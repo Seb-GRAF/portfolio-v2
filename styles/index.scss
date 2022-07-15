@@ -4,7 +4,6 @@
 @import './utils/mixins';
 @import './utils/responsive';
 
-@import './base/fonts';
 @import './base/base';
 
 // layout
@@ -29,10 +28,19 @@ COMPONENTS
 @import './components/commentsForm';
 @import './components/postCard';
 
+// aesthetics
+@import './components/link';
+
 /*
 PAGES
 */
+// home
+@import './pages/home';
+
 // blog
 @import './pages/postDetails';
 @import './pages/blog';
 @import './pages/category';
+
+//404
+@import './pages/errorPage';

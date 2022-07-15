@@ -1,10 +1,9 @@
 import React from 'react'
-import { Header, Preloader } from './'
+import { Header } from './'
 
 const Layout = ({ children }) => {
   return (
     <>
-      {/* <Preloader /> */}
       <Header />
       {children}
     </>

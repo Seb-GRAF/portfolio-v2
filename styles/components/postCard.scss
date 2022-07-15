@@ -30,6 +30,16 @@
   background-color: $color-accent;
   cursor: pointer;
   aspect-ratio: 1;
+
+  img {
+    transition: transform 500ms $ease-out-expo;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .postcard__categories {

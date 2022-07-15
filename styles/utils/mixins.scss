@@ -19,30 +19,50 @@
 }
 
 %link-button {
-  color: inherit;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 300;
-  overflow: hidden;
-  height: 1.1rem;
+  .link {
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    overflow: hidden;
+    height: 1.1rem;
+  }
+
+  .link__arrow {
+    width: 0.8rem;
+    height: 0.8rem;
+    transition: transform 300ms $ease-swift;
+  }
 
   span {
+    padding-bottom: 0.1rem;
     display: block;
-    transition: transform 500ms $ease-swift;
-    transform-origin: top right;
+    transition: transform 300ms $ease-swift;
   }
-  &:after {
+
+  .link:after {
     content: attr(data-link-alt);
     display: inline-block;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    transform: skewY(50deg);
-    transform-origin: bottom left;
-    transition: top 500ms $ease-swift, transform 600ms $ease-swift;
+    transition: top 300ms $ease-swift, transform 300ms $ease-swift;
+  }
+
+  &:hover {
+    .link span {
+      transform: translateY(-100%);
+    }
+    .link::after {
+      top: 0;
+    }
+
+    .link__arrow {
+      transform: rotate(45deg);
+    }
   }
 }
 
@@ -65,7 +85,6 @@
     font-size: 1.5rem;
     font-weight: 400;
     isolation: isolate;
-    line-height: 0.85;
   }
 }
 

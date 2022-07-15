@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -47,45 +48,53 @@ const ProjectContainer = ({
 
             <ul className='project__links'>
               <li>
-                <a
-                  className='project__link'
+                <Link
                   href={
                     liveLink
                       ? liveLink
                       : `https://seb-graf.github.io/${projectName}`
                   }
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  <div data-link-alt='Live Site' className='link__wrapper'>
-                    <span>Live Site</span>
-                  </div>
-                  {/* <Image
-                    src='/arrow.svg'
-                    alt=''
-                    layout='fill'
-                    objectFit='cover'
-                  /> */}
-                </a>
+                  passHref>
+                  <a className='link__wrapper'>
+                    <div data-link-alt='Live Site' className='link'>
+                      <span>Live Site</span>
+                    </div>
+                    <div className='link__arrow'>
+                      <Image
+                        src='/arrow.png'
+                        alt=''
+                        width='10'
+                        height='10'
+                        unoptimized='true'
+                        layout='responsive'
+                      />
+                    </div>
+                  </a>
+                </Link>
               </li>
               {!githubLinkLocked && (
                 <li>
-                  <a
-                    className='project__link'
+                  <Link
                     href={`https://github.com/seb-graf/${projectName}`}
+                    passHref
                     target='_blank'
                     rel='noopener noreferrer'>
-                    <div data-link-alt='GitHub' className='link__wrapper'>
-                      <span>GitHub</span>
-                    </div>
-                    <figure>
-                      {/* <Image
-                        src='/arrow.svg'
-                        alt=''
-                        layout='fill'
-                        objectFit='cover'
-                      /> */}
-                    </figure>
-                  </a>
+                    <a className='link__wrapper'>
+                      <div data-link-alt='GitHub' className='link'>
+                        <span>GitHub</span>
+                      </div>
+                      <div className='link__arrow'>
+                        <Image
+                          src='/arrow.png'
+                          alt=''
+                          width='10'
+                          height='10'
+                          unoptimized='true'
+                          layout='responsive'
+                        />
+                      </div>
+                    </a>
+                  </Link>
                 </li>
               )}
             </ul>

@@ -18,20 +18,20 @@ const Header = () => {
     document
       .querySelector('.nav__sandwich')
       .classList.toggle('nav__sandwich--active')
+
     document.querySelector('.nav__menu').classList.toggle('nav__menu--active')
   }
 
   return (
     <>
       <header className='header'>
-        <Link
-          href='/#hero'
-          passHref
-          className='link'
-          onClick={(e) => {
-            if (navMenu) handleNav()
-          }}>
-          <a tabIndex='1' className='logo'>
+        <Link href='/#hero' passHref className='link'>
+          <a
+            tabIndex='1'
+            className='logo'
+            onClick={(e) => {
+              if (navMenu) handleNav()
+            }}>
             <svg
               aria-hidden='true'
               focusable='false'
@@ -46,24 +46,32 @@ const Header = () => {
           </a>
         </Link>
         <ul className='nav__links'>
-          <Link href='/#about'>
-            <a className='nav__link link' data-link-alt='About'>
-              <span>About</span>
+          <Link href='/#about' passHref>
+            <a className='link__wrapper'>
+              <div className='link' data-link-alt='About'>
+                <span>About</span>
+              </div>
             </a>
           </Link>
-          <Link href='/#projects'>
-            <a className='nav__link link' data-link-alt='Projects'>
-              <span>Projects</span>
+          <Link href='/#projects' passHref>
+            <a className='link__wrapper'>
+              <div className='link' data-link-alt='Projects'>
+                <span>Projects</span>
+              </div>
             </a>
           </Link>
-          <Link href='/#contact'>
-            <a className='nav__link link' data-link-alt='Contact'>
-              <span>Contact</span>
+          <Link href='/#contact' passHref>
+            <a className='link__wrapper'>
+              <div className='link' data-link-alt='Contact'>
+                <span>Contact</span>
+              </div>
             </a>
           </Link>
-          <Link href='/blog'>
-            <a data-link-alt='Blog' className='nav__link link'>
-              <span>Blog</span>
+          <Link href='/blog' passHref>
+            <a className='link__wrapper'>
+              <div data-link-alt='Blog' className='link'>
+                <span>Blog</span>
+              </div>
             </a>
           </Link>
         </ul>
@@ -75,32 +83,32 @@ const Header = () => {
       <nav className='nav__menu'>
         <ol className='nav__menu__items'>
           <li className='nav__menu__item'>
-            <Link href={'/#about'} onClick={handleNav}>
-              <a className='item__wrapper'>
+            <Link href='/#about' passHref>
+              <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>01.</span>
                 <span>About</span>
               </a>
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/#projects'} onClick={handleNav}>
-              <a className='item__wrapper'>
+            <Link href={'/#projects'} passHref>
+              <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>02.</span>
                 <span>Projects</span>
               </a>
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/#contact'} onClick={handleNav}>
-              <a className='item__wrapper'>
+            <Link href={'/#contact'} passHref>
+              <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>03.</span>
                 <span>Contact</span>
               </a>
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/blog'} onClick={handleNav}>
-              <a className='item__wrapper'>
+            <Link href={'/blog'} passHref>
+              <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>04.</span>
                 <span>Blog</span>
               </a>
@@ -110,28 +118,6 @@ const Header = () => {
       </nav>
     </>
   )
-
-  // return (
-  //   <div className='container mx-auto px-5 sm:px-10 mb-8'>
-  //     <div className='border-b w-full inline-block border-zinc-700 py-4 lg:py-8'>
-  //       <div className='md:float-left flex '>
-  //         <span className='cursor-pointer font-bold text-4xl'>
-  //           <Link href='/'>SG</Link>
-  //         </span>
-  //         <span className='text-rose-800 font-semibold'> Blog</span>
-  //       </div>
-  //       <ul className='hidden md:contents'>
-  //         {categories.map((category) => (
-  //           <li key={category.slug}>
-  //             <span className='md:float-right mt-2 align-middle ml-4 py-1 px-3 font-semibold cursor-pointer bg-gradient-to-r from-rose-200 to-rose-200 bg-no-repeat [background-position:0_100%]    [background-size:100%_0em] motion-safe:transition-all motion-safe:duration-200 hover:[background-size:100%_100%]      focus:[background-size:100%_100%] hover:text-rose-800'>
-  //               <Link href={`/category/${category.slug}`}>{category.name}</Link>
-  //             </span>
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   </div>
-  // )
 }
 
 export default Header

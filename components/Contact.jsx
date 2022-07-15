@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import Link from 'next/link'
 import Image from 'next/image'
 
 const Contact = () => {
@@ -69,39 +70,45 @@ const Contact = () => {
         <div className='form__wrapper'>
           <div className='form__cta'>
             <div className='form__cta__links'>
-              <a
+              <Link
                 href='https://github.com/seb-graf'
+                passHref
                 target='_blank'
                 rel='noopener noreferrer'
-                className='form__cta__link'
                 aria-label='GitHub'>
-                <i
-                  className='devicon-github-original'
-                  alt=''
-                  role='presentation'></i>
-              </a>
-              <a
+                <a className='form__cta__link'>
+                  <i
+                    className='devicon-github-original'
+                    alt=''
+                    role='presentation'></i>
+                </a>
+              </Link>
+              <Link
                 href='https://www.linkedin.com/in/sebastien-graf-a9635922a/'
+                passHref
                 target='_blank'
                 rel='noopener noreferrer'
-                className='form__cta__link'
                 aria-label='Linkedin'>
-                <i
-                  className='devicon-linkedin-plain'
-                  alt=''
-                  role='presentation'></i>
-              </a>
-              <a
+                <a className='form__cta__link'>
+                  <i
+                    className='devicon-linkedin-plain'
+                    alt=''
+                    role='presentation'></i>
+                </a>
+              </Link>
+              <Link
                 href='mailto:seb.graf.sg@gmail.com'
+                passHref
                 target='_blank'
                 rel='noopener noreferrer'
-                className='form__cta__link'
                 aria-label='Email'>
-                <i
-                  className='devicon-google-plain'
-                  alt=''
-                  role='presentation'></i>
-              </a>
+                <a className='form__cta__link'>
+                  <i
+                    className='devicon-google-plain'
+                    alt=''
+                    role='presentation'></i>
+                </a>
+              </Link>
             </div>
           </div>
           <form className='form' ref={form} onSubmit={sendEmail}>
@@ -129,20 +136,23 @@ const Contact = () => {
               required
             />
             <button
-              className='form__button'
+              className='link__wrapper'
               type='submit'
               value='Send'
               aria-label='Send your message'>
-              <div className='form__button__wrapper' data-link-alt='Send'>
+              <div className='link' data-link-alt='Send'>
                 <span className='contact__form__button__text'>Send</span>
               </div>
-              {/* <Image
-                className='arrow '
-                alt=''
-                src='/arrow.svg'
-                width='19'
-                height='19'
-              /> */}
+              <div className='link__arrow'>
+                <Image
+                  src='/arrow.png'
+                  alt=''
+                  width='10'
+                  height='10'
+                  unoptimized='true'
+                  layout='responsive'
+                />
+              </div>
             </button>
           </form>
         </div>

@@ -1,0 +1,12 @@
+.link {
+  @include media('<phone') {
+    font-size: 1rem;
+  }
+}
+
+.link__wrapper {
+  @extend %link-button;
+  @extend %center;
+  gap: 0.3rem;
+  width: fit-content;
+}

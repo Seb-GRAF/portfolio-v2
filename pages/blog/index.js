@@ -12,7 +12,7 @@ const Home = ({ posts }) => {
 
       <Breadcrumbs />
       <div className='blog-wrapper'>
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <PostCard post={post.node} key={post.node.title} />
         ))}
 

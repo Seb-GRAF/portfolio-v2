@@ -72,23 +72,7 @@
     gap: 2rem;
   }
 }
-.nav__link {
-  @extend %link-button;
 
-  &:hover {
-    span {
-      transform: translateY(-100%) skewY(40deg);
-    }
-    &:after {
-      top: 0;
-      transform: skewY(0deg);
-    }
-  }
-
-  @include media('<phone') {
-    font-size: 1rem;
-  }
-}
 .nav__sandwich {
   background: transparent;
   border: none;
@@ -170,6 +154,9 @@
     li:nth-of-type(3n) span {
       transition-delay: 800ms;
     }
+    li:nth-of-type(4n) span {
+      transition-delay: 1000ms;
+    }
   }
 
   @include media('<phone') {
@@ -178,7 +165,6 @@
 }
 .nav__menu__items {
   @extend %center-column;
-
   align-items: flex-start;
   gap: 4rem;
 }
@@ -188,6 +174,7 @@
   text-decoration: none;
   font-size: 2rem;
   transition: 200ms;
+  overflow: hidden;
   cursor: pointer;
 
   .item__wrapper {

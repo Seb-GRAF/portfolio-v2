@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import React from 'react'
 
-const Crumb = ({ crumb, last, key }) => {
+const Crumb = ({ crumb, last }) => {
   if (last)
     return (
       <>
@@ -49,7 +49,7 @@ const Breadcrumbs = () => {
       {breadcrumbs.map((crumb, id) => {
         if (crumb.title === 'category') return
         return (
-          <li key={id} className='crumb'>
+          <li key={`crumbKey-${id}`} className='crumb'>
             <Crumb crumb={crumb} last={id === breadcrumbs.length - 1} />
           </li>
         )

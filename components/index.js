@@ -9,6 +9,7 @@ export { default as Comments } from './Comments'
 export { default as PostDetail } from './PostDetail'
 export { default as Breadcrumbs } from './Breadcrumbs'
 export { default as Loader } from './Loader'
+export { default as AnimateIn } from './AnimateIn'
 
 // index
 export { default as Hero } from './Hero'
