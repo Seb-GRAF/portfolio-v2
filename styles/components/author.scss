@@ -1,19 +1,21 @@
 .author {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border: solid 2px rgba(0, 0, 0, 0.251);
-  display: flex;
-  align-items: center;
+  @extend %center;
+
+  position: relative;
   width: 100%;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: white;
+  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.32));
+  z-index: 2;
 
   @include media('>phone') {
     padding: 3rem;
+    gap: 2rem;
+    width: 110%;
   }
-}
-
-.author__image-wrapper {
-  margin-right: 2rem;
 }
 
 .author__image {

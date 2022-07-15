@@ -1,15 +1,17 @@
 .post-details {
   @extend %center-column;
 
+  width: 100%;
   flex-shrink: 1;
   max-width: 40rem;
   padding-inline: 1rem;
+  margin-inline: auto;
   margin-bottom: 2rem;
   margin-top: 4rem;
 
   @include media('>phone') {
     margin-top: 5rem;
-    padding-inline: 2rem;
+    padding-inline: 3rem;
     margin-top: 5rem;
   }
 }

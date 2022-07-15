@@ -81,6 +81,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  background-color: $color-accent;
   filter: brightness(0.7);
 
   @include media('<phone') {
@@ -174,6 +175,11 @@
 
   p {
     margin: 0;
+    &:last-of-type {
+      border-top: rgba(0, 0, 0, 0.123) solid 1px;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
   }
 
   @include media('<phone') {
@@ -182,6 +188,7 @@
 }
 
 .project__links {
+  height: fit-content;
   display: flex;
   gap: 1.5rem;
   align-self: flex-end;

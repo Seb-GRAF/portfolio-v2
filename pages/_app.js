@@ -3,6 +3,7 @@ import { Layout } from '../components'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 import { gsap } from 'gsap'
+import NextNProgress from 'nextjs-progressbar'
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -19,29 +20,33 @@ const MyApp = ({ Component, pageProps }) => {
     requestAnimationFrame(raf)
 
     // removes preloader after first load
-    const removePreloader = () => {
-      gsap.to('.preloader', {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: () => {
-          document.querySelector('.preloader').remove()
-        },
-      })
-    }
+    // const removePreloader = () => {
+    //   gsap.to('.preloader', {
+    //     opacity: 0,
+    //     duration: 0.5,
+    //     onComplete: () => {
+    //       document.querySelector('.preloader').remove()
+    //     },
+    //   })
+    // }
 
-    window.addEventListener('load', removePreloader)
-    return () => {
-      window.removeEventListener('load', removePreloader)
-    }
+    // window.addEventListener('load', removePreloader)
+    // return () => {
+    //   window.removeEventListener('load', removePreloader)
+    // }
   }, [])
 
   return (
-    <>
-      <div className='preloader'></div>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+    <Layout>
+      <NextNProgress
+        color='#000'
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={false}
+      />
+      <Component {...pageProps} />
+    </Layout>
   )
 }
 

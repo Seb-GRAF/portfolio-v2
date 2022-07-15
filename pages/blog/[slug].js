@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { getPosts, getPostDetails } from '../../services'
@@ -14,6 +15,7 @@ import {
 } from '../../components'
 
 const PostDetails = ({ post }) => {
+  console.log(post.title)
   const router = useRouter()
 
   if (router.isFallback) {
@@ -21,13 +23,19 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <section className='post-details'>
-      <Breadcrumbs />
-      <PostDetail post={post} />
-      <Author author={post.author} />
-      <CommentsForm slug={post.slug} />
-      <Comments slug={post.slug} />
-      {/* <div className='col-span-1 lg:col-span-4'>
+    <>
+      <Head>
+        <title>SG | {post.title}</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
+      <section className='post-details'>
+        <Breadcrumbs />
+        <PostDetail post={post} />
+        <Author author={post.author} />
+        <CommentsForm slug={post.slug} />
+        <Comments slug={post.slug} />
+        {/* <div className='col-span-1 lg:col-span-4'>
           <div className='relative lg:sticky top-8'>
             <PostWidget
               slug={post.slug}
@@ -36,7 +44,8 @@ const PostDetails = ({ post }) => {
             <Categories />
           </div>
         </div> */}
-    </section>
+      </section>
+    </>
   )
 }
 

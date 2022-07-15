@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import parse from 'html-react-parser'
-
+import { AnimateIn } from './'
 import { getComments } from '../services'
 
 const Comments = ({ slug }) => {
@@ -13,7 +13,7 @@ const Comments = ({ slug }) => {
   return (
     <>
       {comments.length > 0 && (
-        <div className='comments'>
+        <AnimateIn className='comments'>
           <h2 className='comments__title'>
             {comments.length <= 0
               ? 'No Comments'
@@ -23,16 +23,16 @@ const Comments = ({ slug }) => {
           </h2>
           {comments.map((comment) => (
             <div key={comment.createdAt} className='comment'>
-              <p className='mb-4'>
+              <p className='comment__name'>
                 <span className='font-semibold'>{comment.name}</span> on{' '}
-                {moment(comment.createdAt).format('MMM DD, YYYY')}
+                {moment(comment.createdAt).format('MMM DD YYYY')} :
               </p>
               <p className='whitespace-pre-line text-gray-600 w-full'>
                 {parse(comment.comment)}
               </p>
             </div>
           ))}
-        </div>
+        </AnimateIn>
       )}
     </>
   )

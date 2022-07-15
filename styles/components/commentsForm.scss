@@ -1,23 +1,43 @@
 .comments-form {
+  position: relative;
   width: 100%;
-  border: solid 2px rgba(0, 0, 0, 0.275);
-  padding: 2rem;
+  padding: 1rem;
   padding-bottom: 3rem;
-  margin-bottom: 2rem;
+
+  @include media('>phone') {
+    padding: 2rem;
+  }
 }
 
 .comments-form__title {
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  border-bottom: solid 1px black;
-  padding: 1rem;
+  padding-block: 1rem;
+  margin-bottom: 2rem;
+  z-index: 1;
+  border-bottom: $color-dark-grey solid 1px;
+}
+
+.comments-form__wrapper {
+  position: relative;
+  z-index: 2;
 }
 
 .comments-form__comment {
+  height: 3rem;
   width: 100%;
   padding: 1rem;
+  min-height: 2rem;
+  max-height: 5rem;
   margin-bottom: 1rem;
-  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px rgba(0, 0, 0, 0.275);
+  resize: vertical;
+
+  &::placeholder {
+    font-size: 0.8rem;
+    font-family: 'Libre Franklin', sans-serif;
+  }
 }
 
 .comments-form__top {
@@ -29,9 +49,16 @@
 
 .comments-form__name,
 .comments-form__email {
-  padding: 1rem;
+  height: 3rem;
+  padding: 0.8rem;
   width: 100%;
-  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  border: solid 1px rgba(0, 0, 0, 0.275);
+
+  &::placeholder {
+    font-size: 0.8rem;
+    font-family: 'Libre Franklin', sans-serif;
+  }
 }
 
 .comments-form__save-info {
@@ -48,7 +75,7 @@
   margin-left: 0.5rem;
 }
 .comments-form__error {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: red;
 }
 

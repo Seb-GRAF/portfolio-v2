@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
+import { AnimateIn } from './'
 
 const Author = ({ author }) => {
   return (
-    <section className='author'>
+    <AnimateIn className='author'>
       <div className='author__image-wrapper'>
         <Image
           unoptimized={true}
@@ -19,7 +20,7 @@ const Author = ({ author }) => {
         <h3 className='author__name'>{author.name}</h3>
         <p className='author__bio'>{author.bio}</p>
       </div>
-    </section>
+    </AnimateIn>
   )
 }
 
