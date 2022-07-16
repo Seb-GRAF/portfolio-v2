@@ -1,20 +1,34 @@
 .author {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  filter: $drop-shadow-light;
+}
+
+.author__title {
+  position: absolute;
+  top: -2rem;
+  left: 1rem;
+  background-color: $color-accent;
+  width: fit-content;
+  padding: 0.5rem;
+  z-index: 1;
+}
+
+.author__info {
   @extend %center;
 
   position: relative;
-  width: 100%;
   gap: 1rem;
   padding: 1.5rem 1rem;
-  margin-bottom: 1rem;
   text-align: center;
   background-color: white;
-  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.32));
   z-index: 2;
+  text-align: left;
 
   @include media('>phone') {
-    padding: 3rem;
+    padding: 2rem;
     gap: 2rem;
-    width: 110%;
   }
 }
 
@@ -22,18 +36,7 @@
   border-radius: 50%;
 }
 
-.author__info {
-  text-align: left;
-}
-
-.author__title {
-  opacity: 0.5;
-}
-
 .author__name {
   margin-bottom: 1rem;
   font-weight: 700;
-}
-
-.author__bio {
 }

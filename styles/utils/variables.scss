@@ -1,7 +1,7 @@
 $color-text-primary: #111111;
 $color-text-secondary: #020202;
 
-$color-off-white: #f3f5fa;
+$color-off-white: #faf8f3;
 $color-dark-grey: #212021;
 
 $color-accent: #fdffc3;
@@ -10,3 +10,13 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 $ease-swift: cubic-bezier(0.77, 0, 0.175, 1);
 
 $z-indexes: ('noscript', 'preloader', 'navigation', 'content');
+
+$shadow-dark: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1),
+  0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1),
+  0 16px 32px rgba(0, 0, 0, 0.1), 0 32px 64px rgba(0, 0, 0, 0.1);
+
+$shadow-light: 0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05),
+  0 4px 8px rgba(0, 0, 0, 0.05), 0 8px 16px rgba(0, 0, 0, 0.05),
+  0 16px 32px rgba(0, 0, 0, 0.05), 0 32px 64px rgba(0, 0, 0, 0.05);
+
+$drop-shadow-light: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.056));

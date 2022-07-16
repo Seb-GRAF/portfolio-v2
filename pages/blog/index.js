@@ -12,9 +12,11 @@ const Home = ({ posts }) => {
 
       <Breadcrumbs />
       <div className='blog-wrapper'>
-        {posts.map((post) => (
-          <PostCard post={post.node} key={post.node.title} />
-        ))}
+        {posts
+          .sort((a, b) => (a.node.createdAt > b.node.createdAt ? -1 : 1))
+          .map((post) => (
+            <PostCard post={post.node} key={post.node.title} />
+          ))}
 
         {/* <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>

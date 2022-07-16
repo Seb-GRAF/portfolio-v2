@@ -88,6 +88,8 @@ video {
   line-height: 1;
   text-decoration: none;
   color: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -103,10 +105,6 @@ menu,
 nav,
 section {
   display: block;
-}
-
-body {
-  line-height: 1;
 }
 
 ol,
@@ -135,4 +133,12 @@ table {
 button {
   background: none;
   border: none;
+}
+
+h1 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.5;
 }

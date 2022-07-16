@@ -1,17 +1,49 @@
 .post-details {
-  @extend %center-column;
-
-  width: 100%;
-  flex-shrink: 1;
-  max-width: 40rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  height: 100%;
   padding-inline: 1rem;
-  margin-inline: auto;
   margin-bottom: 2rem;
   margin-top: 4rem;
+  margin-inline: auto;
+  max-width: 60rem;
+  gap: 2rem;
 
   @include media('>phone') {
     margin-top: 5rem;
-    padding-inline: 3rem;
+    padding-inline: 2rem;
     margin-top: 5rem;
+  }
+
+  @include media('>tablet') {
+    grid-template-columns: 4fr 1fr;
+  }
+  @include media('>desktop') {
+    gap: 4rem;
+  }
+}
+
+.post-details__wrapper {
+  @extend %center-column;
+
+  flex-grow: 1;
+  width: 100%;
+  place-self: center;
+
+  @include media('>tablet') {
+    place-self: end;
+  }
+}
+
+.post-details__aside {
+  position: relative;
+  min-height: 100%;
+  width: 12rem;
+  place-self: center;
+
+  @include media('<tablet') {
+    display: none;
   }
 }

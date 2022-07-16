@@ -5,8 +5,7 @@ import { useRouter } from 'next/router'
 import { getPosts, getPostDetails } from '../../services'
 import {
   PostDetail,
-  // Categories,
-  // PostWidget,
+  PostWidget,
   Loader,
   Author,
   Comments,
@@ -15,7 +14,6 @@ import {
 } from '../../components'
 
 const PostDetails = ({ post }) => {
-  console.log(post.title)
   const router = useRouter()
 
   if (router.isFallback) {
@@ -30,20 +28,24 @@ const PostDetails = ({ post }) => {
       </Head>
 
       <section className='post-details'>
-        <Breadcrumbs />
-        <PostDetail post={post} />
-        <Author author={post.author} />
-        <CommentsForm slug={post.slug} />
-        <Comments slug={post.slug} />
+        <div className='post-details__wrapper'>
+          <Breadcrumbs />
+          <PostDetail post={post} />
+          <Author author={post.author} />
+          <CommentsForm slug={post.slug} />
+          <Comments slug={post.slug} />
+        </div>
         {/* <div className='col-span-1 lg:col-span-4'>
           <div className='relative lg:sticky top-8'>
-            <PostWidget
-              slug={post.slug}
-              categories={post.categories.map((category: any) => category.slug)}
-            />
-            <Categories />
+          <Categories />
           </div>
         </div> */}
+        <div className='post-details__aside'>
+          <PostWidget
+            slug={post.slug}
+            categories={post.categories.map((category) => category.slug)}
+          />
+        </div>
       </section>
     </>
   )

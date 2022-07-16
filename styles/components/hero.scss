@@ -63,6 +63,7 @@
   font-size: 10vw;
   font-weight: 400;
   transform-origin: bottom left;
+  opacity: 0;
 
   @include media('<tablet') {
     font-size: 11vw;
@@ -96,6 +97,7 @@
   overflow: hidden;
   object-fit: cover;
   color: #d8d8b7;
+  opacity: 0;
 
   .hero__vector-image {
     width: 100%;
@@ -131,4 +133,5 @@
   width: 100%;
   border-bottom: solid 1px $color-text-primary;
   height: 0.4rem;
+  opacity: 0;
 }

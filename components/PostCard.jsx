@@ -1,24 +1,30 @@
+import React, { useRef } from 'react'
 import moment from 'moment'
 import Link from 'next/link'
-import React from 'react'
 import Image from 'next/image'
 import { AnimateIn } from './'
 
 const PostCard = ({ post }) => {
+  const postCardRef = useRef(null)
+
   return (
-    <div className='postcard'>
+    <div className='postcard' ref={postCardRef}>
       <AnimateIn>
-        <div className='postcard__image'>
-          <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} passHref>
+          <div className='postcard__image'>
             <Image
               src={post.featuredImage.url}
               alt={post.title}
               layout='fill'
-              objectFit='cover'
-              priority={false}
+              objectFit='contain'
+              onLoadingComplete={({ naturalWidth, naturalHeight }) => {
+                const container =
+                  postCardRef.current.querySelector('.postcard__image')
+                container.style.aspectRatio = `${naturalWidth}/${naturalHeight}`
+              }}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </AnimateIn>
       <AnimateIn>
         <div className='postcard__categories'>

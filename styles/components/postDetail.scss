@@ -61,42 +61,99 @@
 
 .post-detail__image {
   position: relative;
-  max-height: 20rem;
-  margin-bottom: 2rem;
   width: 100%;
-  overflow: hidden;
-  aspect-ratio: 1;
-
-  @include media('>phone') {
-    aspect-ratio: auto;
-    min-height: 25rem;
-    width: 110%;
-    left: -5%;
-  }
-}
-
-.post-h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-
-  @include media('>phone') {
-    font-size: 1.5rem;
-  }
-}
-
-.post-h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.post-h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.post-p {
   margin-bottom: 2rem;
+}
+
+.post-detail__wrapper {
+  img {
+    position: relative;
+    width: 100%;
+    // aspect-ratio: 1;
+    margin-block: 2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    @include media('>phone') {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    list-style: disc;
+  }
+
+  ol {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    list-style: decimal;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  b {
+    font-weight: 900;
+  }
+
+  pre {
+    margin-bottom: 2rem;
+    width: 100%;
+    margin-right: -2rem;
+
+    ::-webkit-scrollbar {
+      display: block;
+      padding: 0.1rem;
+      margin: 0.1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      display: block;
+      border-radius: 1rem;
+      background-color: #427096;
+    }
+
+    div {
+      max-width: 100vw;
+    }
+  }
+
+  code {
+    font-size: 0.8rem;
+    @include media('>phone') {
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+  }
 }

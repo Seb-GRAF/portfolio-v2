@@ -7,14 +7,18 @@ const Crumb = ({ crumb, last }) => {
   if (last)
     return (
       <>
-        {crumb.title !== 'Home' && <span className='crumb__divider'> / </span>}
+        {crumb.title !== 'Home' && (
+          <span className='crumb__divider'> {'❯'} </span>
+        )}
         <p className='crumb__last-text'>{crumb.title}</p>
       </>
     )
 
   return (
     <>
-      {crumb.title !== 'Home' && <span className='crumb__divider'> / </span>}
+      {crumb.title !== 'Home' && (
+        <span className='crumb__divider'> {'❯'} </span>
+      )}
       <p className='crumb__text'>
         <Link href={crumb.href}>{crumb.title}</Link>
       </p>

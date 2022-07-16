@@ -63,7 +63,7 @@ export const getPostDetails = async (slug) => {
           slug
         }
         content {
-          raw
+          markdown
         }
       }
     }
@@ -169,6 +169,7 @@ export const getCategoryPosts = async (slug) => {
 
   return result.postsConnection.edges
 }
+
 // export const getCategoryPosts = async (slug) => {
 //   const query = gql`
 //     query GetCategoryPosts($slug: String!) {

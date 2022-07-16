@@ -8,10 +8,13 @@
 
 .crumb {
   display: flex;
+  align-items: center;
 }
 
 .crumb__divider {
   margin-right: 0.5rem;
+  font-size: 0.5rem;
+  line-height: 0;
 }
 
 .crumb__last-text {
@@ -24,9 +27,9 @@
   text-transform: capitalize;
   a {
     color: $color-text-primary;
-    text-decoration: underline;
   }
   &:hover {
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
 }

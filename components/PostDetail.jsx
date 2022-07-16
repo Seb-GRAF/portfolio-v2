@@ -1,86 +1,33 @@
 import React from 'react'
 import moment from 'moment'
-import Link from 'next/link'
 import Image from 'next/image'
 import { AnimateIn } from './'
+import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
+import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism/lucario'
+
+const CodeBlock = ({ language, children }) => {
+  return (
+    <SyntaxHighlighter
+      style={style}
+      language='javascript'
+      wrapLines={true}
+      PreTag={'div'}
+      showLineNumbers={true}>
+      {children}
+    </SyntaxHighlighter>
+  )
+}
 
 const PostDetail = ({ post }) => {
-  // type formatting for the post content
-  const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text
-
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = <b key={index}>{text}</b>
-      }
-
-      if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>
-      }
-
-      if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>
-      }
-    }
-
-    switch (type) {
-      case 'heading-two':
-        return (
-          <h2 key={index} className='post-h2'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h2>
-        )
-      case 'heading-three':
-        return (
-          <h3 key={index} className='post-h3'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h3>
-        )
-      case 'paragraph':
-        return (
-          <p key={index} className='post-p'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </p>
-        )
-      case 'heading-four':
-        return (
-          <h4 key={index} className='text-md font-semibold mb-4'>
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h4>
-        )
-      case 'image':
-        return (
-          <Image
-            key={index}
-            alt={obj.title}
-            height={obj.height}
-            width={obj.width}
-            src={obj.src}
-            className='post-image'
-          />
-        )
-      default:
-        return modifiedText
-    }
-  }
-
   return (
     <section className='post-detail'>
       <AnimateIn>
         <div className='post-detail__categories'>
           {post.categories.map((category) => (
             <li className='post-detail__category' key={category.slug}>
-              {/* <Link href={`/blog/category/${category.slug}`}> */}
               {category.name}
-              {/* </Link> */}
             </li>
           ))}
         </div>
@@ -109,18 +56,19 @@ const PostDetail = ({ post }) => {
             src={post.featuredImage.url}
             alt={post.title}
             layout='fill'
-            objectFit='cover'
+            objectFit='contain'
+            priority={true}
+            onLoadingComplete={({ naturalWidth, naturalHeight }) => {
+              const container = document.querySelector('.post-detail__image')
+              container.style.aspectRatio = `${naturalWidth}/${naturalHeight}`
+            }}
           />
         </div>
       </AnimateIn>
       <div className='post-detail__wrapper'>
-        {post.content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) =>
-            getContentFragment(itemIndex, item.text, item)
-          )
-
-          return getContentFragment(index, children, typeObj, typeObj.type)
-        })}
+        <ReactMarkdown components={{ code: CodeBlock }}>
+          {post.content.markdown}
+        </ReactMarkdown>
       </div>
     </section>
   )

@@ -6,11 +6,11 @@
 
 html {
   font-family: 'Libre Franklin';
-  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-size: clamp(1.2rem, 1.2vw, 1.3rem);
+  // font-size: 1.3rem;
   color: $color-text-primary;
   background-color: $color-off-white;
   scrollbar-width: none;
-  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -19,16 +19,12 @@ body {
 
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   color: inherit;
+  line-height: 1.5;
 }
 
 #__next {
   width: 100%;
-}
-
-p {
-  line-height: 1.2;
 }
 
 section {

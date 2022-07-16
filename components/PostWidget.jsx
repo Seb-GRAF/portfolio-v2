@@ -19,28 +19,29 @@ const PostWidget = ({ categories, slug }) => {
   }, [slug, categories])
 
   return (
-    <div className='bg-rose-50 p-8 pb-2 shadow-lg'>
-      <h3 className='text-xl mb-8 font-semibold border-b pb-4'>
+    <div className='post-widget'>
+      <h3 className='post-widget__title text-xl mb-8 font-semibold border-b pb-4'>
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
       {relatedPosts.map((post) => (
-        <div key={post.title} className='flex items-center w-full mb-4'>
-          <div className='w-16 flex-none'>
+        <div key={post.title} className='post-widget__post'>
+          <div className='post-widget__post-image'>
             <Image
               src={post.featuredImage.url}
               alt={post.title}
-              height='60px'
-              width='60px'
-              className='align-middle rounded-full'
+              layout='fill'
+              objectFit='cover'
             />
           </div>
-          <div className='flex-grow ml-4'>
-            <p className='text-gray-500 font-xl'>
+          <div className='post-widget__post-wrapper'>
+            <time dateTime={post.createdAt} className='post-widget__post-date'>
               {moment(post.createdAt).format('MMM DD, YYYY')}
+            </time>
+            <p className='post-widget__post-title'>
+              <Link href={`/${post.slug}`} key={post.title} className='post-md'>
+                {post.title}
+              </Link>
             </p>
-            <Link href={`/${post.slug}`} key={post.title} className='post-md'>
-              {post.title}
-            </Link>
           </div>
         </div>
       ))}

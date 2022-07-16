@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import Head from 'next/head'
-
 import { Hero, About, Projects, Contact, AnimateIn } from '../components'
-
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import ScrollSmoother from 'gsap/dist/ScrollSmoother'
@@ -11,48 +9,60 @@ import SplitText from 'gsap/dist/SplitText'
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 
 export const Home = () => {
+  const animateIntro = () => {
+    const hero = document.querySelector('.hero__main')
+
+    const split = new SplitText(hero.querySelectorAll('.paragraph'), {
+      type: 'chars',
+    })
+
+    gsap.set('.paragraph, .divider-line, .hero__vector', {
+      opacity: '1',
+    })
+
+    gsap.from(split.chars, {
+      y: '100%',
+      stagger: '0.04',
+      duration: '1',
+      ease: 'power3',
+      delay: '0.2',
+    })
+    gsap.from('.nav__link', {
+      y: '-100%',
+      opacity: 0,
+      duration: '1',
+      ease: 'power3',
+      delay: '1',
+      stagger: '0.2',
+    })
+    gsap.from('.divider-line, .divider-text', {
+      y: '100%',
+      opacity: 0,
+      duration: '1',
+      ease: 'power3',
+      delay: '1.5',
+      stagger: '0.2',
+    })
+    gsap.from('.hero__vector', {
+      opacity: 0,
+      duration: '1',
+      ease: 'power3',
+    })
+  }
   // animate hero section on load
-  useEffect(() => {
-    const animateIntro = () => {
-      const hero = document.querySelector('.hero__main')
-
-      const split = new SplitText(hero.querySelectorAll('.paragraph'), {
-        type: 'chars',
-      })
-
-      gsap.from(split.chars, {
-        y: '100%',
-        stagger: '0.04',
-        duration: '1',
-        ease: 'power3',
-        delay: '0.2',
-      })
-      gsap.from('.nav__link', {
-        y: '-100%',
-        opacity: 0,
-        duration: '1',
-        ease: 'power3',
-        delay: '1',
-        stagger: '0.2',
-      })
-      gsap.from('.divider-line, .divider-text', {
-        y: '100%',
-        opacity: 0,
-        duration: '1',
-        ease: 'power3',
-        delay: '1.5',
-        stagger: '0.2',
-      })
-    }
-
-    window.addEventListener('load', animateIntro)
-    return () => {
-      window.removeEventListener('load', animateIntro)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('load', animateIntro)
+  //   return () => {
+  //     window.removeEventListener('load', animateIntro)
+  //   }
+  // }, [])
 
   // scroll trigger animation
   useEffect(() => {
+    setTimeout(() => {
+      animateIntro()
+    }, 500)
+
     //dark bg + light nav
     gsap.to('html', {
       scrollTrigger: {
