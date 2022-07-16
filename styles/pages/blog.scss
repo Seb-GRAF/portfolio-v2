@@ -22,4 +22,11 @@
   @include media('>tablet') {
     grid-template-columns: repeat(3, 1fr);
   }
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 1rem;
+
+  // @include media('>tablet') {
+  //   gap: 2rem;
+  // }
 }

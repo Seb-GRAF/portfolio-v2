@@ -6,23 +6,23 @@ import React from 'react'
 const Crumb = ({ crumb, last }) => {
   if (last)
     return (
-      <>
+      <span aria-current='page' className='crumb'>
         {crumb.title !== 'Home' && (
           <span className='crumb__divider'> {'❯'} </span>
         )}
-        <p className='crumb__last-text'>{crumb.title}</p>
-      </>
+        <span className='crumb__last-text'>{crumb.title}</span>
+      </span>
     )
 
   return (
-    <>
-      {crumb.title !== 'Home' && (
-        <span className='crumb__divider'> {'❯'} </span>
-      )}
-      <p className='crumb__text'>
-        <Link href={crumb.href}>{crumb.title}</Link>
-      </p>
-    </>
+    <Link href={crumb.href} passHref>
+      <a className='crumb'>
+        {crumb.title !== 'Home' && (
+          <span className='crumb__divider'> {'❯'} </span>
+        )}
+        <span className='crumb__text'>{crumb.title}</span>
+      </a>
+    </Link>
   )
 }
 
@@ -49,16 +49,16 @@ const Breadcrumbs = () => {
   }, [])
 
   return (
-    <ul className='breadcrumbs'>
+    <nav className='breadcrumbs'>
       {breadcrumbs.map((crumb, id) => {
         if (crumb.title === 'category') return
         return (
-          <li key={`crumbKey-${id}`} className='crumb'>
+          <React.Fragment key={`crumbKey-${id}`}>
             <Crumb crumb={crumb} last={id === breadcrumbs.length - 1} />
-          </li>
+          </React.Fragment>
         )
       })}
-    </ul>
+    </nav>
   )
 }
 

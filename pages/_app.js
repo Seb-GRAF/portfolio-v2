@@ -18,7 +18,6 @@ const MyApp = ({ Component, pageProps }) => {
       requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-
     // removes preloader after first load
     // const removePreloader = () => {
     //   gsap.to('.preloader', {
@@ -29,7 +28,6 @@ const MyApp = ({ Component, pageProps }) => {
     //     },
     //   })
     // }
-
     // window.addEventListener('load', removePreloader)
     // return () => {
     //   window.removeEventListener('load', removePreloader)

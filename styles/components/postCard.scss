@@ -20,6 +20,26 @@
       grid-column: span 2 / span 2;
     }
   }
+  // width: 20%;
+  // flex-grow: 1;
+  // flex-shrink: 0;
+  // min-width: 16rem;
+
+  // &:first-of-type {
+  //   flex-grow: 1;
+  //   min-width: 16rem;
+  //   width: 100%;
+  // }
+  // @include media('>tablet') {
+  //   &:first-of-type {
+  //     flex-grow: 4;
+  //     min-width: 25rem;
+  //     width: 20%;
+  //   }
+  // }
+
+  // @include media('>phone') {
+  // }
 }
 
 .postcard__image {

@@ -11,9 +11,9 @@ const CodeBlock = ({ language, children }) => {
   return (
     <SyntaxHighlighter
       style={style}
-      language='javascript'
-      wrapLines={true}
+      language='tsx'
       PreTag={'div'}
+      // CodeTag={'div'}
       showLineNumbers={true}>
       {children}
     </SyntaxHighlighter>
@@ -47,7 +47,7 @@ const PostDetail = ({ post }) => {
           </div>
 
           <p className='post-detail__date'>
-            Created on {moment(post.createdAt).format('MMMM Do, YYYY')}
+            Created on the {moment(post.createdAt).format('Do of MMMM YYYY')}
           </p>
         </div>
 
@@ -66,7 +66,11 @@ const PostDetail = ({ post }) => {
         </div>
       </AnimateIn>
       <div className='post-detail__wrapper'>
-        <ReactMarkdown components={{ code: CodeBlock }}>
+        <ReactMarkdown
+          components={{
+            code: CodeBlock,
+            // pre: ({ children }) => <div className='pre'>{children}</div>,
+          }}>
           {post.content.markdown}
         </ReactMarkdown>
       </div>

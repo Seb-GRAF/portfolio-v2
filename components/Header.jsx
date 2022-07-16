@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import gsap from 'gsap'
+import { useRouter } from 'next/router'
+// import gsap from 'gsap'
 
-import { getCategories } from '../services'
+// import { getCategories } from '../services'
+
+const NavLink = ({ name, href }) => {
+  const router = useRouter()
+  console.log(router)
+
+  return (
+    <Link href={href} passHref>
+      <a
+        className={`link__wrapper ${
+          router.asPath.includes(href) && 'link__wrapper--active'
+        }`}>
+        <div className='link' data-link-alt={name}>
+          <span>{name}</span>
+        </div>
+      </a>
+    </Link>
+  )
+}
 
 const Header = () => {
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    getCategories().then((result) => setCategories(result))
-  }, [])
-
   const [navMenu, setNavMenu] = useState(false)
 
   const handleNav = () => {
@@ -45,36 +58,12 @@ const Header = () => {
             </svg>
           </a>
         </Link>
-        <ul className='nav__links'>
-          <Link href='/#about' passHref>
-            <a className='link__wrapper'>
-              <div className='link' data-link-alt='About'>
-                <span>About</span>
-              </div>
-            </a>
-          </Link>
-          <Link href='/#projects' passHref>
-            <a className='link__wrapper'>
-              <div className='link' data-link-alt='Projects'>
-                <span>Projects</span>
-              </div>
-            </a>
-          </Link>
-          <Link href='/#contact' passHref>
-            <a className='link__wrapper'>
-              <div className='link' data-link-alt='Contact'>
-                <span>Contact</span>
-              </div>
-            </a>
-          </Link>
-          <Link href='/blog' passHref>
-            <a className='link__wrapper'>
-              <div data-link-alt='Blog' className='link'>
-                <span>Blog</span>
-              </div>
-            </a>
-          </Link>
-        </ul>
+        <nav className='nav__links'>
+          <NavLink name='About' href='/#about' />
+          <NavLink name='Projects' href='/#projects' />
+          <NavLink name='Contact' href='/#contact' />
+          <NavLink name='Blog' href='/blog' />
+        </nav>
         <button className='nav__sandwich' onClick={handleNav}>
           <span className='line1'></span>
           <span className='line2'></span>

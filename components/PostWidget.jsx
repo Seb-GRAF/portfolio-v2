@@ -35,7 +35,7 @@ const PostWidget = ({ categories, slug }) => {
           </div>
           <div className='post-widget__post-wrapper'>
             <time dateTime={post.createdAt} className='post-widget__post-date'>
-              {moment(post.createdAt).format('MMM DD, YYYY')}
+              {moment(post.createdAt).format('DD MMM YYYY')}
             </time>
             <p className='post-widget__post-title'>
               <Link href={`/${post.slug}`} key={post.title} className='post-md'>

@@ -10,4 +10,14 @@
 
   gap: 0.4rem;
   width: fit-content;
+
+  &--active {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+
+    .link::after {
+      text-decoration: underline;
+      text-underline-offset: 1px;
+    }
+  }
 }

@@ -1,6 +1,4 @@
 .post-details {
-  position: relative;
-  display: grid;
   grid-template-columns: 1fr;
   place-items: center;
   height: 100%;
@@ -18,6 +16,7 @@
   }
 
   @include media('>tablet') {
+    display: grid;
     grid-template-columns: 4fr 1fr;
   }
   @include media('>desktop') {
