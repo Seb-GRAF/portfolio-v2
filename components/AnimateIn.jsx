@@ -26,7 +26,7 @@ const AnimateIn = ({ className, children }) => {
   }, [])
 
   return (
-    <div className={className} ref={divRef}>
+    <div className={`animate-in ${className}`} ref={divRef}>
       {children}
     </div>
   )

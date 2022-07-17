@@ -6,7 +6,7 @@
   margin-bottom: 2rem;
   margin-top: 4rem;
   margin-inline: auto;
-  max-width: 60rem;
+  max-width: 65rem;
   gap: 2rem;
 
   @include media('>phone') {
@@ -19,6 +19,7 @@
     display: grid;
     grid-template-columns: 4fr 1fr;
   }
+
   @include media('>desktop') {
     gap: 4rem;
   }
@@ -44,5 +45,8 @@
 
   @include media('<tablet') {
     display: none;
+  }
+  @include media('>desktop') {
+    width: 15rem;
   }
 }

@@ -30,10 +30,6 @@ const Hero = () => {
           </figure>
         </h1>
       </div>
-
-      <div className='divider'>
-        <div className='divider-line'></div>
-      </div>
     </section>
   )
 }

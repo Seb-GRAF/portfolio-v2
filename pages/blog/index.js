@@ -1,23 +1,22 @@
-import Head from 'next/head'
-import { PostCard, Categories, PostWidget, Breadcrumbs } from '../../components'
+import { useEffect } from 'react'
+import { PostCard, SEO, Breadcrumbs } from '../../components'
 import { getPosts } from '../../services'
 
 const Home = ({ posts }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <section className='blog'>
-      <Head>
-        <title>SG | Blog</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <SEO pageName='Blog' />
 
       <Breadcrumbs />
       <div className='blog-wrapper'>
         {posts
           .sort((a, b) => (a.node.createdAt > b.node.createdAt ? -1 : 1))
-          .map((post, index) => {
-            // if (index > 2) return
-            return <PostCard post={post.node} key={post.node.title} />
-          })}
+          .map((post, index) => (
+            <PostCard post={post.node} key={post.node.title} />
+          ))}
       </div>
     </section>
   )

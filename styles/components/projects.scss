@@ -5,10 +5,9 @@
   margin: 0 auto;
   padding-inline: 6vw;
   color: inherit;
-  padding-bottom: 6rem;
-  transform-origin: bottom;
+  padding-bottom: 2rem;
 
-  @include media('<phone') {
+  @include media('>phone') {
     padding-bottom: 2rem;
   }
 }
@@ -49,8 +48,12 @@
     }
   }
 
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
   @include media('<phone') {
-    padding-block: 2rem;
+    padding-block: 1rem;
   }
 }
 

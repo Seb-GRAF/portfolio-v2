@@ -16,6 +16,7 @@ const PostCard = ({ post }) => {
               src={post.featuredImage.url}
               alt={post.title}
               layout='fill'
+              priority={true}
               objectFit='contain'
               onLoadingComplete={({ naturalWidth, naturalHeight }) => {
                 const container =

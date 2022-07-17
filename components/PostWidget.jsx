@@ -6,24 +6,22 @@ import Image from 'next/image'
 import { getRecentPosts, getSimilarPosts } from '../services'
 
 const PostWidget = ({ categories, slug }) => {
-  const [relatedPosts, setRelatedPosts] = useState([])
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((result) =>
-        setRelatedPosts(result)
-      )
+      getSimilarPosts(categories, slug).then((result) => setPosts(result))
     } else {
-      getRecentPosts().then((result) => setRelatedPosts(result))
+      getRecentPosts().then((result) => setPosts(result))
     }
   }, [slug, categories])
 
   return (
     <div className='post-widget'>
-      <h3 className='post-widget__title text-xl mb-8 font-semibold border-b pb-4'>
+      <h3 className='post-widget__title'>
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
-      {relatedPosts.map((post) => (
+      {posts.map((post) => (
         <div key={post.title} className='post-widget__post'>
           <div className='post-widget__post-image'>
             <Image
@@ -38,7 +36,7 @@ const PostWidget = ({ categories, slug }) => {
               {moment(post.createdAt).format('DD MMM YYYY')}
             </time>
             <p className='post-widget__post-title'>
-              <Link href={`/${post.slug}`} key={post.title} className='post-md'>
+              <Link href={`/blog/${post.slug}`} key={post.title}>
                 {post.title}
               </Link>
             </p>

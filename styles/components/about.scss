@@ -1,21 +1,34 @@
 .about {
-  padding-top: 4rem;
   padding-bottom: 2rem;
   max-width: 100%;
   padding-inline: 6vw;
+  opacity: 0;
 }
 
 .about__wrapper {
   @extend %center-column;
 
+  position: relative;
   align-items: flex-start;
   margin-inline: auto;
-  gap: 4rem;
+  padding-top: 2rem;
+  gap: 2rem;
   width: 100%;
   max-width: 60rem;
 
-  @include media('<phone') {
-    gap: 2rem;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    // left: -10%;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.195);
+  }
+
+  @include media('>phone') {
+    gap: 4rem;
+    padding-top: 4rem;
   }
 }
 

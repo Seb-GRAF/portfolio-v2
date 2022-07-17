@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import Link from 'next/link'
 import Image from 'next/image'
+import AnimateIn from './AnimateIn'
 
 const Contact = () => {
   const form = useRef()
@@ -59,7 +60,7 @@ const Contact = () => {
     <section className='contact' id='contact'>
       <div className='contact__wrapper'>
         <h1 className='contact__title'>
-          <span>03.</span>
+          <span>04.</span>
           <span>Contact</span>
         </h1>
         <p className='contact__paragraph'>
@@ -67,7 +68,7 @@ const Contact = () => {
           Whether you have a question, an offer or just want to chat, send me an
           email or a message and I will get back to you!
         </p>
-        <div className='form__wrapper'>
+        <AnimateIn className='form__wrapper'>
           <div className='form__cta'>
             <div className='form__cta__links'>
               <Link
@@ -117,7 +118,7 @@ const Contact = () => {
               className='form__name'
               type='text'
               name='user_name'
-              placeholder='your name*'
+              placeholder='Name'
               required
             />
             <input
@@ -125,14 +126,14 @@ const Contact = () => {
               className='form__email'
               type='email'
               name='user_email'
-              placeholder='your email address*'
+              placeholder='Email'
               required
             />
             <textarea
               aria-label='Enter your message'
               className='form__message'
               name='message'
-              placeholder='your message*'
+              placeholder='Message'
               required
             />
             <button
@@ -155,7 +156,7 @@ const Contact = () => {
               </div>
             </button>
           </form>
-        </div>
+        </AnimateIn>
       </div>
     </section>
   )

@@ -79,6 +79,7 @@ export const getRecentPosts = async () => {
   query GetPostDetails(){
     posts(orderBy: createdAt_DESC, first: 3){
       title
+      excerpt
       featuredImage {
         url
       }
@@ -118,57 +119,57 @@ export const getSimilarPosts = async (categories, slug) => {
   return result.posts
 }
 
-export const getCategories = async () => {
-  const query = gql`
-    query GetCategories {
-      categories {
-        name
-        slug
-      }
-    }
-  `
+// export const getCategories = async () => {
+//   const query = gql`
+//     query GetCategories {
+//       categories {
+//         name
+//         slug
+//       }
+//     }
+//   `
 
-  const result = await graphcms.request(query)
+//   const result = await graphcms.request(query)
 
-  return result.categories
-}
+//   return result.categories
+// }
 
-export const getCategoryPosts = async (slug) => {
-  const query = gql`
-    query GetCategoryPosts($slug: String!) {
-      postsConnection(where: { categories_some: { slug: $slug } }) {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-  `
+// export const getCategoryPosts = async (slug) => {
+//   const query = gql`
+//     query GetCategoryPosts($slug: String!) {
+//       postsConnection(where: { categories_some: { slug: $slug } }) {
+//         edges {
+//           cursor
+//           node {
+//             author {
+//               bio
+//               name
+//               id
+//               photo {
+//                 url
+//               }
+//             }
+//             createdAt
+//             slug
+//             title
+//             excerpt
+//             featuredImage {
+//               url
+//             }
+//             categories {
+//               name
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `
 
-  const result = await graphcms.request(query, { slug })
+//   const result = await graphcms.request(query, { slug })
 
-  return result.postsConnection.edges
-}
+//   return result.postsConnection.edges
+// }
 
 // export const getCategoryPosts = async (slug) => {
 //   const query = gql`

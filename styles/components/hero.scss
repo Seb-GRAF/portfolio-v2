@@ -4,14 +4,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
+
   width: 100%;
   padding-inline: 6vw;
-  padding-top: 7rem;
+  padding-top: 5rem;
   box-sizing: border-box;
+  margin-bottom: 3rem;
 
-  @include media('<phone') {
-    padding-top: 5rem;
+  @include media('>phone') {
+    padding-top: 7rem;
+    margin-bottom: 5rem;
   }
 }
 

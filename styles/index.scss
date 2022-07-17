@@ -15,10 +15,11 @@ COMPONENTS
 */
 
 // index
-@import './components/about';
-@import './components/contact';
 @import './components/hero';
+@import './components/about';
 @import './components/projects';
+@import './components/blogs';
+@import './components/contact';
 
 // blog
 @import './components/postDetail';

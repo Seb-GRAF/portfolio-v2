@@ -1,13 +1,26 @@
 .contact {
   @extend %center;
 
+  position: relative;
   width: 100%;
   margin: 0 auto;
   margin-top: 1rem;
   padding: 4rem 6vw;
   color: $color-text-primary;
   transform-origin: top;
-  z-index: -2;
+  z-index: 1;
+  background-color: $color-accent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-accent;
+    z-index: -1;
+  }
 
   @include media('<phone') {
     padding-bottom: 1rem;
@@ -80,11 +93,10 @@
     }
 
     &::placeholder {
-      font-family: 'Libre Franklin';
-      font-size: 0.6rem;
-      color: inherit;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: $color-text-primary;
+      opacity: 0.8;
+      font-size: 0.8rem;
+      font-family: 'Libre Franklin', sans-serif;
     }
 
     &:-webkit-autofill {
@@ -94,7 +106,7 @@
     }
   }
 
-  .contact__form__message {
+  .form__message {
     resize: none;
     height: 5rem;
   }
@@ -150,18 +162,5 @@
       top: 0;
       transform: skewY(0deg);
     }
-  }
-
-  .form__button__wrapper {
-    @extend %link-button;
-  }
-
-  // .arrow {
-  //   max-width: 0.9rem;
-  //   max-height: 0.9rem;
-  // }
-
-  @include media('<phone') {
-    // align-self: center;
   }
 }

@@ -1,32 +1,21 @@
 import React from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 import { getPosts, getPostDetails } from '../../services'
 import {
   PostDetail,
   PostWidget,
-  Loader,
   Author,
   Comments,
   CommentsForm,
   Breadcrumbs,
+  SEO,
 } from '../../components'
 
 const PostDetails = ({ post }) => {
-  const router = useRouter()
-
-  if (router.isFallback) {
-    return <Loader />
-  }
-
   return (
     <>
-      <Head>
-        <title>SG | {post.title}</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
+      <SEO pageName={post.title} description={post.excerpt} />
       <section className='post-details'>
         <div className='post-details__wrapper'>
           <Breadcrumbs />
@@ -35,11 +24,7 @@ const PostDetails = ({ post }) => {
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
-        {/* <div className='col-span-1 lg:col-span-4'>
-          <div className='relative lg:sticky top-8'>
-          <Categories />
-          </div>
-        </div> */}
+
         <div className='post-details__aside'>
           <PostWidget
             slug={post.slug}
@@ -66,7 +51,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   }
 }
 

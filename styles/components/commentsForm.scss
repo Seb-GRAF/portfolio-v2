@@ -49,8 +49,8 @@
 
 .comments-form__name,
 .comments-form__email {
-  height: 3rem;
-  padding: 0.8rem;
+  height: 2rem;
+  padding: 0.5rem;
   width: 100%;
   font-size: 0.8rem;
   border: solid 1px rgba(0, 0, 0, 0.275);
@@ -58,6 +58,11 @@
   &::placeholder {
     font-size: 0.8rem;
     font-family: 'Libre Franklin', sans-serif;
+  }
+
+  @include media('>phone') {
+    height: 3rem;
+    padding: 0.8rem;
   }
 }
 
@@ -80,7 +85,7 @@
 }
 
 .comments-form__button-wrapper {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .comments-form__button {

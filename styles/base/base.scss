@@ -45,3 +45,7 @@ section {
 ::selection {
   background-color: $color-accent;
 }
+
+.animate-in {
+  opacity: 0;
+}

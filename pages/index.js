@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Head from 'next/head'
-import { Hero, About, Projects, Contact, AnimateIn } from '../components'
+import { getRecentPosts } from '../services'
+import { Hero, About, Projects, Contact, SEO, Blogs } from '../components'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import ScrollSmoother from 'gsap/dist/ScrollSmoother'
@@ -8,7 +8,7 @@ import SplitText from 'gsap/dist/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 
-export const Home = () => {
+export const Home = ({ recentPosts }) => {
   const animateIntro = () => {
     const hero = document.querySelector('.hero__main')
 
@@ -16,7 +16,7 @@ export const Home = () => {
       type: 'chars',
     })
 
-    gsap.set('.paragraph, .divider-line, .hero__vector', {
+    gsap.set('.paragraph, .hero__vector, .about', {
       opacity: '1',
     })
 
@@ -27,37 +27,15 @@ export const Home = () => {
       ease: 'power3',
       delay: '0.2',
     })
-    gsap.from('.nav__link', {
-      y: '-100%',
-      opacity: 0,
-      duration: '1',
-      ease: 'power3',
-      delay: '1',
-      stagger: '0.2',
-    })
-    gsap.from('.divider-line, .divider-text', {
-      y: '100%',
-      opacity: 0,
-      duration: '1',
-      ease: 'power3',
-      delay: '1.5',
-      stagger: '0.2',
-    })
-    gsap.from('.hero__vector', {
+
+    gsap.from('.hero__vector, .about', {
       opacity: 0,
       duration: '1',
       ease: 'power3',
     })
   }
-  // animate hero section on load
-  // useEffect(() => {
-  //   window.addEventListener('load', animateIntro)
-  //   return () => {
-  //     window.removeEventListener('load', animateIntro)
-  //   }
-  // }, [])
 
-  // scroll trigger animation
+  // scroll trigger animations
   useEffect(() => {
     setTimeout(() => {
       animateIntro()
@@ -72,7 +50,7 @@ export const Home = () => {
         scrub: 1.5,
       },
 
-      color: '#f3f5fa',
+      color: '#faf8f3',
       backgroundColor: '#191919',
     })
     gsap.to('header', {
@@ -83,7 +61,7 @@ export const Home = () => {
         scrub: 1.5,
       },
 
-      color: '#f3f5fa',
+      color: '#faf8f3',
     })
     gsap.to('.line1, .line2', {
       scrollTrigger: {
@@ -93,7 +71,7 @@ export const Home = () => {
         scrub: 1.5,
       },
 
-      backgroundColor: '#f3f5fa',
+      backgroundColor: '#faf8f3',
     })
     gsap.to('.nav__menu', {
       scrollTrigger: {
@@ -120,35 +98,36 @@ export const Home = () => {
     })
 
     // change background color when nearing contact section
-    gsap.to('.projects', {
+    gsap.to('.projects, .blogs', {
       scrollTrigger: {
-        trigger: '.projects',
-        start: 'center bottom',
+        trigger: '.blogs',
+        start: 'top bottom',
         end: '+=1',
         scrub: true,
       },
       backgroundColor: '#191919',
     })
-    gsap.to('body', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'center bottom',
-        end: '+=1',
-        scrub: true,
-      },
+    // gsap.to('body', {
+    //   scrollTrigger: {
+    //     trigger: '.blogs',
+    //     start: 'top bottom',
+    //     end: '+=1',
+    //     scrub: true,
+    //   },
 
-      backgroundColor: '#fdffc3',
-    })
+    //   backgroundColor: '#fdffc3',
+    // })
 
     // contact animation
-    gsap.to('.projects', {
+    gsap.to('.blogs', {
       scrollTrigger: {
         trigger: '.contact',
-        start: window.innerWidth < 768 ? 'top-=20% bottom' : 'top bottom',
-        end: 'top top',
+        start:
+          window.innerWidth > 768 ? 'center+=10% bottom' : 'center-=10% bottom',
+        end: '+=300',
         scrub: true,
       },
-      scale: window.innerWidth < 768 ? 0.8 : 0.9,
+      scale: window.innerWidth > 768 ? 0.9 : 0.8,
       ease: 'power2.inOut',
     })
 
@@ -160,23 +139,27 @@ export const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>SG | Frontend Developer</title>
-        <meta
-          name='description'
-          content="Hey, I'm Seb, a frontend developer based in Switzerland. You can check out some of my projects on this website as well as my personal blog!"
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <SEO />
 
       <main className='home'>
         <Hero />
         <About />
         <Projects />
+        <Blogs recentPosts={recentPosts} />
         <Contact />
       </main>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const posts = (await getRecentPosts()) || []
+
+  return {
+    props: {
+      recentPosts: posts,
+    },
+  }
 }
 
 export default Home

@@ -1,27 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-// import gsap from 'gsap'
-
-// import { getCategories } from '../services'
-
-const NavLink = ({ name, href }) => {
-  const router = useRouter()
-  console.log(router)
-
-  return (
-    <Link href={href} passHref>
-      <a
-        className={`link__wrapper ${
-          router.asPath.includes(href) && 'link__wrapper--active'
-        }`}>
-        <div className='link' data-link-alt={name}>
-          <span>{name}</span>
-        </div>
-      </a>
-    </Link>
-  )
-}
+import { NavLink } from './'
 
 const Header = () => {
   const [navMenu, setNavMenu] = useState(false)
@@ -38,7 +17,7 @@ const Header = () => {
   return (
     <>
       <header className='header'>
-        <Link href='/#hero' passHref className='link'>
+        <Link href='/' passHref className='link'>
           <a
             tabIndex='1'
             className='logo'
@@ -88,18 +67,18 @@ const Header = () => {
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/#contact'} passHref>
+            <Link href={'/blog'} passHref>
               <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>03.</span>
-                <span>Contact</span>
+                <span>Blog</span>
               </a>
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/blog'} passHref>
+            <Link href={'/#contact'} passHref>
               <a className='item__wrapper' onClick={handleNav}>
                 <span className='marker'>04.</span>
-                <span>Blog</span>
+                <span>Contact</span>
               </a>
             </Link>
           </li>

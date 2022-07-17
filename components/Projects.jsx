@@ -6,6 +6,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import SplitText from 'gsap/dist/SplitText'
 import ScrollSmoother from 'gsap/dist/ScrollSmoother'
 import Flip from 'gsap/dist/Flip'
+import { StyledLink, AnimateIn } from './'
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, Flip)
 
@@ -19,7 +20,7 @@ const ProjectContainer = ({
 }) => {
   return (
     <article className={`project ${projectName}`}>
-      <div className='project__wrapper'>
+      <AnimateIn className='project__wrapper'>
         <div
           className='project__preview'
           href={`https://seb-graf.github.io/${projectName}`}
@@ -48,59 +49,27 @@ const ProjectContainer = ({
 
             <ul className='project__links'>
               <li>
-                <Link
+                <StyledLink
                   href={
                     liveLink
                       ? liveLink
                       : `https://seb-graf.github.io/${projectName}`
                   }
-                  passHref>
-                  <a className='link__wrapper'>
-                    <div data-link-alt='Live Site' className='link'>
-                      <span>Live Site</span>
-                    </div>
-                    <div className='link__arrow'>
-                      <Image
-                        src='/arrow.png'
-                        alt=''
-                        width='10'
-                        height='10'
-                        unoptimized='true'
-                        layout='responsive'
-                      />
-                    </div>
-                  </a>
-                </Link>
+                  name='Live Site'
+                />
               </li>
               {!githubLinkLocked && (
                 <li>
-                  <Link
+                  <StyledLink
                     href={`https://github.com/seb-graf/${projectName}`}
-                    passHref
-                    target='_blank'
-                    rel='noopener noreferrer'>
-                    <a className='link__wrapper'>
-                      <div data-link-alt='GitHub' className='link'>
-                        <span>GitHub</span>
-                      </div>
-                      <div className='link__arrow'>
-                        <Image
-                          src='/arrow.png'
-                          alt=''
-                          width='10'
-                          height='10'
-                          unoptimized='true'
-                          layout='responsive'
-                        />
-                      </div>
-                    </a>
-                  </Link>
+                    name='Github'
+                  />
                 </li>
               )}
             </ul>
           </div>
         </div>
-      </div>
+      </AnimateIn>
     </article>
   )
 }
