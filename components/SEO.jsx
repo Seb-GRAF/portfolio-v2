@@ -1,12 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 
-const DOMAIN = 'https://www.seb-graf.com'
+const DOMAIN = 'https://seb-graf.com'
 
 const SEO = ({
   title = 'Sébastien Graf',
-  description = "Seb is a frontend developer who likes building stuff on the web. With this passion for tech, he's always looking to learn new technologies.",
-  pageName = 'Web Developer',
+  description = "Seb is a frontend developer who likes building stuff on the web. With his passion for tech, he's always looking to learn new technologies.",
+  pageName = 'Frontend Developer',
   canonical = DOMAIN,
   ogType = 'website',
 }) => {

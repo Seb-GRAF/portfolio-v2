@@ -96,7 +96,7 @@
       color: $color-text-primary;
       opacity: 0.8;
       font-size: 0.8rem;
-      font-family: 'Libre Franklin', sans-serif;
+      font-family: $font-primary;
     }
 
     &:-webkit-autofill {
@@ -124,6 +124,7 @@
 
 .form__cta__links {
   @extend %center-column;
+
   height: 100%;
   justify-content: space-evenly;
 

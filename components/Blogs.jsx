@@ -26,25 +26,29 @@ const Blogs = ({ recentPosts }) => {
                     alt={post.title}
                     layout='fill'
                     objectFit='cover'
-                    onLoadingComplete={({ naturalWidth, naturalHeight }) => {
-                      const container = document.querySelector(
-                        `.blogs__post-image--${index}`
-                      )
-                      container.style.aspectRatio = `${naturalWidth}/${naturalHeight}`
-                    }}
                   />
                 </Link>
               </AnimateIn>
 
               <AnimateIn className='blogs__post-wrapper'>
+                <ul className='blogs__post-categories'>
+                  {post.categories.map((category) => (
+                    <li className='blogs__post-category' key={category.slug}>
+                      {category.name}
+                    </li>
+                  ))}
+                </ul>
+
                 <time dateTime={post.createdAt} className='blogs__post-date'>
                   {moment(post.createdAt).format('DD MMM YYYY')}
                 </time>
+
                 <Link href={`/blog/${post.slug}`} key={post.title} passHref>
                   <a>
                     <h3 className='blogs__post-title'>{post.title}</h3>
                   </a>
                 </Link>
+
                 <p>{post.excerpt}</p>
               </AnimateIn>
             </section>

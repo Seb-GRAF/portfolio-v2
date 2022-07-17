@@ -80,6 +80,10 @@ export const getRecentPosts = async () => {
     posts(orderBy: createdAt_DESC, first: 3){
       title
       excerpt
+      categories {
+              name
+              slug
+           }
       featuredImage {
         url
       }

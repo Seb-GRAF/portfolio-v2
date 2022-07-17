@@ -11,6 +11,7 @@ const Home = ({ posts }) => {
       <SEO pageName='Blog' />
 
       <Breadcrumbs />
+      <h1 className='blog__title'>Blog</h1>
       <div className='blog-wrapper'>
         {posts
           .sort((a, b) => (a.node.createdAt > b.node.createdAt ? -1 : 1))

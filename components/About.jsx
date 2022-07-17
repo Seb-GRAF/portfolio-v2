@@ -42,7 +42,10 @@ const SkillsCarousel = () => {
           <Skill name='mongodb' icon='devicon-mongodb-plain' />
         </div>
       </div>
-      <button className='skills-carousel__prev' onClick={scrollPrev}>
+      <button
+        className='skills-carousel__prev'
+        aria-label='previous'
+        onClick={scrollPrev}>
         <svg
           className='embla__button__svg'
           viewBox='137.718 -1.001 366.563 644'>
@@ -52,7 +55,10 @@ const SkillsCarousel = () => {
           />
         </svg>
       </button>
-      <button className='skills-carousel__next' onClick={scrollNext}>
+      <button
+        className='skills-carousel__next'
+        aria-label='next'
+        onClick={scrollNext}>
         <svg className='embla__button__svg' viewBox='0 0 238.003 238.003'>
           <path
             fill='currentColor'

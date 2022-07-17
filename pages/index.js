@@ -12,11 +12,11 @@ export const Home = ({ recentPosts }) => {
   const animateIntro = () => {
     const hero = document.querySelector('.hero__main')
 
-    const split = new SplitText(hero.querySelectorAll('.paragraph'), {
+    const split = new SplitText(hero.querySelectorAll('.title'), {
       type: 'chars',
     })
 
-    gsap.set('.paragraph, .hero__vector, .about', {
+    gsap.set('.title, .hero__vector, .about', {
       opacity: '1',
     })
 
@@ -50,7 +50,7 @@ export const Home = ({ recentPosts }) => {
         scrub: 1.5,
       },
 
-      color: '#faf8f3',
+      color: '#ffffff',
       backgroundColor: '#191919',
     })
     gsap.to('header', {
@@ -61,7 +61,7 @@ export const Home = ({ recentPosts }) => {
         scrub: 1.5,
       },
 
-      color: '#faf8f3',
+      color: '#ffffff',
     })
     gsap.to('.line1, .line2', {
       scrollTrigger: {
@@ -71,7 +71,7 @@ export const Home = ({ recentPosts }) => {
         scrub: 1.5,
       },
 
-      backgroundColor: '#faf8f3',
+      backgroundColor: '#ffffff',
     })
     gsap.to('.nav__menu', {
       scrollTrigger: {

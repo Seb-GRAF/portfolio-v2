@@ -59,10 +59,10 @@ const Contact = () => {
   return (
     <section className='contact' id='contact'>
       <div className='contact__wrapper'>
-        <h1 className='contact__title'>
+        <h2 className='contact__title'>
           <span>04.</span>
           <span>Contact</span>
-        </h1>
+        </h2>
         <p className='contact__paragraph'>
           I&apos;m currently looking for a role as a front-end web developer.
           Whether you have a question, an offer or just want to chat, send me an
@@ -75,9 +75,8 @@ const Contact = () => {
                 href='https://github.com/seb-graf'
                 passHref
                 target='_blank'
-                rel='noopener noreferrer'
-                aria-label='GitHub'>
-                <a className='form__cta__link'>
+                rel='noopener noreferrer'>
+                <a className='form__cta__link' aria-label='GitHub'>
                   <i
                     className='devicon-github-original'
                     alt=''
@@ -88,9 +87,8 @@ const Contact = () => {
                 href='https://www.linkedin.com/in/sebastien-graf-a9635922a/'
                 passHref
                 target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Linkedin'>
-                <a className='form__cta__link'>
+                rel='noopener noreferrer'>
+                <a className='form__cta__link' aria-label='Linkedin'>
                   <i
                     className='devicon-linkedin-plain'
                     alt=''
@@ -101,9 +99,8 @@ const Contact = () => {
                 href='mailto:seb.graf.sg@gmail.com'
                 passHref
                 target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Email'>
-                <a className='form__cta__link'>
+                rel='noopener noreferrer'>
+                <a className='form__cta__link' aria-label='Email'>
                   <i
                     className='devicon-google-plain'
                     alt=''

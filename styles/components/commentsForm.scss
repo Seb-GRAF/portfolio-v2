@@ -36,7 +36,7 @@
 
   &::placeholder {
     font-size: 0.8rem;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: $font-primary;
   }
 }
 
@@ -57,7 +57,7 @@
 
   &::placeholder {
     font-size: 0.8rem;
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: $font-primary;
   }
 
   @include media('>phone') {

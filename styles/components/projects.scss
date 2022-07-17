@@ -142,7 +142,6 @@
   h3 {
     position: relative;
     z-index: -1;
-    font-family: 'Questrial';
     font-size: 1.2rem;
     color: $color-text-primary;
     background-color: $color-accent;
@@ -156,9 +155,9 @@
   }
 
   i {
-    font-family: 'Space Grotesk';
+    font-family: $font-code;
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 

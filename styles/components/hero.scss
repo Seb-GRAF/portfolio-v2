@@ -25,12 +25,12 @@
   margin-inline: auto;
 }
 
-.hero__paragraph {
+.hero__title {
   position: relative;
-  font-family: 'Questrial';
+  font-family: $font-display;
   height: fit-content;
   width: 100%;
-  max-width: 80vw;
+  max-width: 70vw;
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -40,7 +40,7 @@
   }
 }
 
-.paragraph__wrapper {
+.title__wrapper {
   overflow: hidden;
   text-align: left;
   width: 100%;
@@ -59,11 +59,10 @@
   }
 }
 
-.paragraph {
+.title {
   display: inline-block;
   text-transform: uppercase;
-  font-size: 10vw;
-  font-weight: 400;
+  font-size: 8vw;
   transform-origin: bottom left;
   opacity: 0;
 
@@ -80,11 +79,11 @@
   }
 }
 
-.paragraph__wrapper:first-child {
+.title__wrapper:first-child {
   align-self: flex-start;
 }
 
-.paragraph__wrapper:last-child {
+.title__wrapper:last-child {
   align-self: flex-end;
   text-align: right;
 }
@@ -98,7 +97,7 @@
   width: 40vw;
   overflow: hidden;
   object-fit: cover;
-  color: #d8d8b7;
+  color: #eeeebc;
   opacity: 0;
 
   .hero__vector-image {

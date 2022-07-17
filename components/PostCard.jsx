@@ -16,13 +16,8 @@ const PostCard = ({ post }) => {
               src={post.featuredImage.url}
               alt={post.title}
               layout='fill'
+              objectFit='cover'
               priority={true}
-              objectFit='contain'
-              onLoadingComplete={({ naturalWidth, naturalHeight }) => {
-                const container =
-                  postCardRef.current.querySelector('.postcard__image')
-                container.style.aspectRatio = `${naturalWidth}/${naturalHeight}`
-              }}
             />
           </div>
         </Link>
@@ -31,16 +26,14 @@ const PostCard = ({ post }) => {
         <div className='postcard__categories'>
           {post.categories.map((category) => (
             <li className='postcard__category' key={category.slug}>
-              {/* <Link href={`/blog/category/${category.slug}`}> */}
               {category.name}
-              {/* </Link> */}
             </li>
           ))}
         </div>
 
-        <h1 className='postcard__title'>
+        <h2 className='postcard__title'>
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        </h1>
+        </h2>
 
         <p className='postcard__description'>{post.excerpt}</p>
 

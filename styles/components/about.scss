@@ -24,10 +24,19 @@
     width: 100%;
     height: 2px;
     background-color: rgba(0, 0, 0, 0.195);
+
+    @include media('>tablet') {
+      width: 105%;
+      left: -2.5%;
+    }
+    @include media('>desktop') {
+      width: 120%;
+      left: -10%;
+    }
   }
 
   @include media('>phone') {
-    gap: 4rem;
+    gap: 3rem;
     padding-top: 4rem;
   }
 }

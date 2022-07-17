@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: 'Libre Franklin';
+  font-family: $font-primary;
   font-size: clamp(1.2rem, 1.2vw, 1.3rem);
   color: $color-text-primary;
   background-color: $color-off-white;
@@ -20,6 +20,15 @@ body {
   padding: 0;
   color: inherit;
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-display;
 }
 
 #__next {

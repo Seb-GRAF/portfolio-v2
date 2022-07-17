@@ -3,10 +3,10 @@
   margin-inline: auto;
   padding-inline: 1rem;
   margin-bottom: 2rem;
-  max-width: 65rem;
+  max-width: 70rem;
 
   @include media('>phone') {
-    padding-inline: 2rem;
+    padding-inline: 6vw;
     margin-top: 5rem;
   }
 }
@@ -14,7 +14,7 @@
 .blog-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 2rem;
 
   @include media('>phone') {
     grid-template-columns: repeat(4, 1fr);
@@ -22,11 +22,14 @@
   @include media('>tablet') {
     grid-template-columns: repeat(3, 1fr);
   }
-  // display: flex;
-  // flex-wrap: wrap;
-  // gap: 1rem;
+}
 
-  // @include media('>tablet') {
-  //   gap: 2rem;
-  // }
+.blog__title {
+  margin-block: 2rem;
+  font-size: 2em;
+  font-weight: 600;
+
+  @include media('>phone') {
+    font-size: 2.5rem;
+  }
 }

@@ -56,12 +56,8 @@ const PostDetail = ({ post }) => {
             src={post.featuredImage.url}
             alt={post.title}
             layout='fill'
-            objectFit='contain'
+            objectFit='cover'
             priority={true}
-            onLoadingComplete={({ naturalWidth, naturalHeight }) => {
-              const container = document.querySelector('.post-detail__image')
-              container.style.aspectRatio = `${naturalWidth}/${naturalHeight}`
-            }}
           />
         </div>
       </AnimateIn>

@@ -19,7 +19,7 @@ const Header = () => {
       <header className='header'>
         <Link href='/' passHref className='link'>
           <a
-            tabIndex='1'
+            aria-label='Home'
             className='logo'
             onClick={(e) => {
               if (navMenu) handleNav()
