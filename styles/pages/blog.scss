@@ -33,3 +33,50 @@
     font-size: 2.5rem;
   }
 }
+
+.blog__filter-button {
+  cursor: pointer;
+  display: flex;
+  margin-block: 1rem;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.blog__categories {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  background-color: $color-off-white;
+  position: absolute;
+  top: 9rem;
+  left: 0;
+  padding: 1rem;
+  padding-top: 0;
+  gap: 0.5rem;
+
+  @include media('>phone') {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-color: none;
+    align-items: center;
+    margin-block: 1rem;
+    gap: 1rem;
+  }
+}
+.blog__category {
+  width: fit-content;
+  &--active > .blog__category-button {
+    text-decoration: underline;
+  }
+}
+
+.blog__category-button {
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  text-underline-offset: 2px;
+}

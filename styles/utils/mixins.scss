@@ -19,16 +19,18 @@
 }
 
 %link-button {
+  // font-family: $font-display;
   color: inherit;
   font-weight: 400;
+
   .link {
     color: inherit;
     position: relative;
     display: inline-block;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     overflow: hidden;
-    height: 1.2rem;
+    height: 1.4rem;
   }
 
   .link__arrow {
@@ -52,17 +54,18 @@
     right: 0;
     transition: top 300ms $ease-swift, transform 300ms $ease-swift;
   }
+  @media (pointer: fine) {
+    &:hover {
+      .link span {
+        transform: translateY(-114%);
+      }
+      .link::after {
+        top: 0;
+      }
 
-  &:hover {
-    .link span {
-      transform: translateY(-102%);
-    }
-    .link::after {
-      top: 0;
-    }
-
-    .link__arrow {
-      transform: rotate(45deg);
+      .link__arrow {
+        transform: rotate(45deg);
+      }
     }
   }
 }

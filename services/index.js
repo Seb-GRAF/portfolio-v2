@@ -123,20 +123,20 @@ export const getSimilarPosts = async (categories, slug) => {
   return result.posts
 }
 
-// export const getCategories = async () => {
-//   const query = gql`
-//     query GetCategories {
-//       categories {
-//         name
-//         slug
-//       }
-//     }
-//   `
+export const getCategories = async () => {
+  const query = gql`
+    query GetCategories {
+      categories {
+        name
+        slug
+      }
+    }
+  `
 
-//   const result = await graphcms.request(query)
+  const result = await graphcms.request(query)
 
-//   return result.categories
-// }
+  return result.categories
+}
 
 // export const getCategoryPosts = async (slug) => {
 //   const query = gql`
