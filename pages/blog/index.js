@@ -134,7 +134,7 @@ const Blog = ({ posts, categories }) => {
 }
 
 // fetches posts from services
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const posts = (await getPosts()) || []
   const categories = (await getCategories()) || []
 
