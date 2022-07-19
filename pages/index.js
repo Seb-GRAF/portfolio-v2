@@ -37,9 +37,9 @@ export const Home = ({ recentPosts }) => {
 
   // scroll trigger animations
   useEffect(() => {
-    setTimeout(() => {
-      animateIntro()
-    }, 500)
+    // setTimeout(() => {
+    animateIntro()
+    // }, 500)
 
     //dark bg + light nav
     gsap.to('html', {

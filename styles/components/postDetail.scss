@@ -54,6 +54,7 @@
   width: 100%;
   margin-bottom: 2rem;
   aspect-ratio: 16/9;
+  background-color: #fdffc341;
 }
 
 .post-detail__wrapper {
@@ -67,8 +68,6 @@
   @include media('>phone') {
     margin-bottom: 6rem;
     img {
-      width: 95%;
-      left: 2.5%;
       margin-block: 2rem;
     }
   }

@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -31,13 +30,6 @@ const ProjectContainer = ({
             layout='fill'
             objectFit='cover'
           />
-          <video
-            muted
-            loop
-            onMouseOver={(event) => event.target.play()}
-            onMouseOut={(event) => event.target.pause()}
-            src={`/projects-videos/${projectName}.mp4`}
-            alt='screen recording of the project showing what it looks like to navigate through the website'></video>
         </div>
         <div className='project__description'>
           <h3>{projectTitle}</h3>

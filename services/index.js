@@ -77,7 +77,7 @@ export const getPostDetails = async (slug) => {
 export const getRecentPosts = async () => {
   const query = gql`
   query GetPostDetails(){
-    posts(orderBy: createdAt_DESC, first: 3){
+    posts(orderBy: createdAt_DESC, first: 2){
       title
       excerpt
       categories {
