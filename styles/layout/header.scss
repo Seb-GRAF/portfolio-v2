@@ -199,3 +199,13 @@
     line-height: 1.5;
   }
 }
+
+.new-tag {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.7rem;
+  transform: rotate(25deg);
+  color: inherit;
+  font-size: 0.6rem;
+  font-weight: 900;
+}

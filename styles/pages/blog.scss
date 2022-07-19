@@ -25,11 +25,13 @@
 }
 
 .blog__title {
-  margin-block: 2rem;
+  margin-block: 1rem;
+
   font-size: 2em;
   font-weight: 600;
 
   @include media('>phone') {
+    margin-block: 2rem;
     font-size: 2.5rem;
   }
 }
@@ -40,6 +42,7 @@
   margin-block: 1rem;
   font-size: 1rem;
   padding: 0;
+  color: inherit;
 }
 
 .blog__categories {
@@ -48,7 +51,7 @@
   z-index: 10;
   background-color: $color-off-white;
   position: absolute;
-  top: 9rem;
+  top: 7rem;
   left: 0;
   padding: 1rem;
   padding-top: 0;
@@ -63,12 +66,14 @@
     padding: 0;
     background-color: none;
     align-items: center;
-    margin-block: 1rem;
+    margin-block: 2rem;
     gap: 1rem;
   }
 }
 .blog__category {
+  color: $color-text-primary;
   width: fit-content;
+
   &--active > .blog__category-button {
     text-decoration: underline;
   }
@@ -77,6 +82,7 @@
 .blog__category-button {
   cursor: pointer;
   padding: 0;
+  color: $color-text-primary;
   font-size: 1rem;
   text-underline-offset: 2px;
 }

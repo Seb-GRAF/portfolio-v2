@@ -8,21 +8,27 @@ const AnimateIn = ({ className, children }) => {
   const divRef = useRef(null)
 
   useEffect(() => {
-    gsap.set(divRef.current, {
+    const ref = divRef.current
+
+    gsap.set(ref, {
       opacity: 0,
       y: 50,
     })
 
     // animates when entering viewport
-    gsap.to(divRef.current, {
+    gsap.to(ref, {
       scrollTrigger: {
-        trigger: divRef.current,
+        trigger: ref,
       },
       duration: 1,
       opacity: 1,
       translateY: 0,
       ease: 'power3.out',
     })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
   }, [])
 
   return (

@@ -40,7 +40,7 @@ const Blogs = ({ recentPosts }) => {
                 </ul>
 
                 <time dateTime={post.createdAt} className='blogs__post-date'>
-                  {moment(post.createdAt).format('DD MMM YYYY')}
+                  {moment(post.createdAt).format('DD MMMM YYYY')}
                 </time>
 
                 <Link href={`/blog/${post.slug}`} key={post.title} passHref>

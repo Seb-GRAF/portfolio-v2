@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const NavLink = ({ name, href }) => {
+const NavLink = ({ name, href, children }) => {
   const router = useRouter()
 
   return (
@@ -14,6 +14,9 @@ const NavLink = ({ name, href }) => {
         <div className='link' data-link-alt={name}>
           <span>{name}</span>
         </div>
+        {!router.asPath.includes('/blog') && (
+          <React.Fragment>{children}</React.Fragment>
+        )}
       </a>
     </Link>
   )

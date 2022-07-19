@@ -49,7 +49,7 @@ const PostCard = ({ post }) => {
             <p className='postcard__author-name'>{post.author.name}</p>
           </div>
           <p className='postcard__date'>
-            {moment(post.createdAt).format('DD MMM YYYY')}
+            {moment(post.createdAt).format('DD MMMM YYYY')}
           </p>
         </div>
       </AnimateIn>

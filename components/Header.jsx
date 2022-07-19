@@ -41,7 +41,10 @@ const Header = () => {
           <NavLink name='About' href='/#about' />
           <NavLink name='Projects' href='/#projects' />
           <NavLink name='Contact' href='/#contact' />
-          <NavLink name='Blog' href='/blog' />
+          <NavLink name='Blog' href='/blog'>
+            {/* "new" tag */}
+            <span className='new-tag'>New</span>
+          </NavLink>
         </nav>
         <button className='nav__sandwich' onClick={handleNav}>
           <span className='line1'></span>

@@ -16,7 +16,7 @@ export const Home = ({ recentPosts }) => {
       type: 'chars',
     })
 
-    gsap.set('.title, .hero__vector, .about', {
+    gsap.set('.title', {
       opacity: '1',
     })
 
@@ -28,8 +28,8 @@ export const Home = ({ recentPosts }) => {
       delay: '0.2',
     })
 
-    gsap.from('.hero__vector, .about', {
-      opacity: 0,
+    gsap.to('.hero__vector, .about', {
+      opacity: 1,
       duration: '1',
       ease: 'power3',
     })
