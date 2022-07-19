@@ -6,8 +6,8 @@ import { gsap } from 'gsap'
 import NextNProgress from 'nextjs-progressbar'
 
 const MyApp = ({ Component, pageProps }) => {
+  // smooth scroll
   useEffect(() => {
-    // init smooth scroll
     const lenis = new Lenis({
       lerp: 0.1,
       smooth: true,
@@ -18,24 +18,11 @@ const MyApp = ({ Component, pageProps }) => {
       requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-    // removes preloader after first load
-    // const removePreloader = () => {
-    //   gsap.to('.preloader', {
-    //     opacity: 0,
-    //     duration: 0.5,
-    //     onComplete: () => {
-    //       document.querySelector('.preloader').remove()
-    //     },
-    //   })
-    // }
-    // window.addEventListener('load', removePreloader)
-    // return () => {
-    //   window.removeEventListener('load', removePreloader)
-    // }
   }, [])
 
   return (
     <Layout>
+      {/* progress bar on route change */}
       <NextNProgress
         color='#000'
         startPosition={0.3}

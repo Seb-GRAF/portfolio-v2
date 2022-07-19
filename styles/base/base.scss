@@ -29,6 +29,11 @@ h4,
 h5,
 h6 {
   font-family: $font-display;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.5;
 }
 
 #__next {
@@ -50,11 +55,16 @@ section {
 ::-webkit-scrollbar {
   display: none;
 }
-
 ::selection {
   background-color: $color-accent;
 }
 
 .animate-in {
   opacity: 0;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
 }

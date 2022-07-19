@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
       {/* <Preloader /> */}
       <Header />
       {children}
+      <footer>&copy; Copyright 2022, Sébastien Graf</footer>
     </>
   )
 }

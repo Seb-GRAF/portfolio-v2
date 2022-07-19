@@ -1,35 +1,47 @@
 .author {
   position: relative;
   width: 100%;
-  margin-bottom: 1rem;
-  filter: $drop-shadow-light;
-}
+  padding: 1.5rem 1rem;
+  padding-bottom: 1rem;
 
-.author__title {
-  position: absolute;
-  top: -2rem;
-  left: 1rem;
-  background-color: $color-accent;
-  width: fit-content;
-  padding: 0.5rem;
-  z-index: 1;
+  @include media('>phone') {
+    padding: 3rem 1rem;
+  }
 }
 
 .author__info {
-  @extend %center;
+  @extend %center-column;
 
+  justify-content: center;
+  align-items: flex-start;
   position: relative;
   gap: 1rem;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  background-color: white;
-  z-index: 2;
   text-align: left;
 
   @include media('>phone') {
-    padding: 2rem;
-    gap: 2rem;
+    flex-direction: row;
+    align-items: center;
   }
+}
+
+.author__description {
+  @extend %center;
+  gap: 1rem;
+
+  @include media('>phone') {
+    // width: 15rem;
+    flex-shrink: 0;
+    padding-right: 1rem;
+    border-right: solid 1px $color-dark-grey;
+  }
+}
+
+.author__title {
+  opacity: 0.8;
+}
+
+.author__image-wrapper {
+  width: 2rem;
 }
 
 .author__image {
@@ -37,6 +49,6 @@
 }
 
 .author__name {
-  margin-bottom: 1rem;
   font-weight: 700;
+  line-height: 1.5;
 }

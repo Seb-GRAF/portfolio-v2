@@ -1,5 +1,6 @@
 .breadcrumbs {
   display: flex;
+  align-items: flex-start;
   width: 100%;
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -8,13 +9,13 @@
 
 .crumb {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .crumb__divider {
   margin-right: 0.5rem;
   font-size: 0.5rem;
-  line-height: 0;
+  line-height: 2.5;
 }
 
 .crumb__last-text {

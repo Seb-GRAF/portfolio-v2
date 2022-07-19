@@ -47,7 +47,7 @@ const PostDetail = ({ post }) => {
           </div>
 
           <p className='post-detail__date'>
-            Created on the {moment(post.createdAt).format('Do of MMMM YYYY')}
+            {moment(post.createdAt).format('DD MMMM YYYY')}
           </p>
         </div>
 

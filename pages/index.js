@@ -107,16 +107,10 @@ export const Home = ({ recentPosts }) => {
       },
       backgroundColor: '#191919',
     })
-    // gsap.to('body', {
-    //   scrollTrigger: {
-    //     trigger: '.blogs',
-    //     start: 'top bottom',
-    //     end: '+=1',
-    //     scrub: true,
-    //   },
-
-    //   backgroundColor: '#fdffc3',
-    // })
+    gsap.set('footer', {
+      backgroundColor: '#fdffc3',
+      color: '#191919',
+    })
 
     // contact animation
     gsap.to('.blogs', {
@@ -132,6 +126,12 @@ export const Home = ({ recentPosts }) => {
     })
 
     return () => {
+      // sets footer to base color
+      gsap.set('footer', {
+        backgroundColor: 'inherit',
+        color: 'inherit',
+      })
+
       // kills all scroll triggers on dismount
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
@@ -152,8 +152,8 @@ export const Home = ({ recentPosts }) => {
   )
 }
 
-export const getStaticProps = async () => {
-  const posts = (await getRecentPosts()) || []
+export const getServerSideProps = async () => {
+  const posts = await getRecentPosts()
 
   return {
     props: {
