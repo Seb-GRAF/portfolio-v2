@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
   const postCardRef = useRef(null)
 
   return (
-    <div className='postcard' ref={postCardRef}>
+    <article className='postcard' ref={postCardRef}>
       <AnimateIn>
         <Link href={`/blog/${post.slug}`} passHref>
           <div className='postcard__image'>
@@ -23,13 +23,13 @@ const PostCard = ({ post }) => {
         </Link>
       </AnimateIn>
       <AnimateIn>
-        <div className='postcard__categories'>
+        <ul className='postcard__categories'>
           {post.categories.map((category) => (
             <li className='postcard__category' key={category.slug}>
               {category.name}
             </li>
           ))}
-        </div>
+        </ul>
 
         <h2 className='postcard__title'>
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
@@ -53,7 +53,7 @@ const PostCard = ({ post }) => {
           </p>
         </div>
       </AnimateIn>
-    </div>
+    </article>
   )
 }
 

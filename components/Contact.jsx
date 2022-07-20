@@ -68,7 +68,7 @@ const Contact = () => {
           Whether you have a question, an offer or just want to chat, send me an
           email or a message and I will get back to you!
         </p>
-        <AnimateIn className='form__wrapper'>
+        <div className='form__wrapper'>
           <div className='form__cta'>
             <div className='form__cta__links'>
               <Link
@@ -153,7 +153,7 @@ const Contact = () => {
               </div>
             </button>
           </form>
-        </AnimateIn>
+        </div>
       </div>
     </section>
   )

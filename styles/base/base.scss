@@ -7,8 +7,8 @@
 html {
   font-family: $font-primary;
   font-size: clamp(1.2rem, 1.2vw, 1.3rem);
-  color: $color-text-primary;
-  background-color: $color-off-white;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-main);
   scrollbar-width: none;
   min-height: 100vh;
 }
@@ -16,10 +16,13 @@ html {
 body {
   @extend %center-column;
 
+  position: relative;
   margin: 0;
   padding: 0;
   color: inherit;
   line-height: 1.5;
+  background-color: var(--color-bg-main);
+  transition: background-color 500ms, color 500ms;
 }
 
 h1,
@@ -37,6 +40,7 @@ p {
 }
 
 #__next {
+  color: inherit;
   width: 100%;
 }
 
@@ -56,7 +60,7 @@ section {
   display: none;
 }
 ::selection {
-  background-color: $color-accent;
+  background-color: var(--color-bg-accent);
 }
 
 .animate-in {
@@ -64,7 +68,50 @@ section {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
   padding: 1rem;
   text-align: center;
   font-size: 0.8rem;
+}
+
+:root {
+  --color-text-primary: #{$color-text-dark};
+  --color-text-secondary: #{$color-text-light};
+  --color-link: #{$color-link-dark};
+
+  --color-bg-main: #{$color-bg-light-main};
+  --color-bg-secondary: #{$color-bg-light-secondary};
+  --color-bg-accent: #{$color-accent};
+
+  --color-divider: #{$color-divider-dark};
+
+  --color-project-bg: #{$color-project-bg-light};
+}
+.dark {
+  --color-text-primary: #{$color-text-light};
+  --color-text-secondary: #{$color-text-dark};
+  --color-link: #{$color-link-light};
+
+  --color-bg-main: #{$color-bg-dark-main};
+  --color-bg-secondary: #{$color-bg-dark-secondary};
+  --color-bg-accent: #{$color-accent-dark};
+
+  --color-divider: #{$color-divider-light};
+
+  --color-project-bg: #{$color-project-bg-dark};
+
+  & .link__arrow:not(.blogs) {
+    filter: invert(100%);
+  }
+
+  & .hero__vector {
+    filter: brightness(0.3);
+  }
+
+  .blogs__cta img {
+    filter: invert(0);
+  }
 }

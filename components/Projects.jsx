@@ -19,7 +19,7 @@ const ProjectContainer = ({
 }) => {
   return (
     <article className={`project ${projectName}`}>
-      <AnimateIn className='project__wrapper'>
+      <div className='project__wrapper'>
         <div
           className='project__preview'
           href={`https://seb-graf.github.io/${projectName}`}
@@ -61,7 +61,7 @@ const ProjectContainer = ({
             </ul>
           </div>
         </div>
-      </AnimateIn>
+      </div>
     </article>
   )
 }

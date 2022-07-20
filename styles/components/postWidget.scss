@@ -11,8 +11,10 @@
   font-size: 1rem;
   margin-bottom: 1rem;
   font-weight: 600;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--color-text-primary);
   padding-bottom: 0.5rem;
+
+  transition: border-color 500ms;
 }
 
 .post-widget__post {
@@ -22,7 +24,8 @@
   width: 100%;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.172);
+  border-bottom: solid 1px var(--color-divider);
+  transition: border-color 500ms;
 }
 
 .post-widget__post-image {

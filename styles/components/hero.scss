@@ -4,16 +4,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: background-color 500ms;
 
   width: 100%;
   padding-inline: 6vw;
   padding-top: 5rem;
   box-sizing: border-box;
-  margin-bottom: 3rem;
+  padding-bottom: 3rem;
 
   @include media('>phone') {
     padding-top: 7rem;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -44,6 +45,7 @@
   overflow: hidden;
   text-align: left;
   width: 100%;
+  transition: color 500ms;
 
   &:nth-child(2) {
     padding-left: 5vw;
@@ -99,6 +101,9 @@
   object-fit: cover;
   color: #eeeebc;
   opacity: 0;
+  filter: brightness(1);
+
+  transition: filter 500ms;
 
   .hero__vector-image {
     width: 100%;
@@ -128,11 +133,4 @@
   @include media('<phone') {
     margin-top: 13vw;
   }
-}
-
-.divider-line {
-  width: 100%;
-  border-bottom: solid 1px $color-text-primary;
-  height: 0.4rem;
-  opacity: 0;
 }

@@ -1,17 +1,26 @@
-// $font-primary: 'Libre Franklin', sans-serif;
-// $font-display: 'Questrial', sans-serif;
-// $font-code: 'Space Grotesk', sans-serif;
 $font-primary: 'Open Sans', sans-serif;
 $font-display: 'Arvo', sans-serif;
 $font-code: 'Space Grotesk', sans-serif;
 
-$color-text-primary: #111111;
-$color-text-secondary: #020202;
+$color-text-dark: #111111;
+$color-text-light: #ffffff;
+$color-link-dark: #0000af;
+$color-link-light: #a3a3ff;
 
-$color-off-white: #fff;
-$color-dark-grey: #191919;
+$color-bg-light-main: #fff;
+$color-bg-light-secondary: #191919;
+
+$color-bg-dark-main: #191919;
+$color-bg-dark-secondary: #fff;
 
 $color-accent: #fdffc3;
+$color-accent-dark: #4d4d02;
+
+$color-divider-light: rgba(255, 255, 255, 0.457);
+$color-divider-dark: #11111176;
+
+$color-project-bg-light: #fff;
+$color-project-bg-dark: #343434;
 
 $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 $ease-swift: cubic-bezier(0.77, 0, 0.175, 1);

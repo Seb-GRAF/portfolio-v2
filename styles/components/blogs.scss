@@ -9,7 +9,8 @@
   color: inherit;
   transform-origin: bottom;
   min-height: 40rem;
-
+  background-color: $color-bg-dark-main;
+  color: $color-text-light;
   @include media('>phone') {
     padding-top: 4rem;
     padding-bottom: 6rem;
@@ -28,7 +29,7 @@
     top: 0;
     width: 100%;
     height: 2px;
-    background-color: rgba(255, 255, 255, 0.195);
+    background-color: $color-divider-light;
 
     @include media('>tablet') {
       width: 105%;
@@ -79,7 +80,7 @@
   width: 100%;
   margin-bottom: 1rem;
   aspect-ratio: 16/9;
-  background-color: $color-accent;
+  background-color: var(--color-bg-accent);
   cursor: pointer;
 
   img {
@@ -109,9 +110,12 @@
 }
 
 .blogs__post-category {
-  background-color: #fdffc320;
+  background-color: var(--color-bg-accent);
+  color: var(--color-text-primary);
   padding: 0.25rem 0.5rem;
   font-size: 0.8rem;
+
+  transition: color 500ms, background-color 500ms;
 }
 
 .blogs__post-date {

@@ -14,14 +14,18 @@
   font-size: 1.2rem;
   margin-bottom: 2rem;
   font-weight: 600;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--color-text-primary);
   padding-bottom: 1rem;
+
+  transition: border-color 500ms;
 }
 
 .comment {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.281);
+  border-bottom: solid 1px var(--color-divider);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+
+  transition: border-color 500ms;
 
   &:last-of-type {
     border-bottom: none;
@@ -34,5 +38,5 @@
   opacity: 0.8;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  background-color: $color-accent;
+  background-color: var(--color-bg-accent);
 }

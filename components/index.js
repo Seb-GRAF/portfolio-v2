@@ -13,6 +13,8 @@ export { default as AnimateIn } from './AnimateIn'
 export { default as Preloader } from './Preloader'
 export { default as NavLink } from './NavLink'
 export { default as StyledLink } from './StyledLink'
+export { ThemeContext, ThemeProvider } from './ThemeProvider'
+export { default as ThemeButton } from './ThemeButton'
 
 // index
 export { default as Hero } from './Hero'

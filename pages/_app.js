@@ -1,11 +1,13 @@
+import { useContext } from 'react'
 import '../styles/index.scss'
-import { Layout } from '../components'
+import { Layout, ThemeContext } from '../components'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
-import { gsap } from 'gsap'
 import NextNProgress from 'nextjs-progressbar'
+import { ThemeProvider } from '../components/'
 
 const MyApp = ({ Component, pageProps }) => {
+  const { isDarkTheme } = useContext(ThemeContext)
   // smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
@@ -21,17 +23,19 @@ const MyApp = ({ Component, pageProps }) => {
   }, [])
 
   return (
-    <Layout>
-      {/* progress bar on route change */}
-      <NextNProgress
-        color='#000'
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-        showOnShallow={false}
-      />
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <NextNProgress
+          color='var(--color-text-primary)'
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={3}
+          showOnShallow={false}
+        />
+        {/* progress bar on route change */}
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 

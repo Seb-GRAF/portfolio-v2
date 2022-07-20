@@ -49,13 +49,14 @@
   display: flex;
   flex-direction: column;
   z-index: 10;
-  background-color: $color-off-white;
+  background-color: var(--color-bg-main);
   position: absolute;
   top: 7rem;
   left: 0;
   padding: 1rem;
   padding-top: 0;
   gap: 0.5rem;
+  transition: background-color 500ms;
 
   @include media('>phone') {
     display: flex;
@@ -71,7 +72,6 @@
   }
 }
 .blog__category {
-  color: $color-text-primary;
   width: fit-content;
 
   &--active > .blog__category-button {
@@ -81,8 +81,8 @@
 
 .blog__category-button {
   cursor: pointer;
+  color: inherit;
   padding: 0;
-  color: $color-text-primary;
   font-size: 1rem;
   text-underline-offset: 2px;
 }

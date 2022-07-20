@@ -1,0 +1,60 @@
+.theme-switch {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+
+  @include media('<phone') {
+    position: absolute;
+
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+.theme-switch__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &--active + .theme-switch__slider {
+    background-color: $color-accent;
+  }
+
+  &--active + .theme-switch__slider:before {
+    transform: translateY(-50%) translateX(115%);
+  }
+}
+
+.theme-switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(79, 79, 79);
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  border-radius: 34px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    aspect-ratio: 1;
+    margin-inline: 0.2rem;
+    background-color: var(--color-bg-main);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  @include media('<phone') {
+    &:before {
+      transition: none;
+    }
+  }
+}

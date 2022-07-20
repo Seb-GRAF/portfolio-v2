@@ -19,7 +19,6 @@
 }
 
 %link-button {
-  // font-family: $font-display;
   color: inherit;
   font-weight: 400;
 
@@ -36,7 +35,7 @@
   .link__arrow {
     width: 0.8rem;
     height: 0.8rem;
-    transition: transform 300ms $ease-swift;
+    transition: transform 300ms $ease-swift, filter 500ms;
   }
 
   span {

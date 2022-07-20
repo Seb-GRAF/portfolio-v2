@@ -1,6 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { getRecentPosts } from '../services'
-import { Hero, About, Projects, Contact, SEO, Blogs } from '../components'
+import {
+  Hero,
+  About,
+  Projects,
+  Contact,
+  SEO,
+  Blogs,
+  ThemeContext,
+} from '../components'
+
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import ScrollSmoother from 'gsap/dist/ScrollSmoother'
@@ -9,6 +18,8 @@ import SplitText from 'gsap/dist/SplitText'
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 
 export const Home = ({ recentPosts }) => {
+  const { isDarkTheme } = useContext(ThemeContext)
+
   const animateIntro = () => {
     const hero = document.querySelector('.hero__main')
 
@@ -35,54 +46,39 @@ export const Home = ({ recentPosts }) => {
     })
   }
 
+  useEffect(() => {
+    animateIntro()
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
+
   // scroll trigger animations
   useEffect(() => {
-    // setTimeout(() => {
-    animateIntro()
-    // }, 500)
-
     //dark bg + light nav
-    gsap.to('html', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'top+=10% bottom',
-        end: '+=1',
-        scrub: 1.5,
-      },
+    if (!isDarkTheme) {
+      gsap.set('.projects, .about, .hero', {
+        color: '#191919',
+        backgroundColor: '#fff',
+      })
+      gsap.to('.projects, .about, .hero', {
+        scrollTrigger: {
+          trigger: '.projects',
+          start: 'top+=10% bottom',
+          end: '+=1',
+          scrub: true,
+        },
 
-      color: '#ffffff',
-      backgroundColor: '#191919',
-    })
-    gsap.to('header', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'top+=10% bottom',
-        end: '+=1',
-        scrub: 1.5,
-      },
-
-      color: '#ffffff',
-    })
-    gsap.to('.line1, .line2', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'top+=10% bottom',
-        end: '+=1',
-        scrub: 1.5,
-      },
-
-      backgroundColor: '#ffffff',
-    })
-    gsap.to('.nav__menu', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'top+=10% bottom',
-        end: '+=1',
-        scrub: 1.5,
-      },
-
-      backgroundColor: '#191919',
-    })
+        color: '#ffffff',
+        backgroundColor: '#191919',
+      })
+    } else {
+      gsap.set('.projects, .about, .hero', {
+        color: '#fff',
+        backgroundColor: '#191919',
+      })
+    }
 
     //projects animations
     gsap.utils.toArray('.project__description').forEach((description) => {
@@ -97,27 +93,12 @@ export const Home = ({ recentPosts }) => {
       })
     })
 
-    // change background color when nearing contact section
-    gsap.to('.projects, .blogs', {
-      scrollTrigger: {
-        trigger: '.blogs',
-        start: 'top bottom',
-        end: '+=1',
-        scrub: true,
-      },
-      backgroundColor: '#191919',
-    })
-    gsap.set('footer', {
-      backgroundColor: '#fdffc3',
-      color: '#191919',
-    })
-
     // contact animation
     gsap.to('.blogs', {
       scrollTrigger: {
         trigger: '.contact',
         start:
-          window.innerWidth > 768 ? 'center+=10% bottom' : 'center-=10% bottom',
+          window.innerWidth > 768 ? 'center+=20% bottom' : 'center-=10% bottom',
         end: '+=300',
         scrub: true,
       },
@@ -126,16 +107,10 @@ export const Home = ({ recentPosts }) => {
     })
 
     return () => {
-      // sets footer to base color
-      gsap.set('footer', {
-        backgroundColor: 'inherit',
-        color: 'inherit',
-      })
-
       // kills all scroll triggers on dismount
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [])
+  }, [isDarkTheme])
 
   return (
     <>

@@ -64,15 +64,17 @@
 .postcard__categories {
   display: flex;
   flex-wrap: wrap;
+  transition: background-color 500ms;
   list-style: none;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .postcard__category {
-  background-color: $color-accent;
+  background-color: var(--color-bg-accent);
   padding: 0.25rem 0.5rem;
   font-size: 0.8rem;
+  transition: background-color 500ms;
 }
 
 .postcard__title {

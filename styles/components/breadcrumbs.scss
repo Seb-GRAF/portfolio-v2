@@ -27,7 +27,7 @@
   cursor: pointer;
   text-transform: capitalize;
   a {
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
   &:hover {
     text-decoration: underline;

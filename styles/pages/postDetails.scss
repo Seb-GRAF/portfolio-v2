@@ -17,6 +17,9 @@
   @include media('>tablet') {
     display: grid;
     grid-template-columns: 4fr 1fr;
+    &.full-width {
+      display: flex;
+    }
   }
 
   @include media('>desktop') {

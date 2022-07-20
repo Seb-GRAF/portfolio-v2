@@ -7,7 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
 import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism/lucario'
 
-const CodeBlock = ({ language, children }) => {
+const CodeBlock = ({ children }) => {
   return (
     <SyntaxHighlighter
       style={style}

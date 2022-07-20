@@ -5,22 +5,10 @@ import Image from 'next/image'
 
 import { getRecentPosts, getSimilarPosts } from '../services'
 
-const PostWidget = ({ categories, slug }) => {
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    if (slug) {
-      getSimilarPosts(categories, slug).then((result) => setPosts(result))
-    } else {
-      getRecentPosts().then((result) => setPosts(result))
-    }
-  }, [slug, categories])
-
+const PostWidget = ({ posts }) => {
   return (
     <div className='post-widget'>
-      <h3 className='post-widget__title'>
-        {slug ? 'Related Posts' : 'Recent Posts'}
-      </h3>
+      <h3 className='post-widget__title'>Related Posts</h3>
       {posts.map((post) => (
         <div key={post.title} className='post-widget__post'>
           <div className='post-widget__post-image'>

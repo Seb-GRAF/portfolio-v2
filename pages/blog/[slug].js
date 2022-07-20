@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { getPosts, getPostDetails } from '../../services'
+import { getPosts, getPostDetails, getSimilarPosts } from '../../services'
 import {
   PostDetail,
   PostWidget,
@@ -11,11 +11,16 @@ import {
   SEO,
 } from '../../components'
 
-const PostDetails = ({ post }) => {
+const PostDetails = ({ post, similarPosts }) => {
   return (
     <>
-      <SEO pageName={post.title} description={post.excerpt} />
-      <section className='post-details'>
+      <SEO
+        pageName={post.title}
+        description={post.excerpt}
+        canonical={`https://seb-graf.com/${post.slug}`}
+      />
+      <section
+        className={`post-details ${similarPosts.length == 0 && 'full-width'}`}>
         <div className='post-details__wrapper'>
           <Breadcrumbs />
           <PostDetail post={post} />
@@ -23,24 +28,25 @@ const PostDetails = ({ post }) => {
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
-
-        <div className='post-details__aside'>
-          <PostWidget
-            slug={post.slug}
-            categories={post.categories.map((category) => category.slug)}
-          />
-        </div>
+        {similarPosts.length > 0 && (
+          <div className='post-details__aside'>
+            <PostWidget posts={similarPosts} />
+          </div>
+        )}
       </section>
     </>
   )
 }
 
 export const getStaticProps = async ({ params }) => {
-  const data = await getPostDetails(params.slug)
+  const post = await getPostDetails(params.slug)
+  const similarCategories = post.categories.map((category) => category.slug)
+  const similarPosts = await getSimilarPosts(similarCategories, post.slug)
 
   return {
     props: {
-      post: data,
+      post,
+      similarPosts,
     },
   }
 }

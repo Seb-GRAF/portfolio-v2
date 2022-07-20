@@ -134,9 +134,9 @@ const Blog = ({ posts, categories }) => {
 }
 
 // fetches posts from services
-export const getServerSideProps = async () => {
-  const posts = (await getPosts()) || []
-  const categories = (await getCategories()) || []
+export const getStaticProps = async () => {
+  const posts = await getPosts()
+  const categories = await getCategories()
 
   return {
     props: {

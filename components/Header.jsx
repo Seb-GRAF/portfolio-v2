@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { NavLink } from './'
+import { NavLink, ThemeButton } from './'
 
 const Header = () => {
   const [navMenu, setNavMenu] = useState(false)
@@ -25,7 +26,6 @@ const Header = () => {
               if (navMenu) handleNav()
             }}>
             <svg
-              aria-hidden='true'
               focusable='false'
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 147 123'>
@@ -45,13 +45,18 @@ const Header = () => {
             {/* "new" tag */}
             <span className='new-tag'>New</span>
           </NavLink>
+          <ThemeButton />
         </nav>
-        <button className='nav__sandwich' onClick={handleNav}>
+        <button
+          className='nav__sandwich'
+          aria-label='open navigation menu'
+          onClick={handleNav}>
           <span className='line1'></span>
           <span className='line2'></span>
         </button>
       </header>
       <nav className='nav__menu'>
+        <ThemeButton />
         <ol className='nav__menu__items'>
           <li className='nav__menu__item'>
             <Link href='/#about' passHref>

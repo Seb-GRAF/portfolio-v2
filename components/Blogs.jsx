@@ -18,8 +18,7 @@ const Blogs = ({ recentPosts }) => {
         <div className='blogs__posts'>
           {recentPosts.map((post, index) => (
             <section key={post.title} className='blogs__post'>
-              <AnimateIn
-                className={`blogs__post-image blogs__post-image--${index}`}>
+              <div className={`blogs__post-image blogs__post-image--${index}`}>
                 <Link href={`/blog/${post.slug}`} passHref>
                   <Image
                     src={post.featuredImage.url}
@@ -28,9 +27,9 @@ const Blogs = ({ recentPosts }) => {
                     objectFit='cover'
                   />
                 </Link>
-              </AnimateIn>
+              </div>
 
-              <AnimateIn className='blogs__post-wrapper'>
+              <div className='blogs__post-wrapper'>
                 <ul className='blogs__post-categories'>
                   {post.categories.map((category) => (
                     <li className='blogs__post-category' key={category.slug}>
@@ -50,7 +49,7 @@ const Blogs = ({ recentPosts }) => {
                 </Link>
 
                 <p>{post.excerpt}</p>
-              </AnimateIn>
+              </div>
             </section>
           ))}
         </div>
