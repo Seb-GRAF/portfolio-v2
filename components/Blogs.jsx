@@ -48,7 +48,7 @@ const Blogs = ({ recentPosts }) => {
                   </a>
                 </Link>
 
-                <p>{post.excerpt}</p>
+                <p className='blogs__post-excerpt'>{post.excerpt}</p>
               </div>
             </section>
           ))}

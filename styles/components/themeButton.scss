@@ -1,4 +1,4 @@
-.theme-switch {
+.theme-button {
   position: relative;
   width: 2.2rem;
   height: 1.2rem;
@@ -11,21 +11,21 @@
   }
 }
 
-.theme-switch__input {
+.theme-button__input {
   opacity: 0;
   width: 0;
   height: 0;
 
-  &--active + .theme-switch__slider {
+  &--active + .theme-button__slider {
     background-color: $color-accent;
   }
 
-  &--active + .theme-switch__slider:before {
+  &--active + .theme-button__slider:before {
     transform: translateY(-50%) translateX(115%);
   }
 }
 
-.theme-switch__slider {
+.theme-button__slider {
   position: absolute;
   cursor: pointer;
   top: 0;

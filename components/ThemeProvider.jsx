@@ -12,37 +12,58 @@ export const ThemeProvider = ({ children }) => {
     return !localStorage.getItem('isDarkTheme')
   }
 
+  const setValueToLocal = (value) => {
+    localStorage.setItem('isDarkTheme', `${value}`)
+  }
+
   const toggleThemeHandler = () => {
-    const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
+    const currentTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
 
-    setIsDarkTheme(() => !isDarkTheme)
-    toggleDarkClass()
-    setValueToLocal()
-  }
-
-  const toggleDarkClass = () => {
+    setIsDarkTheme(() => !currentTheme)
     document.querySelector('html').classList.toggle('dark')
+    setValueToLocal(!currentTheme)
   }
 
-  const setValueToLocal = () => {
-    localStorage.setItem('isDarkTheme', `${!isDarkTheme}`)
+  // toggles theme based on system theme
+  const systemThemeToggle = () => {
+    // true if dark theme
+    const systemTheme = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches
+
+    if (systemTheme) document.querySelector('html').classList.add('dark')
+    if (!systemTheme) document.querySelector('html').classList.remove('dark')
+
+    setIsDarkTheme(systemTheme)
+    setValueToLocal(systemTheme)
   }
 
   useEffect(() => {
-    const initialThemeHandler = () => {
-      if (isLocalStorageEmpty()) {
-        localStorage.setItem('isDarkTheme', 'true')
-        document.querySelector('html').classList.add('dark')
-        setIsDarkTheme(true)
-      } else {
+    // if local storage is empty, set to system theme
+    ;(() => {
+      if (isLocalStorageEmpty()) systemThemeToggle()
+      else {
         const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
-
         isDarkTheme && document.querySelector('html').classList.add('dark')
-
         setIsDarkTheme(() => isDarkTheme)
       }
+
+      // timeout to prevent flash of white on page load
+      setTimeout(() => {
+        document.querySelector('body').classList.add('loaded')
+      }, 200)
+    })()
+
+    // watches for system theme change
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', systemThemeToggle)
+
+    return () => {
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .removeEventListener('change', systemThemeToggle)
     }
-    initialThemeHandler()
   }, [])
 
   return (

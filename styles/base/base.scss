@@ -16,13 +16,18 @@ html {
 body {
   @extend %center-column;
 
+  opacity: 0;
   position: relative;
   margin: 0;
   padding: 0;
   color: inherit;
   line-height: 1.5;
   background-color: var(--color-bg-main);
-  transition: background-color 500ms, color 500ms;
+  transition: background-color 500ms, color 500ms, opacity 500ms;
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 h1,

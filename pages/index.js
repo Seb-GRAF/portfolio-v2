@@ -97,8 +97,7 @@ export const Home = ({ recentPosts }) => {
     gsap.to('.blogs', {
       scrollTrigger: {
         trigger: '.contact',
-        start:
-          window.innerWidth > 768 ? 'center+=20% bottom' : 'center-=10% bottom',
+        start: 'center-=30% bottom',
         end: '+=300',
         scrub: true,
       },

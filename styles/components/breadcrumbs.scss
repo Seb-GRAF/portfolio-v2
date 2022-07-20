@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-start;
   width: 100%;
+  max-width: 100%;
   gap: 0.5rem;
   margin-bottom: 1rem;
   margin-inline: auto;
@@ -10,6 +11,18 @@
 .crumb {
   display: flex;
   align-items: flex-start;
+  width: fit-content;
+
+  &:last-child {
+    max-width: 40%;
+
+    @include media('>phone') {
+      max-width: 20rem;
+    }
+    @include media('<narrow') {
+      display: none;
+    }
+  }
 }
 
 .crumb__divider {
@@ -21,6 +34,10 @@
 .crumb__last-text {
   text-transform: capitalize;
   opacity: 0.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.5rem;
 }
 
 .crumb__text {

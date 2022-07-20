@@ -47,18 +47,18 @@ const Blog = ({ posts, categories }) => {
   const [isMobile, setIsMobile] = useState(size.width < 768)
   const [showCategories, setShowCategories] = useState(false)
 
-  const onClick = (e) => {
-    if (size.width > 768) return
-
-    if (e.target.className === 'blog__categories') return
-    if (e.target.className === 'blog__filter-button') {
-      setShowCategories((prev) => !prev)
-    } else {
-      setShowCategories(false)
-    }
-  }
-
   useEffect(() => {
+    const onClick = (e) => {
+      if (size.width > 768) return
+
+      if (e.target.className === 'blog__categories') return
+      if (e.target.className === 'blog__filter-button') {
+        setShowCategories((prev) => !prev)
+      } else {
+        setShowCategories(false)
+      }
+    }
+
     setIsMobile(size.width < 768)
     setShowCategories(size.width > 768)
 

@@ -26,6 +26,7 @@
   h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    word-break: break-word;
   }
 
   h2 {
@@ -49,6 +50,7 @@
 
   p {
     margin-bottom: 1rem;
+    word-break: break-word;
 
     strong {
       font-weight: 600;
@@ -169,6 +171,8 @@
   margin-bottom: 1rem;
   font-size: 2em;
   font-weight: 600;
+  word-break: break-word;
+  hyphens: '-';
 
   @include media('>phone') {
     font-size: 2.5rem;
@@ -177,6 +181,7 @@
 
 .post-detail__info {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 1rem;
 }
