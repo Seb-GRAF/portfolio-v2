@@ -1,26 +1,29 @@
 .header {
-  position: fixed;
   width: 100%;
-  padding: 1.5rem;
-  box-sizing: border-box;
+  position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  padding: 1.5rem;
   z-index: 2000;
-  overflow: hidden;
-  min-height: 4rem;
   color: white;
   mix-blend-mode: difference;
-  pointer-events: none;
+  // pointer-events: none;
+}
+
+.header__wrapper {
+  max-width: 65rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
+  display: flex;
+  justify-content: center;
   pointer-events: all;
   padding: 0;
   border: none;
-  position: absolute;
   left: 1.5rem;
   top: 1.5rem;
   z-index: 2;
@@ -29,11 +32,13 @@
   height: 2rem;
   cursor: pointer;
 
+  @include media('<phone') {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
   svg {
     color: white;
-    transform: scale(1);
-    transform-origin: top left;
-    transition: transform 500ms cubic-bezier(0.7, 0, 0.175, 1);
   }
 
   svg polyline,
@@ -51,9 +56,6 @@
   }
 
   @include media('<phone') {
-    svg {
-      transform: scale(0.6);
-    }
     path {
       d: path(
         'M 147 25 L 147 0 L 0 0 L 0 75 L 110 75 L 123 75 L 123 75 L 123 98 L 0 98 L 0 123 L 147 123 L 147 50 L 27.5 50 L 27.5 25 L 147 25 Z'
@@ -82,15 +84,14 @@
 }
 
 .nav__sandwich {
+  z-index: 110;
+  display: none;
+  cursor: pointer;
   background: transparent;
   border: none;
-  cursor: pointer;
-  display: none;
   color: inherit;
-  z-index: 110;
   position: absolute;
   right: 1.5rem;
-  top: 1.5rem;
   height: 1.5rem;
   width: 1.5rem;
   pointer-events: all;

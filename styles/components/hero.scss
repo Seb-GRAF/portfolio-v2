@@ -103,7 +103,9 @@
   opacity: 0;
   filter: brightness(1);
 
-  transition: filter 500ms;
+  @include media('>phone') {
+    transition: filter 500ms;
+  }
 
   .hero__vector-image {
     width: 100%;

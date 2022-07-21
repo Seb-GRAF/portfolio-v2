@@ -40,19 +40,16 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     // if local storage is empty, set to system theme
-    ;(() => {
-      if (isLocalStorageEmpty()) systemThemeToggle()
-      else {
-        const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
-        isDarkTheme && document.querySelector('html').classList.add('dark')
-        setIsDarkTheme(() => isDarkTheme)
-      }
+    if (!isLocalStorageEmpty()) {
+      const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
+      isDarkTheme && document.querySelector('html').classList.add('dark')
+      setIsDarkTheme(() => isDarkTheme)
+    }
 
-      // timeout to prevent flash of white on page load
-      setTimeout(() => {
-        document.querySelector('body').classList.add('loaded')
-      }, 200)
-    })()
+    // timeout to prevent flash of white on page load
+    setTimeout(() => {
+      document.querySelector('body').classList.remove('loading')
+    }, 400)
 
     // watches for system theme change
     window

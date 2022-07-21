@@ -1,87 +1,3 @@
-*,
-*:after,
-*:before {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: $font-primary;
-  font-size: clamp(1.2rem, 1.2vw, 1.3rem);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-main);
-  scrollbar-width: none;
-  min-height: 100vh;
-}
-
-body {
-  @extend %center-column;
-
-  opacity: 0;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  line-height: 1.5;
-  background-color: var(--color-bg-main);
-  transition: background-color 500ms, color 500ms, opacity 500ms;
-
-  &.loaded {
-    opacity: 1;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-display;
-  line-height: 1.2;
-}
-
-p {
-  line-height: 1.5;
-}
-
-#__next {
-  color: inherit;
-  width: 100%;
-}
-
-section {
-  width: 100%;
-  height: 100%;
-  will-change: transform;
-  color: inherit;
-}
-
-.content {
-  @extend %cover;
-  color: inherit;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-::selection {
-  background-color: var(--color-bg-accent);
-}
-
-.animate-in {
-  opacity: 0;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.8rem;
-}
-
 :root {
   --color-text-primary: #{$color-text-dark};
   --color-text-secondary: #{$color-text-light};
@@ -119,4 +35,81 @@ footer {
   .blogs__cta img {
     filter: invert(0);
   }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-primary;
+  font-size: clamp(1.2rem, 1.2vw, 1.3rem);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-main);
+  scrollbar-width: none;
+  min-height: 100vh;
+}
+
+body {
+  @extend %center-column;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  line-height: 1.5;
+  background-color: var(--color-bg-main);
+  transition: background-color 500ms, color 500ms;
+  &.loading {
+    opacity: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-display;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.5;
+}
+
+#__next {
+  color: inherit;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::selection {
+  background-color: var(--color-bg-accent);
+}
+
+.animate-in {
+  opacity: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }

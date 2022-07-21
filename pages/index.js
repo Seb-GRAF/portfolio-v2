@@ -20,7 +20,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 export const Home = ({ recentPosts }) => {
   const { isDarkTheme } = useContext(ThemeContext)
 
-  const animateIntro = () => {
+  // intro animation
+  useEffect(() => {
     const hero = document.querySelector('.hero__main')
 
     const split = new SplitText(hero.querySelectorAll('.title'), {
@@ -36,7 +37,7 @@ export const Home = ({ recentPosts }) => {
       stagger: '0.04',
       duration: '1',
       ease: 'power3',
-      delay: '0.2',
+      delay: 0.4,
     })
 
     gsap.to('.hero__vector, .about', {
@@ -44,11 +45,8 @@ export const Home = ({ recentPosts }) => {
       duration: '1',
       ease: 'power3',
     })
-  }
 
-  useEffect(() => {
-    animateIntro()
-
+    // kill all scroll trigger when dismounting component
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
