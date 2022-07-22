@@ -30,6 +30,7 @@
     "sass": "^1.53.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.6",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2"
   }

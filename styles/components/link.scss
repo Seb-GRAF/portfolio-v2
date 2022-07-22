@@ -7,6 +7,8 @@
 .link__wrapper {
   @extend %link-button;
   @extend %center;
+
+  cursor: pointer;
   position: relative;
 
   gap: 0.4rem;

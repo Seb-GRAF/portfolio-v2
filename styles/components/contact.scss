@@ -150,23 +150,3 @@
     transform: scale(1.1);
   }
 }
-
-.form__button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  display: flex;
-  font-size: 1rem;
-  gap: 0.5rem;
-
-  &:hover > .form__button__wrapper {
-    span {
-      transform: translateY(-100%) skewY(40deg);
-    }
-    &:after {
-      top: 0;
-      transform: skewY(0deg);
-    }
-  }
-}

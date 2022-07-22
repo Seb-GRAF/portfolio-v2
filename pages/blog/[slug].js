@@ -23,8 +23,7 @@ const PostDetails = ({ post, similarPosts }) => {
         description={post.excerpt}
         canonical={`https://seb-graf.com/${post.slug}`}
       />
-      <section
-        className={`post-details ${similarPosts.length == 0 && 'full-width'}`}>
+      <section className='post-details'>
         <div className='post-details__wrapper'>
           <Breadcrumbs />
           <PostDetail post={post} />
@@ -32,11 +31,10 @@ const PostDetails = ({ post, similarPosts }) => {
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
-        {similarPosts.length > 0 && (
-          <div className='post-details__aside'>
-            <PostWidget posts={similarPosts} />
-          </div>
-        )}
+
+        <div className='post-details__aside'>
+          <PostWidget similarPosts={similarPosts} />
+        </div>
       </section>
     </>
   )

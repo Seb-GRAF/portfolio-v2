@@ -39,7 +39,7 @@ export const ThemeProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    // if local storage is empty, set to system theme
+    // sets to local storage theme
     if (!isLocalStorageEmpty()) {
       const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
       isDarkTheme && document.querySelector('html').classList.add('dark')

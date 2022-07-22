@@ -4,17 +4,11 @@ import Image from 'next/image'
 import { AnimateIn } from './'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
 import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism/lucario'
 
 const CodeBlock = ({ children }) => {
   return (
-    <SyntaxHighlighter
-      style={style}
-      language='tsx'
-      PreTag={'div'}
-      // CodeTag={'div'}
-      showLineNumbers={true}>
+    <SyntaxHighlighter style={style} language='tsx' showLineNumbers={true}>
       {children}
     </SyntaxHighlighter>
   )
@@ -65,7 +59,6 @@ const PostDetail = ({ post }) => {
         <ReactMarkdown
           components={{
             code: CodeBlock,
-            // pre: ({ children }) => <div className='pre'>{children}</div>,
           }}>
           {post.content.markdown}
         </ReactMarkdown>

@@ -31,7 +31,8 @@
   font-weight: 600;
 
   @include media('>phone') {
-    margin-block: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     font-size: 2.5rem;
   }
 }

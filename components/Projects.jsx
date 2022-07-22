@@ -25,7 +25,7 @@ const ProjectContainer = ({
           href={`https://seb-graf.github.io/${projectName}`}
           target='_blank'>
           <Image
-            src={`/projects-screenshots/${projectName}.png`}
+            src={`/projects-screenshots/${projectName}.jpeg`}
             alt='screenshot of the project'
             layout='fill'
             objectFit='cover'

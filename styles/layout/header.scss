@@ -19,7 +19,7 @@
 }
 
 .logo {
-  display: flex;
+  // display: flex;
   justify-content: center;
   pointer-events: all;
   padding: 0;
@@ -29,11 +29,11 @@
   z-index: 2;
   color: white;
   width: 2rem;
-  height: 2rem;
+  height: 1.7rem;
   cursor: pointer;
 
   @include media('<phone') {
-    height: 1.5rem;
+    height: 1.3rem;
     width: 1.5rem;
   }
 

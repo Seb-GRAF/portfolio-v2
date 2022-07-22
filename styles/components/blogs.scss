@@ -11,6 +11,7 @@
   min-height: 40rem;
   background-color: $color-bg-dark-main;
   color: $color-text-light;
+
   @include media('>phone') {
     padding-top: 4rem;
     padding-bottom: 6rem;

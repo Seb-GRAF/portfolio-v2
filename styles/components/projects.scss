@@ -33,7 +33,12 @@
   box-sizing: content-box;
   width: 100%;
   padding-inline: 6vw;
-  padding-block: 4rem;
+  padding-top: 4rem;
+  margin-bottom: 8rem;
+
+  &:last-of-type {
+    margin-bottom: 4rem;
+  }
 
   &:nth-child(odd) {
     .project__description {
@@ -57,6 +62,7 @@
 
   @include media('<phone') {
     padding-block: 1rem;
+    margin-bottom: 4rem;
   }
 }
 

@@ -1,10 +1,12 @@
+// import type { AppProps } from 'next/app'
+
 import { useContext } from 'react'
 import '../styles/index.scss'
 import { Layout, ThemeContext } from '../components'
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 import NextNProgress from 'nextjs-progressbar'
-import { ThemeProvider } from '../components/'
+import { ThemeProvider } from '../components'
 
 const MyApp = ({ Component, pageProps }) => {
   const { isDarkTheme } = useContext(ThemeContext)
@@ -32,7 +34,6 @@ const MyApp = ({ Component, pageProps }) => {
           height={3}
           showOnShallow={false}
         />
-        {/* progress bar on route change */}
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

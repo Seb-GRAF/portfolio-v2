@@ -60,7 +60,7 @@ export const Home = ({ recentPosts }) => {
         color: '#191919',
         backgroundColor: '#fff',
       })
-      gsap.to('.projects, .about, .hero', {
+      gsap.to('.projects, .about, .hero, body', {
         scrollTrigger: {
           trigger: '.projects',
           start: 'top+=10% bottom',
