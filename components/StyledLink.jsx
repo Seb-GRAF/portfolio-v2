@@ -8,7 +8,7 @@ const StyledLink = ({ name, href }) => {
   return (
     <a className='link__wrapper' href={href} target='__blank'>
       <div className='link' data-link-alt={name}>
-        <span>{name}</span>
+        <span aria-hidden='true'>{name}</span>
       </div>
       <div className='link__arrow'>
         <Image

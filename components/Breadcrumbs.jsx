@@ -15,7 +15,7 @@ const Crumb = ({ crumb, last }) => {
     )
 
   return (
-    <Link href={crumb.href} passHref>
+    <Link href={crumb.href} passHref scroll={false}>
       <a className='crumb'>
         {crumb.title !== 'Home' && (
           <span className='crumb__divider'> {'❯'} </span>

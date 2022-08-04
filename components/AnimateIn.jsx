@@ -11,7 +11,7 @@ const AnimateIn = ({ className, children }) => {
     const ref = divRef.current
 
     gsap.set(ref, {
-      opacity: 0,
+      autoAlpha: 0,
       y: 50,
     })
 
@@ -21,8 +21,8 @@ const AnimateIn = ({ className, children }) => {
         trigger: ref,
       },
       duration: 1,
-      opacity: 1,
-      translateY: 0,
+      autoAlpha: 1,
+      y: 0,
       ease: 'power3.out',
     })
 

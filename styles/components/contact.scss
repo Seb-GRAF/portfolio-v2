@@ -6,7 +6,7 @@
   margin-inline: auto;
   margin-top: 1rem;
   padding: 4rem 6vw;
-  padding-bottom: 6rem;
+  padding-bottom: 8rem;
   height: 100%;
   color: var(--color-text-primary);
   transform-origin: top;
@@ -14,20 +14,20 @@
   background-color: var(--color-bg-accent);
   transition: background-color 500ms;
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    top: -100%;
+    top: -200%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 200%;
     background-color: var(--color-bg-accent);
     z-index: -1;
     transition: background-color 500ms, color 500ms;
   }
 
   @include media('<phone') {
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -79,7 +79,7 @@
   textarea {
     font-size: 1rem;
     font-family: inherit;
-    color: var(--color-text-primary);
+    color: $color-text-dark;
     background-color: transparent;
     border: solid 1px var(--color-text-primary);
     border-radius: 0;
@@ -89,6 +89,8 @@
     height: 1.9rem;
     transition: 200ms;
     width: 100%;
+
+    transition: border 500ms;
 
     &:focus,
     &:hover {
@@ -106,8 +108,7 @@
 
     &:-webkit-autofill {
       background-image: none;
-      -webkit-text-fill-color: var(--color-bg-main);
-      -webkit-box-shadow: 0 0 0px 1000px $color-bg-light-secondary inset;
+      -webkit-box-shadow: 0 0 0px 1000px $color-accent-dark inset;
     }
   }
 
@@ -131,7 +132,8 @@
   @extend %center-column;
 
   height: 100%;
-  justify-content: space-evenly;
+  gap: 1rem;
+  justify-content: flex-start;
 
   @include media('<phone') {
     flex-direction: row;

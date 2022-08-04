@@ -40,7 +40,13 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     // sets to local storage theme
-    if (!isLocalStorageEmpty()) {
+    // if (!isLocalStorageEmpty()) {
+    //   const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
+    //   isDarkTheme && document.querySelector('html').classList.add('dark')
+    //   setIsDarkTheme(() => isDarkTheme)
+    // }
+    if (isLocalStorageEmpty()) systemThemeToggle()
+    else {
       const isDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
       isDarkTheme && document.querySelector('html').classList.add('dark')
       setIsDarkTheme(() => isDarkTheme)

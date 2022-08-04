@@ -17,9 +17,9 @@ const Blogs = ({ recentPosts }) => {
 
         <div className='blogs__posts'>
           {recentPosts.map((post, index) => (
-            <section key={post.title} className='blogs__post'>
+            <article key={post.title} className='blogs__post'>
               <div className={`blogs__post-image blogs__post-image--${index}`}>
-                <Link href={`/blog/${post.slug}`} passHref>
+                <Link href={`/blog/${post.slug}`} passHref scroll={false}>
                   <Image
                     src={post.featuredImage.url}
                     alt={post.title}
@@ -42,7 +42,11 @@ const Blogs = ({ recentPosts }) => {
                   {moment(post.createdAt).format('DD MMMM YYYY')}
                 </time>
 
-                <Link href={`/blog/${post.slug}`} key={post.title} passHref>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  key={post.title}
+                  passHref
+                  scroll={false}>
                   <a>
                     <h3 className='blogs__post-title'>{post.title}</h3>
                   </a>
@@ -50,15 +54,15 @@ const Blogs = ({ recentPosts }) => {
 
                 <p className='blogs__post-excerpt'>{post.excerpt}</p>
               </div>
-            </section>
+            </article>
           ))}
         </div>
 
         <div className='blogs__cta'>
-          <Link href='/blog' passHref>
+          <Link href='/blog' passHref scroll={false}>
             <a className='link__wrapper'>
               <div className='link' data-link-alt='See all blog posts'>
-                <span>See all blog posts</span>
+                <span aria-hidden='true'>See all blog posts</span>
               </div>
               <div className='link__arrow'>
                 <Image

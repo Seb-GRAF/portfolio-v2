@@ -2,11 +2,28 @@ import React, { useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 
-const Skill = ({ name, icon }) => {
+const skills = [
+  { name: 'react', icon: 'devicon-react-original' },
+  { name: 'nextjs', icon: 'devicon-nextjs-line' },
+  { name: 'javascript', icon: 'devicon-javascript-plain' },
+  { name: 'typescript', icon: 'devicon-typescript-original' },
+  { name: 'sass', icon: 'devicon-sass-original' },
+  { name: 'tailwind', icon: 'devicon-tailwindcss-plain' },
+  { name: 'git', icon: 'devicon-git-plain' },
+  { name: 'webpack', icon: 'devicon-webpack-plain' },
+  { name: 'jest', icon: 'devicon-jest-plain' },
+  { name: 'npm', icon: 'devicon-npm-original-wordmark' },
+  { name: 'mongodb', icon: 'devicon-mongodb-plain' },
+]
+
+const Skill = ({ name, icon, index }) => {
   return (
     <div className='skill'>
       <i className={`${icon} colored`}></i>
       <p>{name}</p>
+      <span className='skill__index' aria-hidden='true'>
+        {index}
+      </span>
     </div>
   )
 }
@@ -29,17 +46,14 @@ const SkillsCarousel = () => {
     <div className='skills'>
       <div className='skills-carousel' ref={emblaRef}>
         <div className='skills-carousel__container'>
-          <Skill name='react' icon='devicon-react-original' />
-          <Skill name='nextjs' icon='devicon-nextjs-line' />
-          <Skill name='javascript' icon='devicon-javascript-plain' />
-          <Skill name='sass' icon='devicon-sass-original' />
-          <Skill name='html5' icon='devicon-html5-plain' />
-          <Skill name='css3' icon='devicon-css3-plain' />
-          <Skill name='git' icon='devicon-git-plain' />
-          <Skill name='webpack' icon='devicon-webpack-plain' />
-          <Skill name='jest' icon='devicon-jest-plain' />
-          <Skill name='npm' icon='devicon-npm-original-wordmark' />
-          <Skill name='mongodb' icon='devicon-mongodb-plain' />
+          {skills.map((skill, index) => (
+            <Skill
+              key={skill.name}
+              name={skill.name}
+              icon={skill.icon}
+              index={index}
+            />
+          ))}
         </div>
       </div>
       <button
@@ -82,23 +96,26 @@ const About = () => {
         </h2>
         <div className='about__text'>
           <p>
+            Hi there! I&apos;m Seb, a frontend dev.{' '}
+            <small>(as you might have guessed with the title)</small>
+          </p>
+          <p>
             <i>
-              Growing up, I always had an affinity for tech and computers.
+              Growing up, I always had an affinity for everything tech related.
               Jailbreaking my first iPod, installing custom ROMs on my android
-              phones or learning to use Adobe Photoshop and AfterEffect at a
-              young age were some of the things that made me proficient with
-              technologies.
+              phones (and nearly bricking them) or modding my gaming consoles
+              were some of the things that developed my problem solving skills.
             </i>
           </p>
           <p>
             Today I&apos;m enthralled by <b>web development</b>, creating new
-            products, experiences and designs, always keeping an eye out for
-            details to enhance the user experience.
+            experiences, implementing eye pleasing designs and making them come
+            to life with animation is what I love.
           </p>
           <p>
-            I work with <b>React</b>, <b>Next.JS</b>, <b>JavaScript (ES6+)</b>,{' '}
-            <b>CSS</b> and <b>HTML</b> to deliver quality front-end products. I
-            also acquired some base knowledge of <b>NodeJS</b> and{' '}
+            I work with <b>Next.JS</b>, <b>React</b>, <b>JavaScript (ES6+)</b>,{' '}
+            <b>SASS</b> and <b>Tailwind</b> to deliver quality front-end
+            products. I also acquired some useful knowledge of <b>NodeJS</b> and{' '}
             <b>EXPRESS</b> to better understand backend.
           </p>
         </div>

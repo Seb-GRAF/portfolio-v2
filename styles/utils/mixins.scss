@@ -77,19 +77,15 @@
   color: inherit;
 
   span:first-child {
-    font-size: 0.8rem;
-    margin-right: 0.2rem;
+    margin-right: 0.5rem;
     width: 1rem;
-    font-family: $font-code;
     line-height: 1.2;
   }
   span:last-child {
     max-width: 80rem;
     position: relative;
     width: 100%;
-    font-size: 1.5rem;
-    font-weight: 400;
-    isolation: isolate;
+    font-size: 1.8rem;
   }
 }
 

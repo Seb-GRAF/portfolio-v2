@@ -5,11 +5,11 @@
   margin: 0 auto;
   padding-inline: 6vw;
   color: inherit;
-  padding-bottom: 2rem;
-  background-color: $color-bg-dark-main;
+  margin-bottom: -2rem;
   transition: background-color 500ms;
 
   @include media('>phone') {
+    margin-bottom: 0rem;
     padding-bottom: 2rem;
   }
 }
@@ -33,8 +33,8 @@
   box-sizing: content-box;
   width: 100%;
   padding-inline: 6vw;
-  padding-top: 4rem;
-  margin-bottom: 8rem;
+  padding-top: 3rem;
+  margin-bottom: 10rem;
 
   &:last-of-type {
     margin-bottom: 4rem;
@@ -53,6 +53,11 @@
     .project__preview {
       grid-area: 1 / 5 / 9 / 13;
       justify-self: end;
+
+      &:after {
+        left: -6%;
+        top: 6%;
+      }
     }
   }
 
@@ -61,8 +66,8 @@
   }
 
   @include media('<phone') {
-    padding-block: 1rem;
-    margin-bottom: 4rem;
+    padding-block: 0;
+    margin-block: 0;
   }
 }
 
@@ -76,11 +81,12 @@
 
   @include media('<phone') {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 }
 
 .project__preview {
+  position: relative;
   width: 100%;
   max-width: 25rem;
   grid-area: 1 / 1 / 9 / 9;
@@ -90,17 +96,41 @@
   align-items: center;
   aspect-ratio: 1;
   height: fit-content;
-  position: relative;
   z-index: 1;
-  overflow: hidden;
   background-color: var(--color-divider);
   filter: brightness(0.7);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    width: 100%;
+    height: 100%;
+    border: solid 1px $color-divider-light;
+    z-index: -1;
+    transition: background-color 500ms, color 500ms;
+  }
 
   @include media('<phone') {
     width: 90%;
     max-width: 25rem;
-    top: -3rem;
+    top: 1rem;
     align-self: center;
+
+    &:after {
+      display: none;
+    }
+
+    &:first-of-type {
+      margin-top: 2rem;
+    }
+  }
+
+  @include media('<narrow') {
+    width: 100%;
+    max-width: 95%;
+    // top: 6rem;
   }
 }
 
@@ -117,12 +147,6 @@
   align-items: flex-start;
   gap: 1rem;
   font-size: 1rem;
-
-  transform: translateY(30%);
-
-  @include media('<phone') {
-    transform: translateY(10%);
-  }
 
   @include media('<narrow') {
     align-items: center;

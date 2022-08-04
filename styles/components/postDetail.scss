@@ -88,8 +88,7 @@
 
     ::-webkit-scrollbar {
       display: block;
-      padding: 0.1rem;
-      margin: 0.1rem;
+      height: 0.5rem;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -123,8 +122,8 @@
     background-color: #fdffc37b;
     font-style: italic;
     margin-block: 2rem;
-    padding: 1rem;
-    padding-bottom: 0;
+    padding: 1.5rem;
+    padding-bottom: 0.5rem;
     quotes: '\201C''\201D''\2018''\2019';
 
     @include media('>phone') {
@@ -159,12 +158,14 @@
   list-style: none;
   gap: 1rem;
   margin-bottom: 1rem;
+  color: $color-text-dark;
 }
 
 .post-detail__category {
   background-color: var(--color-bg-accent);
+  color: var(--color-text-primary);
   padding: 0.25rem 0.5rem;
-  transition: background-color 500ms;
+  transition: background-color 500ms, color 500ms;
 }
 
 .post-detail__title {

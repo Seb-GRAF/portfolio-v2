@@ -20,26 +20,6 @@
       }
     }
   }
-  // width: 20%;
-  // flex-grow: 1;
-  // flex-shrink: 0;
-  // min-width: 16rem;
-
-  // &:first-of-type {
-  //   flex-grow: 1;
-  //   min-width: 16rem;
-  //   width: 100%;
-  // }
-  // @include media('>tablet') {
-  //   &:first-of-type {
-  //     flex-grow: 4;
-  //     min-width: 25rem;
-  //     width: 20%;
-  //   }
-  // }
-
-  // @include media('>phone') {
-  // }
 }
 
 .postcard__image {
@@ -64,10 +44,11 @@
 .postcard__categories {
   display: flex;
   flex-wrap: wrap;
-  transition: background-color 500ms;
+  color: var(--color-text-primary);
   list-style: none;
   gap: 1rem;
   margin-bottom: 1rem;
+  transition: background-color 500ms, color 500ms;
 }
 
 .postcard__category {

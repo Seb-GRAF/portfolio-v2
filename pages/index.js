@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
+import useWindowSize from '../hooks/useWindowSize'
 import { getRecentPosts } from '../services'
 import {
   Hero,
@@ -18,35 +19,53 @@ import SplitText from 'gsap/dist/SplitText'
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
 
 export const Home = ({ recentPosts }) => {
+  const windowSize = useWindowSize()
+
   const { isDarkTheme } = useContext(ThemeContext)
+  const [isMobile, setIsMobile] = useState(windowSize.width < 768)
+
+  useEffect(() => {
+    if (windowSize.width < 768) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }, [windowSize])
 
   // intro animation
   useEffect(() => {
-    const hero = document.querySelector('.hero__main')
-
-    const split = new SplitText(hero.querySelectorAll('.title'), {
-      type: 'chars',
+    const split = new SplitText(document.querySelectorAll('.title'), {
+      type: 'lines',
     })
 
     gsap.set('.title', {
       opacity: '1',
     })
 
-    gsap.from(split.chars, {
+    gsap.from(split.lines, {
       y: '100%',
-      stagger: '0.04',
-      duration: '1',
+      stagger: '0.1',
+      duration: 1.2,
       ease: 'power3',
-      delay: 0.4,
+      delay: 0.2,
     })
 
-    gsap.to('.hero__vector, .about', {
+    gsap.to('.hero__vector', {
       opacity: 1,
       duration: '1',
       ease: 'power3',
+      delay: 0.1,
     })
 
-    // kill all scroll trigger when dismounting component
+    gsap.to('.about', {
+      translateY: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power3',
+      delay: 0.1,
+    })
+
+    // kill all scroll triggers when dismounting component
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
@@ -54,32 +73,38 @@ export const Home = ({ recentPosts }) => {
 
   // scroll trigger animations
   useEffect(() => {
-    //dark bg + light nav
+    // Dark bg switch (on light theme)
     if (!isDarkTheme) {
-      gsap.set('.projects, .about, .hero', {
-        color: '#191919',
+      gsap.set('.home', {
+        color: '#2c2c2c',
         backgroundColor: '#fff',
       })
-      gsap.to('.projects, .about, .hero, body', {
+      gsap.to('.home', {
         scrollTrigger: {
           trigger: '.projects',
           start: 'top+=10% bottom',
           end: '+=1',
           scrub: true,
+          immediateRender: false,
+          lazy: true,
         },
 
         color: '#ffffff',
-        backgroundColor: '#191919',
+        backgroundColor: '#242424',
       })
     } else {
-      gsap.set('.projects, .about, .hero', {
+      gsap.set('.home', {
         color: '#fff',
-        backgroundColor: '#191919',
+        backgroundColor: '#242424',
       })
     }
 
-    //projects animations
+    //projects parallax
     gsap.utils.toArray('.project__description').forEach((description) => {
+      gsap.set(description, {
+        y: isMobile ? '-10%' : '30%',
+      })
+
       gsap.to(description, {
         scrollTrigger: {
           trigger: description,
@@ -87,12 +112,12 @@ export const Home = ({ recentPosts }) => {
           end: 'bottom top',
           scrub: true,
         },
-        translateY: window.innerWidth < 768 ? '-10%' : '-30%',
+        y: isMobile ? '-20%' : '-30%',
       })
     })
 
     // contact animation
-    gsap.to('.blogs', {
+    gsap.to('.home', {
       scrollTrigger: {
         trigger: '.contact',
         start: 'center-=30% bottom',
@@ -104,22 +129,21 @@ export const Home = ({ recentPosts }) => {
     })
 
     return () => {
-      // kills all scroll triggers on dismount
+      // kills all scroll triggers when updating dark theme
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [isDarkTheme])
+  }, [isDarkTheme, isMobile])
 
   return (
     <>
       <SEO />
-
-      <main className='home'>
+      <div className='home'>
         <Hero />
         <About />
         <Projects />
         <Blogs recentPosts={recentPosts} />
-        <Contact />
-      </main>
+      </div>
+      <Contact />
     </>
   )
 }

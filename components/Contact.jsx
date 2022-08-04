@@ -64,9 +64,9 @@ const Contact = () => {
           <span>Contact</span>
         </h2>
         <p className='contact__paragraph'>
-          I&apos;m currently looking for a role as a front-end web developer.
-          Whether you have a question, an offer or just want to chat, send me an
-          email or a message and I will get back to you!
+          I&apos;m currently looking for a role as a frontend developer. Whether
+          you have a question, an offer or just want to chat, send me a message
+          and I will get back to you!
         </p>
         <div className='form__wrapper'>
           <div className='form__cta'>
@@ -74,6 +74,7 @@ const Contact = () => {
               <Link
                 href='https://github.com/seb-graf'
                 passHref
+                scroll={false}
                 target='_blank'
                 rel='noopener noreferrer'>
                 <a className='form__cta__link' aria-label='GitHub'>
@@ -86,23 +87,12 @@ const Contact = () => {
               <Link
                 href='https://www.linkedin.com/in/sebastien-graf-a9635922a/'
                 passHref
+                scroll={false}
                 target='_blank'
                 rel='noopener noreferrer'>
                 <a className='form__cta__link' aria-label='Linkedin'>
                   <i
                     className='devicon-linkedin-plain'
-                    alt=''
-                    role='presentation'></i>
-                </a>
-              </Link>
-              <Link
-                href='mailto:seb.graf.sg@gmail.com'
-                passHref
-                target='_blank'
-                rel='noopener noreferrer'>
-                <a className='form__cta__link' aria-label='Email'>
-                  <i
-                    className='devicon-google-plain'
                     alt=''
                     role='presentation'></i>
                 </a>
@@ -134,7 +124,7 @@ const Contact = () => {
               required
             />
             <button
-              className='link__wrapper'
+              className='link__wrapper contact__form__send'
               type='submit'
               value='Send'
               aria-label='Send your message'>

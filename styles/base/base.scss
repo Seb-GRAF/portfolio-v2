@@ -11,7 +11,13 @@
 
   --color-project-bg: #{$color-project-bg-light};
 }
+::selection {
+  background-color: rgba(0, 0, 0, 0.178);
+}
+
 .dark {
+  color-scheme: dark;
+
   --color-text-primary: #{$color-text-light};
   --color-text-secondary: #{$color-text-dark};
   --color-link: #{$color-link-light};
@@ -24,7 +30,11 @@
 
   --color-project-bg: #{$color-project-bg-dark};
 
-  & .link__arrow:not(.blogs) {
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.328);
+  }
+
+  & .link__arrow {
     filter: invert(100%);
   }
 
@@ -48,9 +58,10 @@ html {
   font-size: clamp(1.2rem, 1.2vw, 1.3rem);
   color: var(--color-text-primary);
   background-color: var(--color-bg-main);
-  scrollbar-width: none;
+  // scrollbar-width: none;
   min-height: 100vh;
   scroll-behavior: initial;
+  position: relative;
 }
 
 body {
@@ -62,9 +73,10 @@ body {
   line-height: 1.5;
   background-color: var(--color-bg-main);
   transition: background-color 500ms, color 500ms;
-  &.loading {
-    opacity: 0;
-  }
+}
+
+main {
+  transform-origin: top;
 }
 
 h1,
@@ -75,10 +87,19 @@ h5,
 h6 {
   font-family: $font-display;
   line-height: 1.2;
+  letter-spacing: -1px;
 }
 
 p {
   line-height: 1.5;
+  font-weight: 500;
+}
+li {
+  font-weight: 500;
+}
+
+i {
+  font-weight: 400;
 }
 
 #__next {
@@ -93,18 +114,12 @@ section {
   color: inherit;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-::selection {
-  background-color: var(--color-bg-accent);
-}
-
 .animate-in {
   opacity: 0;
 }
 
 footer {
+  @extend %center-column;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -112,5 +127,11 @@ footer {
   padding: 1rem;
   text-align: center;
   font-size: 0.8rem;
-  opacity: 0.8;
+  color: var(--color-text-primary);
+  transition: color 500ms;
+
+  a {
+    margin-top: 0.3rem;
+    text-decoration: underline;
+  }
 }

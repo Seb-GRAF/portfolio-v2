@@ -2,21 +2,18 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const NavLink = ({ name, href, children }) => {
+const NavLink = ({ name, href }) => {
   const router = useRouter()
 
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref scroll={false}>
       <a
-        className={`link__wrapper ${
-          router.asPath.includes(href) && 'link__wrapper--active'
+        className={`nav__link link__wrapper ${
+          router.pathname === href && 'link__wrapper--active'
         }`}>
         <div className='link' data-link-alt={name}>
-          <span>{name}</span>
+          <span aria-hidden='true'>{name}</span>
         </div>
-        {!router.asPath.includes('/blog') && (
-          <React.Fragment>{children}</React.Fragment>
-        )}
       </a>
     </Link>
   )

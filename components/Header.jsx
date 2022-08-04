@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { NavLink, ThemeButton } from './'
+import gsap from 'gsap'
 
 const Header = () => {
   const [navMenu, setNavMenu] = useState(false)
@@ -12,14 +12,29 @@ const Header = () => {
       .querySelector('.nav__sandwich')
       .classList.toggle('nav__sandwich--active')
 
+    gsap.to('.nav__menu', {
+      ease: 'power3.inOut',
+      duration: 0.5,
+
+      translateY: navMenu ? '-100%' : '0%',
+    })
+    gsap.to('.nav__overlay', {
+      ease: 'power3.inOut',
+      duration: 0.5,
+
+      autoAlpha: navMenu ? '0' : '1',
+    })
     document.querySelector('.nav__menu').classList.toggle('nav__menu--active')
+    document
+      .querySelector('.nav__overlay')
+      .classList.toggle('nav__overlay--active')
   }
 
   return (
     <>
       <header className='header'>
         <div className='header__wrapper'>
-          <Link href='/' passHref className='link'>
+          <Link href='/' passHref scroll={false} className='link'>
             <a
               aria-label='Home'
               className='logo'
@@ -27,7 +42,7 @@ const Header = () => {
                 if (navMenu) handleNav()
               }}>
               <svg
-                focusable='false'
+                aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='0 0 147 123'>
                 <path
@@ -39,13 +54,8 @@ const Header = () => {
             </a>
           </Link>
           <nav className='nav__links'>
-            <NavLink name='About' href='/#about' />
-            <NavLink name='Projects' href='/#projects' />
-            <NavLink name='Contact' href='/#contact' />
-            <NavLink name='Blog' href='/blog'>
-              {/* "new" tag */}
-              <span className='new-tag'>New</span>
-            </NavLink>
+            <NavLink name='Home' href='/' />
+            <NavLink name='Blog' href='/blog'></NavLink>
             <ThemeButton />
           </nav>
           <button
@@ -61,39 +71,22 @@ const Header = () => {
         <ThemeButton />
         <ol className='nav__menu__items'>
           <li className='nav__menu__item'>
-            <Link href='/#about' passHref>
+            <Link href={'/'} passHref scroll={false}>
               <a className='item__wrapper' onClick={handleNav}>
-                <span className='marker'>01.</span>
-                <span>About</span>
+                <span>Home</span>
               </a>
             </Link>
           </li>
           <li className='nav__menu__item'>
-            <Link href={'/#projects'} passHref>
+            <Link href={'/blog'} passHref scroll={false}>
               <a className='item__wrapper' onClick={handleNav}>
-                <span className='marker'>02.</span>
-                <span>Projects</span>
-              </a>
-            </Link>
-          </li>
-          <li className='nav__menu__item'>
-            <Link href={'/blog'} passHref>
-              <a className='item__wrapper' onClick={handleNav}>
-                <span className='marker'>03.</span>
                 <span>Blog</span>
-              </a>
-            </Link>
-          </li>
-          <li className='nav__menu__item'>
-            <Link href={'/#contact'} passHref>
-              <a className='item__wrapper' onClick={handleNav}>
-                <span className='marker'>04.</span>
-                <span>Contact</span>
               </a>
             </Link>
           </li>
         </ol>
       </nav>
+      <div className='nav__overlay' onClick={handleNav} />
     </>
   )
 }

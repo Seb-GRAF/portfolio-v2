@@ -15,10 +15,18 @@ const ThemeButton = () => {
   }, [isDarkTheme])
 
   return (
-    <label className='theme-button' aria-label='toggle dark or light mode'>
-      <button className='theme-button__input' onClick={toggleThemeHandler} />
-      <span className='theme-button__slider' />
-    </label>
+    <button className='theme-button__wrapper' onClick={toggleThemeHandler}>
+      {/* <span className='theme-button__label' aria-hidden='true'>
+        light
+      </span> */}
+      <div className='theme-button'>
+        <div className='theme-button__input' />
+        <span className='theme-button__slider' />
+      </div>
+      {/* <span className='theme-button__label' aria-hidden='true'>
+        dark
+      </span> */}
+    </button>
   )
 }
 

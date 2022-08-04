@@ -10,14 +10,14 @@ const PostCard = ({ post }) => {
   return (
     <article className='postcard' ref={postCardRef}>
       <AnimateIn>
-        <Link href={`/blog/${post.slug}`} passHref>
+        <Link href={`/blog/${post.slug}`} passHref scroll={false}>
           <div className='postcard__image'>
             <Image
               src={post.featuredImage.url}
               alt={post.title}
               layout='fill'
               objectFit='cover'
-              priority={true}
+              loading='eager'
             />
           </div>
         </Link>

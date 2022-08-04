@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { AnimateIn } from './'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism/lucario'
+import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
 
 const CodeBlock = ({ children }) => {
   return (

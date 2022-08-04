@@ -7,7 +7,6 @@
   z-index: 2000;
   color: white;
   mix-blend-mode: difference;
-  // pointer-events: none;
 }
 
 .header__wrapper {
@@ -19,7 +18,6 @@
 }
 
 .logo {
-  // display: flex;
   justify-content: center;
   pointer-events: all;
   padding: 0;
@@ -67,20 +65,22 @@
   display: flex;
   align-items: center;
   position: relative;
-  gap: 1rem;
   color: inherit;
   pointer-events: all;
   cursor: pointer;
 
   span {
     padding-top: 0;
-    padding-bottom: 0.1rem;
   }
 
   @include media('<phone') {
     display: none;
     gap: 2rem;
   }
+}
+
+.nav__link {
+  margin-right: 1rem;
 }
 
 .nav__sandwich {
@@ -131,18 +131,17 @@
   }
 }
 .nav__menu {
-  @extend %center-column;
+  display: none;
   position: fixed;
-  min-height: 100%;
   width: 100%;
   top: 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   position: fixed;
-  display: none;
   background-color: var(--color-bg-main);
   z-index: 1000;
-  clip-path: inset(0% 0% 0% 100%);
-  transform-origin: top right;
-  transition: clip-path 700ms $ease-swift, background-color 500ms;
+  transform: translateY(-100%);
+  transition: background-color 500ms;
 
   .theme-switch {
     opacity: 0;
@@ -154,27 +153,16 @@
   }
 
   &--active {
-    clip-path: inset(0% 0% 0% 0%);
+    // transform: translateY(0%);
 
     li span {
-      transform: translateY(-5%) skewY(0deg);
+      transform: translateY(-5%);
       opacity: 1;
-      transition-delay: 400ms;
+      transition-delay: 300ms;
     }
 
     li:nth-of-type(2n) span {
-      transition-delay: 600ms;
-    }
-
-    li:nth-of-type(3n) span {
-      transition-delay: 800ms;
-    }
-    li:nth-of-type(4n) span {
-      transition-delay: 1000ms;
-    }
-    .theme-switch {
-      opacity: 1;
-      transition-delay: 1000ms;
+      transition-delay: 500ms;
     }
   }
 
@@ -183,16 +171,19 @@
   }
 }
 .nav__menu__items {
-  @extend %center-column;
+  margin-inline: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 1rem;
+  z-index: 2;
 }
 .nav__menu__item {
   position: relative;
   color: inherit;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   transition: 200ms;
   overflow: hidden;
   cursor: pointer;
@@ -203,8 +194,9 @@
 
   span {
     display: inline-block;
+    height: 1.8rem;
     opacity: 0;
-    transform: translateY(100%) skewY(40deg);
+    transform: translateY(100%);
     transition: opacity 200ms, transform 1s $ease-out-expo;
     transform-origin: bottom left;
   }
@@ -224,4 +216,25 @@
   color: inherit;
   font-size: 0.6rem;
   font-weight: 900;
+}
+
+.nav__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.783);
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+
+  &--active {
+    pointer-events: all;
+  }
+
+  @include media('<phone') {
+    display: block;
+  }
 }

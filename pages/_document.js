@@ -14,7 +14,7 @@ function Document() {
           rel='stylesheet'
         />
       </Head>
-      <body className='loading'>
+      <body>
         <Main />
         <NextScript />
       </body>

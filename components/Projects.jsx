@@ -3,11 +3,9 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import SplitText from 'gsap/dist/SplitText'
-import ScrollSmoother from 'gsap/dist/ScrollSmoother'
-import Flip from 'gsap/dist/Flip'
-import { StyledLink, AnimateIn } from './'
+import { StyledLink } from './'
 
-gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother, Flip)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 const ProjectContainer = ({
   projectName,
@@ -29,8 +27,10 @@ const ProjectContainer = ({
             alt='screenshot of the project'
             layout='fill'
             objectFit='cover'
+            loading='eager'
           />
         </div>
+
         <div className='project__description'>
           <h3>{projectTitle}</h3>
           <div className='project__info'>
@@ -75,10 +75,25 @@ const Projects = () => {
           <span>Projects</span>
         </h2>
         <ProjectContainer
-          projectName='pollution'
+          projectName='tailwind-helper'
+          projectTitle='Tailwind Helper'
+          builtWith='Built using NextJS, Typescript and Tailwind CSS'
+          liveLink='https://tailwindhelper.com'>
+          <p>
+            An open source tool that helps you with tailwind classes. It can
+            convert units, helps you choose colors, visualize how a font will
+            look and more. Still a work in progress.
+          </p>
+          <p>
+            When switching from working with css to working with tailwind, I
+            sometimes forget what the tailwind class for a specific style is, so
+            this tool helps me to stay productive when I code with tailwind.
+          </p>
+        </ProjectContainer>
+        <ProjectContainer
+          projectName='aqifind'
           projectTitle='AqiFind'
           builtWith='Built using Next.js, Three.js, Tailwind CSS, GSAP and Vercel'
-          githubLinkLocked={true}
           liveLink='https://aqifind.com'>
           <p>
             AqiFind gives you information on air pollution, letting you search
@@ -122,22 +137,6 @@ const Projects = () => {
             interactive feel.
           </p>
         </ProjectContainer>
-        <ProjectContainer
-          projectName='fashionify'
-          projectTitle='Fashionify'
-          builtWith='Built using React, React-Router and Framer Motion'>
-          <p>
-            A fictional clothing shop where the user can browse through a
-            catalog of apparel, search for keywords, sort by gender, by type,
-            and add items to their cart.
-          </p>
-        </ProjectContainer>
-        {/* <ProjectContainer
-          projectName="battleship"
-          projectTitle="Battleship"
-          projectDescription="A single player battleship game. The user can choose a random fleet or drag and drop the ships onto the board. The AI fires randomly until it hits and then hunts the ship down."
-          builtWith="Built with vanilla Javascript and using TDD via Jest"
-        /> */}
       </div>
     </section>
   )
