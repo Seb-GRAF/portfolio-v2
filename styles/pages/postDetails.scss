@@ -27,8 +27,8 @@
 .post-details__wrapper {
   @extend %center-column;
 
-  flex-grow: 1;
   width: 100%;
+  max-width: 65rem;
   place-self: center;
 
   @include media('>tablet') {
@@ -41,6 +41,7 @@
   min-height: 100%;
   width: 12rem;
   place-self: center;
+  flex-shrink: 0;
 
   @include media('<tablet') {
     display: none;

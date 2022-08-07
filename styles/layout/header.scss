@@ -160,10 +160,6 @@
       opacity: 1;
       transition-delay: 300ms;
     }
-
-    li:nth-of-type(2n) span {
-      transition-delay: 500ms;
-    }
   }
 
   @include media('<phone') {

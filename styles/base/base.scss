@@ -8,6 +8,7 @@
   --color-bg-accent: #{$color-accent};
 
   --color-divider: #{$color-divider-dark};
+  --color-blog-highlight: #{$color-blog-highlight-dark};
 
   --color-project-bg: #{$color-project-bg-light};
 }
@@ -27,6 +28,7 @@
   --color-bg-accent: #{$color-accent-dark};
 
   --color-divider: #{$color-divider-light};
+  --color-blog-highlight: #{$color-blog-highlight-light};
 
   --color-project-bg: #{$color-project-bg-dark};
 
@@ -116,6 +118,7 @@ section {
 
 .animate-in {
   opacity: 0;
+  max-width: 100%;
 }
 
 footer {

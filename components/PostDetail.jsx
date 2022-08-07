@@ -8,7 +8,11 @@ import { default as style } from 'react-syntax-highlighter/dist/cjs/styles/prism
 
 const CodeBlock = ({ children }) => {
   return (
-    <SyntaxHighlighter style={style} language='tsx' showLineNumbers={true}>
+    <SyntaxHighlighter
+      style={style}
+      language='tsx'
+      showLineNumbers={false}
+      wrapLines={true}>
       {children}
     </SyntaxHighlighter>
   )
@@ -57,6 +61,7 @@ const PostDetail = ({ post }) => {
       </AnimateIn>
       <div className='post-detail__wrapper'>
         <ReactMarkdown
+          allowDangerousHtml={true}
           components={{
             code: CodeBlock,
           }}>
