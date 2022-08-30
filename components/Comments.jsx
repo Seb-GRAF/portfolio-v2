@@ -24,7 +24,7 @@ const Comments = ({ slug }) => {
           {comments.map((comment) => (
             <div key={comment.createdAt} className='comment'>
               <p className='comment__name'>
-                <span className='font-semibold'>{comment.name}</span> on{' '}
+                <span className='comment__author'>{comment.name}</span> on{' '}
                 {moment(comment.createdAt).format('MMM DD YYYY')} :
               </p>
               <p className='whitespace-pre-line text-gray-600 w-full'>

@@ -15,6 +15,7 @@ const CommentsForm = ({ slug }) => {
   const storeDataEl = useRef(null)
 
   const handleCommentSubmission = (e) => {
+    if (disabled) return
     setError(false)
 
     const { value: comment } = commentEl.current
