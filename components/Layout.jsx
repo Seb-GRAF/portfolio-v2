@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       <SwitchTransition>
         <Transition
           key={router.asPath}
-          timeout={500}
+          timeout={700}
           in={true}
           onEnter={enter}
           onExit={exit}

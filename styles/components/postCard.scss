@@ -48,14 +48,14 @@
   list-style: none;
   gap: 1rem;
   margin-bottom: 1rem;
-  transition: background-color 500ms, color 500ms;
+  transition: background-color 200ms, color 200ms;
 }
 
 .postcard__category {
   background-color: var(--color-bg-accent);
   padding: 0.25rem 0.5rem;
   font-size: 0.8rem;
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 }
 
 .postcard__title {

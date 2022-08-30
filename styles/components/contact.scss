@@ -12,7 +12,7 @@
   transform-origin: top;
   z-index: 1;
   background-color: var(--color-bg-accent);
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 
   &::before {
     content: '';
@@ -23,7 +23,7 @@
     height: 200%;
     background-color: var(--color-bg-accent);
     z-index: -1;
-    transition: background-color 500ms, color 500ms;
+    transition: background-color 200ms, color 200ms;
   }
 
   @include media('<phone') {
@@ -37,7 +37,7 @@
   width: 100%;
   max-width: 60rem;
   gap: 0.5rem;
-  transition: background-color 500ms, color 500ms;
+  transition: background-color 200ms, color 200ms;
 }
 
 .contact__title {
@@ -103,7 +103,7 @@
       opacity: 0.8;
       font-size: 0.8rem;
       font-family: $font-primary;
-      transition: color 500ms;
+      transition: color 200ms;
     }
 
     &:-webkit-autofill {

@@ -107,6 +107,7 @@ export const getSimilarPosts = async (categories, slug) => {
           AND: { categories_some: { slug_in: $categories } }
         }
         last: 3
+        orderBy: createdAt_DESC
       ) {
         title
         featuredImage {

@@ -57,10 +57,9 @@
 
 html {
   font-family: $font-primary;
-  font-size: clamp(1.2rem, 1.2vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.2vw, 1.2rem);
   color: var(--color-text-primary);
   background-color: var(--color-bg-main);
-  // scrollbar-width: none;
   min-height: 100vh;
   scroll-behavior: initial;
   position: relative;

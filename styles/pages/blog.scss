@@ -52,12 +52,12 @@
   flex-direction: column;
   z-index: 10;
   position: absolute;
-  top: 7rem;
+  top: 8rem;
   left: 0;
   padding: 1rem;
-  padding-top: 0;
+  padding-top: 0rem;
   gap: 0.5rem;
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 
   @include media('<phone') {
     background-color: var(--color-bg-main);

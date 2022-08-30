@@ -4,7 +4,7 @@
   padding-inline: 6vw;
   opacity: 0;
   transform: translateY(50px);
-  transition: background-color 500ms, color 500ms;
+  transition: background-color 200ms, color 200ms;
 }
 
 .about__wrapper {
@@ -26,7 +26,7 @@
     height: 1px;
     background-color: var(--color-divider);
 
-    transition: background-color 500ms;
+    transition: background-color 200ms;
 
     @include media('>tablet') {
       width: 105%;

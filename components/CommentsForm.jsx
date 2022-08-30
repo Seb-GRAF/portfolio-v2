@@ -4,6 +4,7 @@ import { AnimateIn } from '/'
 import { submitComment } from '../services'
 
 const CommentsForm = ({ slug }) => {
+  const [disabled, setDisabled] = useState(false)
   const [error, setError] = useState(false)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
@@ -26,6 +27,7 @@ const CommentsForm = ({ slug }) => {
       setError(true)
       return
     }
+    setDisabled(true)
 
     const commentObj = {
       name,
@@ -46,11 +48,13 @@ const CommentsForm = ({ slug }) => {
     }
 
     submitComment(commentObj).then((res) => {
+      document.querySelector('.comments-form__comment').value = ''
       setShowSuccessMessage(true)
 
       //removes success message after 5 seconds
       setTimeout(() => {
         setShowSuccessMessage(false)
+        setDisabled(false)
       }, 5000)
     })
   }
@@ -114,7 +118,8 @@ const CommentsForm = ({ slug }) => {
           <button
             type='submit'
             onClick={handleCommentSubmission}
-            className='link__wrapper'>
+            disabled={disabled}
+            className='link__wrapper comments-form__button'>
             <div className='link' data-link-alt='Post Comment'>
               <span>Post Comment</span>
             </div>

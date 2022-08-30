@@ -16,10 +16,10 @@ const Comments = ({ slug }) => {
         <AnimateIn className='comments'>
           <h2 className='comments__title'>
             {comments.length <= 0
-              ? 'No Comments'
+              ? 'No comments yet'
               : comments.length === 1
-              ? '1 Comment'
-              : `${comments.length} Comments`}
+              ? '1 comment'
+              : `${comments.length} comments`}
           </h2>
           {comments.map((comment) => (
             <div key={comment.createdAt} className='comment'>

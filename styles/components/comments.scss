@@ -1,12 +1,10 @@
 .comments {
-  padding-inline: 1rem;
-  padding-top: 0;
+  padding-top: 1rem;
   width: 100%;
   z-index: 2;
 
   @include media('>phone') {
     margin-bottom: 2rem;
-    padding-inline: 2rem;
   }
 }
 
@@ -17,7 +15,7 @@
   border-bottom: solid 1px var(--color-text-primary);
   padding-bottom: 1rem;
 
-  transition: border-color 500ms;
+  transition: border-color 200ms;
 }
 
 .comment {
@@ -25,7 +23,7 @@
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 
-  transition: border-color 500ms;
+  transition: border-color 200ms;
 
   &:last-of-type {
     border-bottom: none;

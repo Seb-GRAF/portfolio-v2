@@ -87,8 +87,6 @@ video {
   line-height: 1;
   text-decoration: none;
   color: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -132,4 +130,9 @@ table {
 button {
   background: none;
   border: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

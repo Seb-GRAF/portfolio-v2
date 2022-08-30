@@ -141,7 +141,7 @@
   background-color: var(--color-bg-main);
   z-index: 1000;
   transform: translateY(-100%);
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 
   .theme-switch {
     opacity: 0;

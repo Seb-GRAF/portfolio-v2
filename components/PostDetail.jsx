@@ -21,18 +21,19 @@ const CodeBlock = ({ children }) => {
 const PostDetail = ({ post }) => {
   return (
     <section className='post-detail'>
-      <AnimateIn>
-        <div className='post-detail__categories'>
+      <div>
+        <AnimateIn className='post-detail__categories'>
           {post.categories.map((category) => (
             <li className='post-detail__category' key={category.slug}>
               {category.name}
             </li>
           ))}
-        </div>
+        </AnimateIn>
+        <AnimateIn>
+          <h1 className='post-detail__title'>{post.title}</h1>
+        </AnimateIn>
 
-        <h1 className='post-detail__title'>{post.title}</h1>
-
-        <div className='post-detail__info'>
+        <AnimateIn className='post-detail__info'>
           <div className='post-detail__author'>
             <Image
               className='post-detail__author-picture'
@@ -47,9 +48,9 @@ const PostDetail = ({ post }) => {
           <p className='post-detail__date'>
             {moment(post.createdAt).format('DD MMMM YYYY')}
           </p>
-        </div>
+        </AnimateIn>
 
-        <div className='post-detail__image'>
+        <AnimateIn className='post-detail__image'>
           <Image
             src={post.featuredImage.url}
             alt={post.title}
@@ -57,8 +58,8 @@ const PostDetail = ({ post }) => {
             objectFit='cover'
             priority={true}
           />
-        </div>
-      </AnimateIn>
+        </AnimateIn>
+      </div>
       <div className='post-detail__wrapper'>
         <ReactMarkdown
           allowDangerousHtml={true}

@@ -6,7 +6,7 @@
   padding-inline: 6vw;
   color: inherit;
   margin-bottom: -2rem;
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 
   @include media('>phone') {
     margin-bottom: 0rem;
@@ -22,7 +22,7 @@
 
 .projects__title {
   @extend %section-title;
-  transition: color 500ms;
+  transition: color 200ms;
 }
 
 .project {
@@ -109,7 +109,7 @@
     height: 100%;
     border: solid 1px $color-divider-light;
     z-index: -1;
-    transition: background-color 500ms, color 500ms;
+    transition: background-color 200ms, color 200ms;
   }
 
   @include media('<phone') {
@@ -166,7 +166,7 @@
     padding: 0.5rem 1rem;
     top: 1.2rem;
 
-    transition: background-color 500ms, color 500ms;
+    transition: background-color 200ms, color 200ms;
 
     @include media('<narrow') {
       width: 80%;
@@ -181,6 +181,12 @@
   }
 }
 
+.description__link {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 200ms;
+}
+
 .project__info {
   z-index: 2;
   display: flex;
@@ -192,7 +198,7 @@
 
   background-color: var(--color-project-bg);
   color: var(--color-text-primary);
-  transition: background-color 500ms, color 500ms;
+  transition: background-color 200ms, color 200ms;
 
   p {
     margin: 0;
@@ -200,7 +206,7 @@
       padding-top: 1rem;
       margin-top: 0.5rem;
       border-top: var(--color-divider) solid 1px;
-      transition: border-color 500ms;
+      transition: border-color 200ms;
     }
   }
 

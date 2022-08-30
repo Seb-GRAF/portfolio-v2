@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: background-color 500ms;
+  transition: background-color 200ms;
 
   width: 100%;
   padding-inline: 6vw;
@@ -45,7 +45,7 @@
   overflow: hidden;
   text-align: left;
   width: 100%;
-  transition: color 500ms;
+  transition: color 200ms;
 
   &:nth-child(2) {
     padding-left: 5vw;
@@ -104,7 +104,7 @@
   filter: brightness(1);
 
   @include media('>phone') {
-    transition: filter 500ms;
+    transition: filter 200ms;
   }
 
   .hero__vector-image {

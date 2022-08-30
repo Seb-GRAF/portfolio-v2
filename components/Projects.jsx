@@ -80,9 +80,17 @@ const Projects = () => {
           builtWith='Built using NextJS, Typescript and Tailwind CSS'
           liveLink='https://tailwindhelper.com'>
           <p>
-            An open source tool that helps you with tailwind classes. It can
-            convert units, helps you choose colors, visualize how a font will
-            look and more. Still a work in progress.
+            Featured on{' '}
+            <a
+              className='description__link'
+              href='https://www.producthunt.com/posts/tailwind-helper'
+              target='_blank'
+              rel='noreferrer'>
+              Product Hunt
+            </a>
+            , Tailwindhelper is an open source tool that helps you with tailwind
+            classes. It can convert units, helps you choose colors, visualize
+            how a font will look and more. Still a work in progress.
           </p>
           <p>
             When switching from working with css to working with tailwind, I

@@ -22,20 +22,25 @@
 .comments-form__comment {
   height: 3rem;
   width: 100%;
-  padding: 1rem;
-  min-height: 2rem;
-  max-height: 5rem;
+  padding: 0.5rem;
+
+  min-height: 5rem;
+  max-height: 10rem;
   margin-bottom: 1.5rem;
   font-size: 0.8rem;
   border: solid 1px var(--color-divider);
   background-color: inherit;
   color: inherit;
   resize: vertical;
-  transition: border-color 500ms;
+  transition: border-color 200ms;
 
   &::placeholder {
     font-size: 0.8rem;
     font-family: $font-primary;
+  }
+
+  @include media('>phone') {
+    padding: 1rem;
   }
 }
 
@@ -55,7 +60,7 @@
   background-color: inherit;
   color: inherit;
   border: solid 1px var(--color-divider);
-  transition: border-color 500ms;
+  transition: border-color 200ms;
 
   &::placeholder {
     font-size: 0.8rem;
@@ -73,7 +78,7 @@
 }
 
 .comments-form__checkbox {
-  margin-left: 0.25rem;
+  margin: 0;
 }
 
 .comments-form__checkbox-text {
@@ -91,17 +96,11 @@
 }
 
 .comments-form__button {
-  cursor: pointer;
-  background-color: transparent;
-  border: solid 2px var(--color-text-primary);
-  color: var(--color-text-primary);
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-size: 0.8rem;
-  transition: background-color 300ms ease;
+  padding-left: 0;
 
-  &:hover {
-    background-color: var(--color-bg-accent);
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 }
 

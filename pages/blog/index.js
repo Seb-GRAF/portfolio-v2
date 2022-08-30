@@ -28,7 +28,7 @@ const AnimateCategories = ({ children, animate = true }) => {
       translateY: 0,
       ease: 'power3.out',
     })
-  }, [])
+  }, [animate])
 
   return (
     <ul
@@ -68,10 +68,6 @@ const Blog = ({ posts, categories }) => {
       window.removeEventListener('click', onClick)
     }
   }, [size])
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
 
   return (
     <section className='blog'>
