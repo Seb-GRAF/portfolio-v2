@@ -1,5 +1,3 @@
-// import type { AppProps } from 'next/app'
-
 import { useContext } from 'react'
 import '../styles/index.scss'
 import { Layout, ThemeContext } from '../components'
@@ -10,19 +8,19 @@ import { ThemeProvider } from '../components'
 
 const MyApp = ({ Component, pageProps }) => {
   const { isDarkTheme } = useContext(ThemeContext)
-  // smooth scroll
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-      smooth: true,
-      direction: 'vertical',
-    })
-    function raf() {
-      lenis.raf()
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
-  }, [])
+  // // smooth scroll
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     lerp: 0.1,
+  //     smooth: true,
+  //     direction: 'vertical',
+  //   })
+  //   function raf() {
+  //     lenis.raf()
+  //     requestAnimationFrame(raf)
+  //   }
+  //   requestAnimationFrame(raf)
+  // }, [])
 
   return (
     <ThemeProvider>

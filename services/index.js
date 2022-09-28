@@ -166,3 +166,27 @@ export const getComments = async (slug) => {
 
   return result.comments
 }
+
+export const getProjects = async () => {
+  const query = gql`
+    query getProjects {
+      projects(orderBy: publishedAt_DESC) {
+        title
+        description {
+          markdown
+        }
+        techStack
+        projectPicture {
+          url
+        }
+        github
+        website
+        featured
+      }
+    }
+  `
+
+  const result = await graphcms.request(query)
+
+  return result.projects
+}

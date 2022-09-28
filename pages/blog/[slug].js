@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { getPosts, getPostDetails, getSimilarPosts } from '../../services'
 import {
@@ -12,10 +12,6 @@ import {
 } from '../../components'
 
 const PostDetails = ({ post, similarPosts }) => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
-
   return (
     <>
       <SEO

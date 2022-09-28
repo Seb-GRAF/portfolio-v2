@@ -4,8 +4,9 @@ import Image from 'next/image'
 const Hero = () => {
   return (
     <section className='hero' id='hero'>
+      <h1 className='sr-only__title'></h1>
       <div className='hero__main'>
-        <h1 className='hero__title'>
+        <div className='hero__title'>
           <span className='title__wrapper'>
             <span className='title'>Graf</span>
           </span>
@@ -28,7 +29,7 @@ const Hero = () => {
               className='hero__vector-image'
             />
           </figure>
-        </h1>
+        </div>
       </div>
     </section>
   )

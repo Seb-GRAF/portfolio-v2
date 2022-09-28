@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
-import { getRecentPosts } from '../services'
+import { getRecentPosts, getProjects } from '../services'
 import {
   Hero,
   About,
@@ -13,16 +13,17 @@ import {
 
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import ScrollSmoother from 'gsap/dist/ScrollSmoother'
 import SplitText from 'gsap/dist/SplitText'
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
-export const Home = ({ recentPosts }) => {
+export const Home = ({ recentPosts, projects }) => {
   const windowSize = useWindowSize()
 
   const { isDarkTheme } = useContext(ThemeContext)
   const [isMobile, setIsMobile] = useState(windowSize.width < 768)
+
+  console.log(projects)
 
   useEffect(() => {
     if (windowSize.width < 768) {
@@ -110,9 +111,41 @@ export const Home = ({ recentPosts }) => {
           trigger: description,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: true,
+          scrub: 0.2,
         },
         y: isMobile ? '-20%' : '-30%',
+      })
+    })
+    gsap.utils.toArray('.preview__decoration').forEach((decoration) => {
+      gsap.set(decoration, {
+        y: isMobile ? '5%' : '-15%',
+      })
+
+      gsap.to(decoration, {
+        scrollTrigger: {
+          trigger: decoration,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.2,
+        },
+        y: isMobile ? '10%' : '5%',
+      })
+    })
+
+    // blog animation
+    gsap.utils.toArray('.blogs__post-image').forEach((post) => {
+      gsap.set(post, {
+        y: isMobile ? '-5%' : '10%',
+      })
+
+      gsap.to(post, {
+        scrollTrigger: {
+          trigger: post,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.2,
+        },
+        y: isMobile ? '-10%' : '-10%',
       })
     })
 
@@ -140,7 +173,7 @@ export const Home = ({ recentPosts }) => {
       <div className='home'>
         <Hero />
         <About />
-        <Projects />
+        <Projects projects={projects} />
         <Blogs recentPosts={recentPosts} />
       </div>
       <Contact />
@@ -149,11 +182,13 @@ export const Home = ({ recentPosts }) => {
 }
 
 export const getServerSideProps = async () => {
-  const posts = await getRecentPosts()
+  const recentPosts = await getRecentPosts()
+  const projects = await getProjects()
 
   return {
     props: {
-      recentPosts: posts,
+      recentPosts,
+      projects,
     },
   }
 }

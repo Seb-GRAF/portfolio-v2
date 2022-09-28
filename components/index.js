@@ -14,6 +14,7 @@ export { default as NavLink } from './NavLink'
 export { default as StyledLink } from './StyledLink'
 export { ThemeContext, ThemeProvider } from './ThemeProvider'
 export { default as ThemeButton } from './ThemeButton'
+export { default as ProjectContainer } from './ProjectContainer'
 
 // index
 export { default as Hero } from './Hero'

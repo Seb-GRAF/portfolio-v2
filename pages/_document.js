@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { SEO } from '../components'
 
 function Document() {
   return (
@@ -14,6 +15,7 @@ function Document() {
           rel='stylesheet'
         />
       </Head>
+      <SEO />
       <body>
         <Main />
         <NextScript />

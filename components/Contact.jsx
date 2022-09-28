@@ -64,9 +64,9 @@ const Contact = () => {
           <span>Contact</span>
         </h2>
         <p className='contact__paragraph'>
-          I&apos;m currently looking for a role as a frontend developer. Whether
-          you have a question, an offer or just want to chat, send me a message
-          and I will get back to you!
+          I am currently not looking for an opportunity, but if you have a
+          question or just want to chat, feel free to send me a message and I
+          will get back to you!
         </p>
         <div className='form__wrapper'>
           <div className='form__cta'>

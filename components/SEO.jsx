@@ -5,7 +5,7 @@ const DOMAIN = 'https://seb-graf.com'
 
 const SEO = ({
   title = 'Sébastien Graf',
-  description = "Seb is a frontend developer who likes building stuff on the web. With his passion for tech, he's always looking to learn new technologies.",
+  description = "Sebastien is a frontend developer who likes building stuff on the web. With his passion for tech, he's always looking to learn new technologies.",
   pageName = 'Frontend Developer',
   canonical = DOMAIN,
   ogType = 'website',
