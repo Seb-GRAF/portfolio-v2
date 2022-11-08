@@ -183,12 +183,6 @@
     font-style: italic;
     font-size: 1rem;
   }
-
-  a {
-    color: var(--color-link);
-    text-decoration: none;
-    transition: color 200ms;
-  }
 }
 
 .project__info {
@@ -213,6 +207,11 @@
       transition: border-color 200ms;
     }
   }
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 200ms;
+  }
 
   @include media('<phone') {
     padding: 1.5rem;
@@ -226,16 +225,12 @@
   align-self: flex-end;
   margin-top: 1rem;
 
+  .link__wrapper {
+    color: var(--color-text-primary);
+  }
+
   @include media('<narrow') {
     justify-content: space-between;
     width: 100%;
   }
 }
-
-// .playground {
-//   @extend %center;
-//   font-size: 2rem;
-//   width: 100%;
-//   height: 5rem;
-//   border-block: solid 1px $color-divider-light;
-// }

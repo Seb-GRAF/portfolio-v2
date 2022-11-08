@@ -11,7 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@graphcms/rich-text-react-renderer": "^0.6.1",
-    "@studio-freight/lenis": "^0.1.12",
+    "@studio-freight/lenis": "^0.1.18",
     "embla-carousel-autoplay": "^7.0.0-rc04",
     "embla-carousel-react": "^7.0.0-rc04",
     "glob-parent": "^6.0.2",

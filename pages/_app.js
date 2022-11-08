@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import '../styles/index.scss'
 import { Layout, ThemeContext } from '../components'
-import { useEffect } from 'react'
-import Lenis from '@studio-freight/lenis'
+// import { useEffect } from 'react'
+// import Lenis from '@studio-freight/lenis'
 import NextNProgress from 'nextjs-progressbar'
 import { ThemeProvider } from '../components'
 
@@ -11,14 +11,24 @@ const MyApp = ({ Component, pageProps }) => {
   // // smooth scroll
   // useEffect(() => {
   //   const lenis = new Lenis({
-  //     lerp: 0.1,
-  //     smooth: true,
+  //     duration: 0,
+
   //     direction: 'vertical',
+  //     smooth: true,
+  //     smoothTouch: false,
+  //     touchMultiplier: 2,
   //   })
-  //   function raf() {
-  //     lenis.raf()
+
+  //   //get scroll value
+  //   lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+  //     console.log({ scroll, limit, velocity, direction, progress })
+  //   })
+
+  //   function raf(time) {
+  //     lenis.raf(time)
   //     requestAnimationFrame(raf)
   //   }
+
   //   requestAnimationFrame(raf)
   // }, [])
 
@@ -31,6 +41,7 @@ const MyApp = ({ Component, pageProps }) => {
           stopDelayMs={200}
           height={3}
           showOnShallow={false}
+          options={{ showSpinner: false }}
         />
         <Component {...pageProps} />
       </Layout>

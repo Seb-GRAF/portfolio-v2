@@ -28,9 +28,7 @@ const Projects = ({ projects }) => {
                 website={website}
                 github={github}
                 key={title}>
-                <ReactMarkdown allowDangerousHtml={true}>
-                  {markdown}
-                </ReactMarkdown>
+                <ReactMarkdown>{markdown}</ReactMarkdown>
               </ProjectContainer>
             )
           )}

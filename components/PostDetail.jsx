@@ -62,7 +62,6 @@ const PostDetail = ({ post }) => {
       </div>
       <div className='post-detail__wrapper'>
         <ReactMarkdown
-          allowDangerousHtml={true}
           components={{
             code: CodeBlock,
           }}>

@@ -170,7 +170,7 @@ export const getComments = async (slug) => {
 export const getProjects = async () => {
   const query = gql`
     query getProjects {
-      projects(orderBy: publishedAt_DESC) {
+      projects(orderBy: publishedAt_ASC) {
         title
         description {
           markdown

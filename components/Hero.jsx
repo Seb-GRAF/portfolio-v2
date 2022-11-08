@@ -1,9 +1,11 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section className='hero' id='hero'>
+    <section
+      className='hero'
+      id='hero'>
       <h1 className='sr-only__title'></h1>
       <div className='hero__main'>
         <div className='hero__title'>
@@ -14,7 +16,7 @@ const Hero = () => {
             <span className='title'>Sebastien</span>
           </span>
           <span className='title__wrapper'>
-            <span className='title'>Frontend</span>
+            <span className='title'>Web</span>
           </span>
           <span className='title__wrapper'>
             <span className='title'>Developer</span>
@@ -32,7 +34,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
