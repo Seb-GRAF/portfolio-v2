@@ -76,7 +76,7 @@ const Header = () => {
       <nav className='nav__menu'>
         <ThemeButton />
         <ol className='nav__menu__items'>
-          <li className="nav__menu__item">
+          <li className="Nav__Menu__Item">
             <a
               className="item__wrapper" href='https://seb-graf.com'>
                 <span aria-hidden='true'>New Portfolio</span>

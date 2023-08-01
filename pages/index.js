@@ -12,9 +12,9 @@ import {
 } from '../components';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import SplitText from 'gsap/dist/SplitText';
+import SplitType from 'split-type'
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 export const Home = ({ recentPosts, projects }) => {
   const windowSize = useWindowSize();
@@ -32,9 +32,7 @@ export const Home = ({ recentPosts, projects }) => {
 
   // intro animation
   useEffect(() => {
-    const split = new SplitText(document.querySelectorAll('.title'), {
-      type: 'lines',
-    });
+    const split = SplitType.create(document.querySelectorAll('.title'));
 
     gsap.set('.title', {
       opacity: '1',

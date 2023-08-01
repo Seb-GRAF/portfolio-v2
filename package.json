@@ -17,7 +17,7 @@
     "glob-parent": "^6.0.2",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",
-    "gsap": "npm:@gsap/shockingly@^3.10.4",
+    "gsap": "^3.12.2",
     "html-react-parser": "^3.0.0",
     "include-media": "^1.4.10",
     "moment": "^2.29.4",
@@ -28,7 +28,8 @@
     "react-markdown": "^8.0.3",
     "react-syntax-highlighter": "^15.5.0",
     "react-transition-group": "^4.4.2",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "split-type": "^0.3.3"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
