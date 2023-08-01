@@ -54,8 +54,14 @@ const Header = () => {
             </a>
           </Link>
           <nav className='nav__links'>
+          <a
+            className="nav__link link__wrapper" href='https://seb-graf.com'>
+            <div className='link' data-link-alt={"New Portfolio"}>
+              <span aria-hidden='true'>New Portfolio</span>
+            </div>
+          </a>
             <NavLink name='Home' href='/' />
-            <NavLink name='Blog' href='/blog'></NavLink>
+            <NavLink name='Blog' href='/blog'/>
             <ThemeButton />
           </nav>
           <button
@@ -70,6 +76,12 @@ const Header = () => {
       <nav className='nav__menu'>
         <ThemeButton />
         <ol className='nav__menu__items'>
+          <li className="nav__menu__item">
+            <a
+              className="item__wrapper" href='https://seb-graf.com'>
+                <span aria-hidden='true'>New Portfolio</span>
+            </a>
+          </li>
           <li className='nav__menu__item'>
             <Link href={'/'} passHref scroll={false}>
               <a className='item__wrapper' onClick={handleNav}>
