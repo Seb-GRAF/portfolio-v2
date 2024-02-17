@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-const DOMAIN = 'https://seb-graf.com'
+const DOMAIN = 'https://www.sebg.ch'
 
 const SEO = ({
   title = 'Sébastien Graf',

@@ -2,9 +2,9 @@
 ![image](https://user-images.githubusercontent.com/95282692/179689401-0e821318-7101-4b1f-8824-71a89585a0b2.png)
 ![image](https://user-images.githubusercontent.com/95282692/179689488-51ba8170-eb18-41b7-a20f-888c274e7b15.png)
 
-# [Portfolio V2](https://seb-graf.com)
+# [Portfolio V2](https://www.sebg.ch)
 
-This is my improved portfolio with a BLOG [(Live link)](https://seb-graf.com)
+This is my improved portfolio with a BLOG [(Live link)](https://www.sebg.ch)
 
 The challenge was to add a dynamic blog to my personal webpage. I decided to migrate my code from a simple Create-React-App to a NextJS app.</br> I'm using GraphQL to query data from GraphCMS using both client-side and server-side rendering.</br>
 Thanks to this, I now get a fully custom blog section that I can manage through a CMS. The user can also post comments via a graphQl mutation query.

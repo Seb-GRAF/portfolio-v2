@@ -55,7 +55,7 @@ const Header = () => {
           </Link>
           <nav className='nav__links'>
           <a
-            className="nav__link link__wrapper" href='https://seb-graf.com'>
+            className="nav__link link__wrapper" href='https://www.sebg.ch'>
             <div className='link' data-link-alt={"New Portfolio"}>
               <span aria-hidden='true'>New Portfolio</span>
             </div>
@@ -76,9 +76,9 @@ const Header = () => {
       <nav className='nav__menu'>
         <ThemeButton />
         <ol className='nav__menu__items'>
-          <li className="Nav__Menu__Item">
+          <li className="nav__menu__item">
             <a
-              className="item__wrapper" href='https://seb-graf.com'>
+              className="item__wrapper" href='https://www.sebg.ch'>
                 <span aria-hidden='true'>New Portfolio</span>
             </a>
           </li>

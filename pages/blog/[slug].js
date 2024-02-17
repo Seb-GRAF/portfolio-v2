@@ -17,7 +17,7 @@ const PostDetails = ({ post, similarPosts }) => {
       <SEO
         pageName={post.title}
         description={post.excerpt}
-        canonical={`https://seb-graf.com/${post.slug}`}
+        canonical={`https://www.sebg.ch/${post.slug}`}
       />
       <section className='post-details'>
         <div className='post-details__wrapper'>
